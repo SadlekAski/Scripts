@@ -1,0 +1,1 @@
+--Put autofarm in autoexec
