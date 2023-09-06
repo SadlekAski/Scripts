@@ -47,6 +47,10 @@ if game.PlaceId == 14491437089 and game:IsLoaded() then
     LPC.CFrame = workspace.TPPart2.CFrame + Vector3.new(20,0,0)
     task.wait(0.1)
     LPC.Anchored = true
+    if not game:IsLoaded() then
+        print("Waiting for game to load")
+        game.Loaded:Wait()
+    end
 end)
 end
 
