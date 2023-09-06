@@ -23,7 +23,7 @@ if game.PlaceId == 14437001043 and game:IsLoaded() then
 end
 
 if game.PlaceId == 14491437089 and game:IsLoaded() then
-    task.wait(1.5)
+    task.wait(2)
     local Part = {}
     spawn(function()
     task.wait(0.5)
@@ -48,4 +48,10 @@ if game.PlaceId == 14491437089 and game:IsLoaded() then
     task.wait(0.1)
     LPC.Anchored = true
 end)
+end
+
+getgenv().Radio = true
+
+while Radio == true do wait(0.2)
+fireclickdetector(workspace.Radio.ClickDetector)
 end
