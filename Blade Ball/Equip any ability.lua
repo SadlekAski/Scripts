@@ -434,7 +434,7 @@ end
 })
 
 local InfThunderDash = Misc:CreateButton({
-   Name = "Inf Thunder Dash (Inf uses Thunder Dash)",
+   Name = "Inf Uses and Range Thunder Dash",
    Callback = function()
    upgrades:WaitForChild("Thunder Dash").Value = 999999999999999999
 end
