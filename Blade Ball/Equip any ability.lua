@@ -6,6 +6,7 @@ local ReplicatedStorage = game:GetService("ReplicatedStorage")
 local localPlayer = game.Players.LocalPlayer
 local character = localPlayer.Character or localPlayer.CharacterAdded:Wait()
 local abilitiesFolder = character:WaitForChild("Abilities")
+local upgrades = localPlayer.Upgrades
 
 local function onCharacterAdded(newCharacter)
     character = newCharacter
@@ -29,8 +30,8 @@ end
 
 local Window = Rayfield:CreateWindow({
    Name = "Blade Ball",
-   LoadingTitle = "Idk",
-   LoadingSubtitle = "Idk",
+   LoadingTitle = "Blade Ball",
+   LoadingSubtitle = "by SadlekAski",
    ConfigurationSaving = {
       Enabled = false,
       FolderName = "Idk",
@@ -53,9 +54,11 @@ local Window = Rayfield:CreateWindow({
    }
 })
 
+local Main = Window:CreateTab("Main", 13014546637)
 local Misc = Window:CreateTab("Misc", 13014546637)
 
-local Dash = Misc:CreateButton({
+
+local Dash = Main:CreateButton({
    Name = "Dash",
    Callback = function()
 local function AbilityValue2()
@@ -92,7 +95,7 @@ end
    end,
 })
 
-local Forcefield = Misc:CreateButton({
+local Forcefield = Main:CreateButton({
    Name = "Forcefield",
    Callback = function()
 local function AbilityValue2()
@@ -129,7 +132,7 @@ end
    end,
 })
 
-local Invisibility = Misc:CreateButton({
+local Invisibility = Main:CreateButton({
    Name = "Invisibility",
    Callback = function()
 local function AbilityValue2()
@@ -166,7 +169,7 @@ end
    end,
 })
 
-local Platform = Misc:CreateButton({
+local Platform = Main:CreateButton({
    Name = "Platform",
    Callback = function()
 local function AbilityValue2()
@@ -203,7 +206,7 @@ end
    end,
 })
 
-local RagingDeflection = Misc:CreateButton({
+local RagingDeflection = Main:CreateButton({
    Name = "Raging Deflection",
    Callback = function()
 local function AbilityValue2()
@@ -240,7 +243,7 @@ end
    end,
 })
 
-local ShadowStep = Misc:CreateButton({
+local ShadowStep = Main:CreateButton({
    Name = "Shadow Step",
    Callback = function()
 local function AbilityValue2()
@@ -277,7 +280,7 @@ end
    end,
 })
 
-local SuperJump = Misc:CreateButton({
+local SuperJump = Main:CreateButton({
    Name = "Super Jump",
    Callback = function()
 local function AbilityValue2()
@@ -314,7 +317,7 @@ end
    end,
 })
 
-local Telekinesis = Misc:CreateButton({
+local Telekinesis = Main:CreateButton({
    Name = "Telekinesis",
    Callback = function()
 local function AbilityValue2()
@@ -351,7 +354,7 @@ end
    end,
 })
 
-local ThunderDash = Misc:CreateButton({
+local ThunderDash = Main:CreateButton({
    Name = "Thunder Dash",
    Callback = function()
 local function AbilityValue2()
@@ -386,4 +389,18 @@ end
 end
 end
    end,
+})
+
+local InfDash = Misc:CreateButton({
+   Name = "Inf Dash (Spam dash)",
+   Callback = function()
+   upgrades:WaitForChild("Dash").Value = 99999999
+end
+})
+
+local InfShadowStep = Misc:CreateButton({
+   Name = "Inf Shadow Step (Inf Shadow Step speed)",
+   Callback = function()
+   upgrades:WaitForChild("Shadow Step").Value = 99999999
+end
 })
