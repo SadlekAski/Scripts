@@ -7,6 +7,19 @@ local ReplicatedStorage = game:GetService("ReplicatedStorage")
 local LP = game.Players.LocalPlayer
 local LPC = LP.Character:FindFirstChild("Abilities")
 
+local TruValue = Instance.new("StringValue")
+if workspace:FindFirstChild("AbilityThingyk1212") then
+    workspace:FindFirstChild("AbilityThingyk1212"):Remove()
+    task.wait(0.1)
+    TruValue.Parent = game:GetService("Workspace")
+        TruValue.Name = "AbilityThingyk1212"
+        TruValue.Value = "Dash" --Change to Use other ability
+    else
+        TruValue.Parent = game:GetService("Workspace")
+        TruValue.Name = "AbilityThingyk1212"
+        TruValue.Value = "Dash" --Change to Use other ability
+end
+
 local Window = Rayfield:CreateWindow({
    Name = "Blade Ball",
    LoadingTitle = "Idk",
