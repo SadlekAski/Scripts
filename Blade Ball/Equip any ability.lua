@@ -394,13 +394,20 @@ end
 local InfDash = Misc:CreateButton({
    Name = "Inf Dash (Spam dash)",
    Callback = function()
-   upgrades:WaitForChild("Dash").Value = 99999999
+   upgrades:WaitForChild("Dash").Value = 999999999999999999
 end
 })
 
 local InfShadowStep = Misc:CreateButton({
    Name = "Inf Shadow Step (Inf Shadow Step speed)",
    Callback = function()
-   upgrades:WaitForChild("Shadow Step").Value = 99999999
+   upgrades:WaitForChild("Shadow Step").Value = 999999999999999999
+end
+})
+
+local InfSuperJump = Misc:CreateButton({
+   Name = "Inf Super Jump (Spam Super Jump)",
+   Callback = function()
+   upgrades:WaitForChild("Super Jump").Value = 999999999999999999
 end
 })
