@@ -418,3 +418,10 @@ local InfThunderDash = Misc:CreateButton({
    upgrades:WaitForChild("Thunder Dash").Value = 999999999999999999
 end
 })
+
+local RageDeflecter = Misc:CreateButton({
+   Name = "Not Inf Raging Deflection (Its there for fun)",
+   Callback = function()
+   upgrades:WaitForChild("Raging Deflection").Value = 999999999999999999
+end
+})
