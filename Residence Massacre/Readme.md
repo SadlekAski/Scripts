@@ -1,3 +1,3 @@
-ESP KICKS YOU NOW (Idk about autofarm test at your own)
+ESP KICKS YOU NOW
 
 --Put autofarm in autoexec
