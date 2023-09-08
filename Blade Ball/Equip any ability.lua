@@ -1,11 +1,18 @@
 local Rayfield = loadstring(game:HttpGet('https://sirius.menu/rayfield'))()
 local workspace = game:GetService("Workspace")
 local players = game:GetService("Players")
-local localPlayer = players.LocalPlayer
 local runService = game:GetService("RunService")
 local ReplicatedStorage = game:GetService("ReplicatedStorage")
-local LP = game.Players.LocalPlayer
-local LPC = LP.Character:FindFirstChild("Abilities")
+local localPlayer = game.Players.LocalPlayer
+local character = localPlayer.Character or localPlayer.CharacterAdded:Wait()
+local abilitiesFolder = character:WaitForChild("Abilities")
+
+local function onCharacterAdded(newCharacter)
+    character = newCharacter
+    abilitiesFolder = character:WaitForChild("Abilities")
+end
+
+localPlayer.CharacterAdded:Connect(onCharacterAdded)
 
 local TruValue = Instance.new("StringValue")
 if workspace:FindFirstChild("AbilityThingyk1212") then
@@ -59,10 +66,10 @@ workspace:FindFirstChild("AbilityThingyk1212"):Remove()
         TruValue.Value = "Dash" --Change to Use other ability
 end
 
-for i,v in pairs(LPC:GetChildren()) do
+for i,v in pairs(abilitiesFolder:GetChildren()) do
 
 
-for i,b in pairs(LPC:GetChildren()) do
+for i,b in pairs(abilitiesFolder:GetChildren()) do
     local Ability = b
     
     if v.Enabled == true then
@@ -96,10 +103,10 @@ workspace:FindFirstChild("AbilityThingyk1212"):Remove()
         TruValue.Value = "Forcefield" --Change to Use other ability
 end
 
-for i,v in pairs(LPC:GetChildren()) do
+for i,v in pairs(abilitiesFolder:GetChildren()) do
 
 
-for i,b in pairs(LPC:GetChildren()) do
+for i,b in pairs(abilitiesFolder:GetChildren()) do
     local Ability = b
     
     if v.Enabled == true then
@@ -133,10 +140,10 @@ workspace:FindFirstChild("AbilityThingyk1212"):Remove()
         TruValue.Value = "Invisibility" --Change to Use other ability
 end
 
-for i,v in pairs(LPC:GetChildren()) do
+for i,v in pairs(abilitiesFolder:GetChildren()) do
 
 
-for i,b in pairs(LPC:GetChildren()) do
+for i,b in pairs(abilitiesFolder:GetChildren()) do
     local Ability = b
     
     if v.Enabled == true then
@@ -170,10 +177,10 @@ workspace:FindFirstChild("AbilityThingyk1212"):Remove()
         TruValue.Value = "Platform" --Change to Use other ability
 end
 
-for i,v in pairs(LPC:GetChildren()) do
+for i,v in pairs(abilitiesFolder:GetChildren()) do
 
 
-for i,b in pairs(LPC:GetChildren()) do
+for i,b in pairs(abilitiesFolder:GetChildren()) do
     local Ability = b
     
     if v.Enabled == true then
@@ -207,10 +214,10 @@ workspace:FindFirstChild("AbilityThingyk1212"):Remove()
         TruValue.Value = "Raging Deflection" --Change to Use other ability
 end
 
-for i,v in pairs(LPC:GetChildren()) do
+for i,v in pairs(abilitiesFolder:GetChildren()) do
 
 
-for i,b in pairs(LPC:GetChildren()) do
+for i,b in pairs(abilitiesFolder:GetChildren()) do
     local Ability = b
     
     if v.Enabled == true then
@@ -244,10 +251,10 @@ workspace:FindFirstChild("AbilityThingyk1212"):Remove()
         TruValue.Value = "Shadow Step" --Change to Use other ability
 end
 
-for i,v in pairs(LPC:GetChildren()) do
+for i,v in pairs(abilitiesFolder:GetChildren()) do
 
 
-for i,b in pairs(LPC:GetChildren()) do
+for i,b in pairs(abilitiesFolder:GetChildren()) do
     local Ability = b
     
     if v.Enabled == true then
@@ -281,10 +288,10 @@ workspace:FindFirstChild("AbilityThingyk1212"):Remove()
         TruValue.Value = "Super Jump" --Change to Use other ability
 end
 
-for i,v in pairs(LPC:GetChildren()) do
+for i,v in pairs(abilitiesFolder:GetChildren()) do
 
 
-for i,b in pairs(LPC:GetChildren()) do
+for i,b in pairs(abilitiesFolder:GetChildren()) do
     local Ability = b
     
     if v.Enabled == true then
@@ -318,10 +325,10 @@ workspace:FindFirstChild("AbilityThingyk1212"):Remove()
         TruValue.Value = "Telekinesis" --Change to Use other ability
 end
 
-for i,v in pairs(LPC:GetChildren()) do
+for i,v in pairs(abilitiesFolder:GetChildren()) do
 
 
-for i,b in pairs(LPC:GetChildren()) do
+for i,b in pairs(abilitiesFolder:GetChildren()) do
     local Ability = b
     
     if v.Enabled == true then
@@ -355,10 +362,10 @@ workspace:FindFirstChild("AbilityThingyk1212"):Remove()
         TruValue.Value = "Thunder Dash" --Change to Use other ability
 end
 
-for i,v in pairs(LPC:GetChildren()) do
+for i,v in pairs(abilitiesFolder:GetChildren()) do
 
 
-for i,b in pairs(LPC:GetChildren()) do
+for i,b in pairs(abilitiesFolder:GetChildren()) do
     local Ability = b
     
     if v.Enabled == true then
