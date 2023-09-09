@@ -861,3 +861,69 @@ local katmesh = Katanamesh
 katmesh.Transparency = 1
 end
 })
+
+local OniClaws = Skins:CreateButton({
+   Name = "Funni Oni Claws",
+   Callback = function()
+
+
+local bindableFunction= Instance.new("BindableFunction")
+game.StarterGui:SetCore("SendNotification", {
+   Title = "Description";
+   Text = "Ik that its looks bad";
+   Icon = "";
+   Duration = 3;
+   callbakc = bindableFunction;
+   Button1 = "Close this pls";
+})
+
+            
+    local localplayer = game.Players.LocalPlayer
+local character = localplayer.Character
+local sword = character:FindFirstChildOfClass("Model")
+local claws = game:GetService("ReplicatedStorage").Misc.Swords.Limited["Oni Claws"]:Clone()
+local claws2 = game:GetService("ReplicatedStorage").Misc.Swords.Limited["Oni Claws"]:Clone()
+local Katanamesh = character:FindFirstChildOfClass("Model"):FindFirstChild("KatanaMesh")
+local Cestsu1 = claws.Cestus
+local Cestsu2 = claws.Cestus2
+
+local Glove = claws
+local Glove2 = claws2
+local Cestus1 = Glove:FindFirstChild("Cestus")
+local Csetus2 = Glove2:FindFirstChild("Cestus2")
+local Cestus1Blade = Cestus1.Blade:FindFirstChild("MoneyGet")
+local thing = Cestus1Blade
+local Cestus2 = Glove:FindFirstChild("Cestus2")
+local Csetus1 = Glove2:FindFirstChild("Cestus")
+
+Glove.Parent = sword
+local leftarm = Instance.new("Weld")
+leftarm.Name = "Left Arm"
+leftarm.Parent = Cestus1
+leftarm.Part0 = Cestus1.dosdos
+leftarm.Part1 = character:FindFirstChild("Left Arm")
+
+local leftarm = Instance.new("Weld")
+leftarm.Name = "Right Arm"
+leftarm.Parent = Cestus2
+leftarm.Part0 = Cestus2.dosdos
+leftarm.Part1 = character:FindFirstChild("Right Arm")
+
+Glove2.Parent = sword
+local lfetarm = Instance.new("Weld")
+lfetarm.Name = "Lfet Arm"
+lfetarm.Parent = Csetus2
+lfetarm.Part0 = Csetus2.dosdos
+lfetarm.Part1 = character:FindFirstChild("Left Arm")
+
+local rarm = Instance.new("Weld")
+rarm.Name = "Rgiht Arm"
+rarm.Parent = Csetus1
+rarm.Part0 = Csetus1.dosdos
+rarm.Part1 = character:FindFirstChild("Right Arm")
+
+            
+local katmesh = Katanamesh
+katmesh.Transparency = 1
+end
+})
