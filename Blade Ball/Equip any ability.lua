@@ -398,10 +398,24 @@ local InfDash = Misc:CreateButton({
 end
 })
 
+local InfDash = Misc:CreateButton({
+   Name = "Inf Dash (Negative lvl Dash)",
+   Callback = function()
+   upgrades:WaitForChild("Dash").Value = -999999999999999999
+end
+})
+
 local infForcefield2 = Misc:CreateButton({
    Name = "Forcefield. Idk what this gonna do not tested",
    Callback = function()
    upgrades:WaitForChild("Forcefield").Value = 999999999999999999
+end
+})
+
+local infForcefield2 = Misc:CreateButton({
+   Name = "Forcefield. Negative lvl",
+   Callback = function()
+   upgrades:WaitForChild("Forcefield").Value = -999999999999999999
 end
 })
 
@@ -412,10 +426,24 @@ local infInvisibility2 = Misc:CreateButton({
 end
 })
 
+local infInvisibility2 = Misc:CreateButton({
+   Name = "Invisibility. Negative lvl",
+   Callback = function()
+   upgrades:WaitForChild("Invisibility").Value = -999999999999999999
+end
+})
+
 local Platform = Misc:CreateButton({
    Name = "Platform. Makes you stuck forever on use :)",
    Callback = function()
    upgrades:WaitForChild("Platform").Value = 999999999999999999
+end
+})
+
+local Platform = Misc:CreateButton({
+   Name = "Platform. Negative lvl",
+   Callback = function()
+   upgrades:WaitForChild("Platform").Value = -999999999999999999
 end
 })
 
@@ -426,10 +454,24 @@ local InfShadowStep = Misc:CreateButton({
 end
 })
 
+local InfShadowStep = Misc:CreateButton({
+   Name = "Inf Shadow Step (Negative lvl)",
+   Callback = function()
+   upgrades:WaitForChild("Shadow Step").Value = -999999999999999999
+end
+})
+
 local InfSuperJump = Misc:CreateButton({
    Name = "Inf Super Jump (Inf uses Super Jump)",
    Callback = function()
    upgrades:WaitForChild("Super Jump").Value = 999999999999999999
+end
+})
+
+local InfSuperJump = Misc:CreateButton({
+   Name = "Inf Super Jump (Negative lvl)",
+   Callback = function()
+   upgrades:WaitForChild("Super Jump").Value = -999999999999999999
 end
 })
 
@@ -440,6 +482,13 @@ local InfThunderDash = Misc:CreateButton({
 end
 })
 
+local InfThunderDash2 = Misc:CreateButton({
+   Name = "Inf Uses and Range Thunder Dash (Negative lvl)",
+   Callback = function()
+   upgrades:WaitForChild("Thunder Dash").Value = -999999999999999999
+end
+})
+
 local RageDeflecter = Misc:CreateButton({
    Name = "Not Inf Raging Deflection (Its there for fun)",
    Callback = function()
@@ -447,9 +496,23 @@ local RageDeflecter = Misc:CreateButton({
 end
 })
 
+local RageDeflecter2 = Misc:CreateButton({
+   Name = "Raging Deflection (negative lvl)",
+   Callback = function()
+   upgrades:WaitForChild("Raging Deflection").Value = -999999999999999999
+end
+})
+
 local StrongerTelekines = Misc:CreateButton({
    Name = "Stronger Telekinesis (if telekinesis range depends on lvl then inf range)",
    Callback = function()
    upgrades:WaitForChild("Telekinesis").Value = 999999999999999999
+end
+})
+
+local WeakerTeleknises = Misc:CreateButton({
+   Name = "Weaker Telekinesis (negative lvl)",
+   Callback = function()
+   upgrades:WaitForChild("Telekinesis").Value = -999999999999999999
 end
 })
