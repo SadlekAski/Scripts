@@ -528,7 +528,7 @@ end
 local ServerCrasher = Misc2:CreateButton({
    Name = "Server crasher (part 1)",
    Callback = function()
-   for i=1, 10000 do
+   for i=1, 1000000 do
 
 local Ae = Instance.new("BoolValue")
 Ae.Parent = workspace
