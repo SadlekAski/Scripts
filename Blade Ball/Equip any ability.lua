@@ -537,7 +537,7 @@ end
 })
 
 local EmoteEffect = Misc2:CreateButton({
-   Name = "Gamepass Emote Effect + Music (everyone sees)",
+   Name = "Gamepass Emote Effect + Music (everyone sees), Credit to idk who",
    Callback = function()
    local args = {[1] = true,[2] = "Empyrean"}game:GetService("ReplicatedStorage").Remotes.CustomEmote:FireServer(unpack(args))
 end
@@ -556,7 +556,7 @@ end
 })
 
 local ServerCrasher2 = Misc2:CreateButton({
-   Name = "Server crasher (part 2), Crashes and you also",
+   Name = "Server crasher (part 2),Credit to idk who, Crashes and you also",
    Callback = function()
             for i,v in pairs(game:GetService("Workspace"):GetChildren()) do
     local args = {[1] = true,[2] = "Empyrean"}game:GetService("ReplicatedStorage").Remotes.CustomEmote:FireServer(unpack(args))
