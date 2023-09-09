@@ -526,7 +526,7 @@ end
 })
 
 local EmoteEffect = Misc2:CreateButton({
-   Name = "Gamepass Emote Effect",
+   Name = "Gamepass Emote Effect (everyone sees)",
    Callback = function()
    local args = {[1] = true,[2] = "Empyrean"}game:GetService("ReplicatedStorage").Remotes.CustomEmote:FireServer(unpack(args))
 end
