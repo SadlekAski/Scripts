@@ -586,7 +586,7 @@ local EmpyrianSword = Skins:CreateButton({
             local localplayer = game.Players.LocalPlayer
 local character = localplayer.Character
 local Katanamesh = character:FindFirstChildOfClass("Model"):FindFirstChild("KatanaMesh")
-local Empyreansword = workspace.Spawn.chunchbunch["Empyrean Greatblade"]
+local Empyreansword = game:GetService("ReplicatedStorage").Misc.Swords.Limited["Empyrean Greatblade"]
 
 local SkinSword = Empyreansword:FindFirstChild("Meshes/Sword")
 local SkinSwordClone = Empyreansword:FindFirstChild("Meshes/Sword"):Clone()
