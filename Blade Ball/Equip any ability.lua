@@ -565,6 +565,13 @@ end
 end
 })
 
+local Descriptionyk = Skins:CreateButton({
+   Name = "Only you see this (IDk how to make description, so I made this)",
+   Callback = function()
+            print("Its description bruh")
+end
+})
+
 local EmpyrianSword = Skins:CreateButton({
    Name = "Empyrean Greatblade Skin. Ofc its not perfect",
    Callback = function()
