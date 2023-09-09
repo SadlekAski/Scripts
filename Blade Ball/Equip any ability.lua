@@ -58,6 +58,7 @@ local Main = Window:CreateTab("Main", 13014546637)
 local Misc = Window:CreateTab("Misc", 13014546637)
 local Misc2 = Window:CreateTab("Misc2", 13014546637)
 local Skins = Window:CreateTab("Skins", 13014546637)
+local AutoParry = Main:CreateSection("AutoParry")
 
 local AutoParry = Main:CreateButton({
    Name = "AutoParry, Credits to infernokarl (<- Discord user)",
@@ -146,7 +147,7 @@ runService.Heartbeat:Connect(function()
 end)
 end
 })
-
+local Abilities = Main:CreateSection("Abilities")
 local Descrip = Main:CreateButton({
    Name = "Click and read me pls",
    Callback = function()
