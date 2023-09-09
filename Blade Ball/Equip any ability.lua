@@ -568,7 +568,15 @@ end
 local Descriptionyk = Skins:CreateButton({
    Name = "Only you see this (IDk how to make description, so I made this)",
    Callback = function()
-            print("Its description bruh")
+        local bindableFunction= Instance.new("BindableFunction")
+game.StarterGui:SetCore("SendNotification", {
+   Title = "It is description";
+   Text = "Press button to close (this notify duration is 1M seconds)";
+   Icon = "";
+   Duration = 11123212;
+   callbakc = bindableFunction;
+   Button1 = "Close this pls";
+})
 end
 })
 
