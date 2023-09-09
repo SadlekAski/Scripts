@@ -61,6 +61,27 @@ local Skins = Window:CreateTab("Skins", 13014546637)
 local AutoParry = Main:CreateSection("AutoParry")
 local Positive = Misc:CreateSection("Positive")
 
+local Descrip = Main:CreateButton({
+   Name = "Credits (Click)",
+   Callback = function()
+    Rayfield:Notify({
+   Title = "Credits",
+   Content = "Auto Parry By infernokarl.  Server Crasher by I actually dont know who made it",
+   Duration = 60,
+   Image = 4483362458,
+   Actions = { -- Notification Buttons
+      Ignore = {
+         Name = "Okay!",
+         Callback = function()
+         print("The user tapped Okay!")
+      end
+   },
+},
+})
+end
+end
+})
+
 local AutoParry = Main:CreateButton({
    Name = "AutoParry, Credits to infernokarl (<- Discord user)",
    Callback = function()
