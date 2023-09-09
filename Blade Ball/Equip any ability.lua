@@ -584,29 +584,6 @@ local EmoteEffect = Misc2:CreateButton({
 end
 })
 
-local servcrasherpon = Misc2:CreateSection("Server Crasher")
-
-local ServerCrasher = Misc2:CreateButton({
-   Name = "Server crasher (part 1)",
-   Callback = function()
-   for i=1, 1000000 do
-
-local Ae = Instance.new("BoolValue")
-Ae.Parent = workspace
-Ae.Name = "Crasher"
-end
-end
-})
-
-local ServerCrasher2 = Misc2:CreateButton({
-   Name = "Server crasher (part 2),Credit to idk who, Crashes and you also",
-   Callback = function()
-            for i,v in pairs(game:GetService("Workspace"):GetChildren()) do
-    local args = {[1] = true,[2] = "Empyrean"}game:GetService("ReplicatedStorage").Remotes.CustomEmote:FireServer(unpack(args))
-end
-end
-})
-
 local SkinsDescription = Skins:CreateSection("Description")
 
 local Descriptionyk = Skins:CreateButton({
