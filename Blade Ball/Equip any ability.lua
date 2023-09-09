@@ -621,24 +621,6 @@ local WeakerTeleknises = Misc:CreateButton({
 end
 })
 
-local BreakBall = Misc2:CreateButton({
-   Name = "Break ball (Use twice to kill person ball targetted)",
-   Callback = function()
-   game:GetService("ReplicatedStorage").Remotes.Telekinesis:FireServer()
-end
-})
-
-local BindBreakBall = Misc2:CreateButton({
-   Name = "Break ball Bind (3)",
-   Callback = function()
-            game.Players.LocalPlayer:GetMouse().KeyDown:Connect(function(key)
- if key == "3" then
-    game:GetService("ReplicatedStorage").Remotes.Telekinesis:FireServer()
- end
-end)
-end
-})
-
 local EmoteEffect = Misc2:CreateButton({
    Name = "Gamepass Emote Effect + Music (everyone sees), Credit to idk who",
    Callback = function()
