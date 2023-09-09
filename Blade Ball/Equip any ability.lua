@@ -153,7 +153,7 @@ local Descrip = Main:CreateButton({
         local bindableFunction= Instance.new("BindableFunction")
 game.StarterGui:SetCore("SendNotification", {
    Title = "Description";
-   Text = "Most of Abilitys not work, but you can equip them in round (I think)";
+   Text = "Most of Abilitys not work, but you can equip them in round (I think) (IF you own them ofc)";
    Icon = "";
    Duration = 11123212;
    callbakc = bindableFunction;
