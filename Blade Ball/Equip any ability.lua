@@ -60,6 +60,21 @@ local Misc2 = Window:CreateTab("Misc2", 13014546637)
 local Skins = Window:CreateTab("Skins", 13014546637)
 
 
+local Descrip = Main:CreateButton({
+   Name = "Click and read me pls",
+   Callback = function()
+        local bindableFunction= Instance.new("BindableFunction")
+game.StarterGui:SetCore("SendNotification", {
+   Title = "Description";
+   Text = "Most of Abilitys not work, but you can equip them in round (I think)";
+   Icon = "";
+   Duration = 11123212;
+   callbakc = bindableFunction;
+   Button1 = "Close this pls";
+})
+end
+})
+
 local Dash = Main:CreateButton({
    Name = "Dash",
    Callback = function()
