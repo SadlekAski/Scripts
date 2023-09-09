@@ -56,6 +56,7 @@ local Window = Rayfield:CreateWindow({
 
 local Main = Window:CreateTab("Main", 13014546637)
 local Misc = Window:CreateTab("Misc", 13014546637)
+local Misc = Window:CreateTab("Misc2", 13014546637)
 
 
 local Dash = Main:CreateButton({
@@ -514,5 +515,12 @@ local WeakerTeleknises = Misc:CreateButton({
    Name = "Weaker Telekinesis (negative lvl)",
    Callback = function()
    upgrades:WaitForChild("Telekinesis").Value = -999999999999999999
+end
+})
+
+local BreakBall = Misc2:CreateButton({
+   Name = "Break ball (Use twice to kill person ball targetted)",
+   Callback = function()
+   game:GetService("ReplicatedStorage").Remotes.Telekinesis:FireServer()
 end
 })
