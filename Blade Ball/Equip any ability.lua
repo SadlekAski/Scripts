@@ -825,7 +825,7 @@ game.StarterGui:SetCore("SendNotification", {
    Title = "Description";
    Text = "Ik that its looks bad";
    Icon = "";
-   Duration = 11123212;
+   Duration = 3;
    callbakc = bindableFunction;
    Button1 = "Close this pls";
 })
