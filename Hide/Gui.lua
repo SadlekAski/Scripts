@@ -68,15 +68,43 @@ end
 local GetCoffee = Main:CreateButton({
    Name = "Take Coffee",
    Callback = function()
+   character.HumanoidRootPart.CFrame = workspace.cofetriger.CFrame + Vector3.new(5,0,0)
+   task.wait(0.1)
    fireproximityprompt(workspace.cofetriger.Attachment.ProximityPrompt)
 end
 })
 
 local RefillCoffee = Main:CreateButton({
-   Name = "Refill Coffee",
+   Name = "Refill Coffee + Take Coffee",
    Callback = function()
-   fireproximityprompt(workspace:GetChildren()[55].Part.Attachment.ProximityPrompt)
-   task.wait(0.3)
+   character.HumanoidRootPart.CFrame = workspace:GetChildren()[55].Part.CFrame + Vector3.new(5,0,0)
+     task.wait(0.2)
+     fireproximityprompt(workspace:GetChildren()[55].Part.Attachment.ProximityPrompt)
+   task.wait(1)
+   character.HumanoidRootPart.CFrame = workspace.cofetriger.CFrame + Vector3.new(5,0,0)
+   task.wait(0.2)
    fireproximityprompt(workspace.cofetriger.Attachment.ProximityPrompt)
+   task.wait(0.2)
+   fireproximityprompt(workspace.cofetriger.Attachment.ProximityPrompt)
+end
+})
+
+local RefillCoffee = Main:CreateButton({
+   Name = "Refill Coffee Bind (V) + Take coffee",
+   Callback = function()
+   
+   game.Players.LocalPlayer:GetMouse().KeyDown:Connect(function(key)
+ if key == "v" then
+     character.HumanoidRootPart.CFrame = workspace:GetChildren()[55].Part.CFrame + Vector3.new(5,0,0)
+     task.wait(0.2)
+     fireproximityprompt(workspace:GetChildren()[55].Part.Attachment.ProximityPrompt)
+   task.wait(1)
+   character.HumanoidRootPart.CFrame = workspace.cofetriger.CFrame + Vector3.new(5,0,0)
+   task.wait(0.2)
+   fireproximityprompt(workspace.cofetriger.Attachment.ProximityPrompt)
+   task.wait(0.2)
+   fireproximityprompt(workspace.cofetriger.Attachment.ProximityPrompt)
+ end
+end)
 end
 })
