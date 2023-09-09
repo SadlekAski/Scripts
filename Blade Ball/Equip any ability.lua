@@ -57,6 +57,7 @@ local Window = Rayfield:CreateWindow({
 local Main = Window:CreateTab("Main", 13014546637)
 local Misc = Window:CreateTab("Misc", 13014546637)
 local Misc2 = Window:CreateTab("Misc2", 13014546637)
+local Skins = Window:CreateTab("Skins", 13014546637)
 
 
 local Dash = Main:CreateButton({
@@ -561,5 +562,32 @@ local ServerCrasher2 = Misc2:CreateButton({
             for i,v in pairs(game:GetService("Workspace"):GetChildren()) do
     local args = {[1] = true,[2] = "Empyrean"}game:GetService("ReplicatedStorage").Remotes.CustomEmote:FireServer(unpack(args))
 end
+end
+})
+
+local EmpyrianSword = Skins:CreateButton({
+   Name = "Empyrean Greatblade Skin. Ofc its not perfect",
+   Callback = function()
+            local localplayer = game.Players.LocalPlayer
+local character = localplayer.Character
+local Katanamesh = character:FindFirstChildOfClass("Model"):FindFirstChild("KatanaMesh")
+local Empyreansword = workspace.Spawn.chunchbunch["Empyrean Greatblade"]
+
+local SkinSword = Empyreansword:FindFirstChild("Meshes/Sword")
+local SkinSwordClone = Empyreansword:FindFirstChild("Meshes/Sword"):Clone()
+
+SkinSwordClone.Anchored = false
+SkinSwordClone.Parent = character:FindFirstChildOfClass("Model")
+SkinSwordClone.CFrame = Katanamesh.CFrame
+local katmesh = Katanamesh
+local weldthing = Instance.new("Weld")
+weldthing.Parent = SkinSwordClone
+weldthing.Part0 = SkinSwordClone
+weldthing.Part1 = katmesh
+katmesh.Transparency = 1
+
+character.HumanoidRootPart.CFrame = CFrame.new(-233.710556, 123.299973, 203.648102)
+task.wait(0.1)
+SkinSwordClone.Rotation = Vector3.new(-75.41799926757812, -90, 0)
 end
 })
