@@ -541,7 +541,11 @@ local ServerCrasher2 = Misc2:CreateButton({
    Name = "Server crasher (part 2), Crashes and you also",
    Callback = function()
             for i,v in pairs(game:GetService("Workspace"):GetChildren()) do
+                getgenv().Crashing = true
+
+    while Crashing == true do wait(0.01)
     local args = {[1] = true,[2] = "Empyrean"}game:GetService("ReplicatedStorage").Remotes.CustomEmote:FireServer(unpack(args))
+                end
 end
 end
 })
