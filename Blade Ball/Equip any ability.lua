@@ -171,7 +171,7 @@ end
 
 local Keybind = Main:CreateKeybind({
    Name = "Autoparry bind",
-   CurrentKeybind = "",
+   CurrentKeybind = "Two",
    HoldToInteract = false,
    Flag = "Keybind1", -- A flag is the identifier for the configuration file, make sure every element has a different flag if you're using configuration saving to ensure no overlaps
    Callback = function(Keybind)
