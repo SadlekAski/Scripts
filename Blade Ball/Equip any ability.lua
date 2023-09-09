@@ -571,7 +571,7 @@ local Descriptionyk = Skins:CreateButton({
         local bindableFunction= Instance.new("BindableFunction")
 game.StarterGui:SetCore("SendNotification", {
    Title = "Description";
-   Text = "Only you see this. It teleports you to thing where it teleports because that only way for it to look good. Press button to close";
+   Text = "Only you see these skins (because they're on client). It teleports you to thing where it teleports because that is only (prob) way for it to look good. Press button to close!";
    Icon = "";
    Duration = 11123212;
    callbakc = bindableFunction;
