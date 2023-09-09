@@ -606,3 +606,50 @@ task.wait(0.1)
 SkinSwordClone.Rotation = Vector3.new(-75.41799926757812, -90, 0)
 end
 })
+
+local OniClaws = Skins:CreateButton({
+   Name = "Oni Claws",
+   Callback = function()
+
+
+local bindableFunction= Instance.new("BindableFunction")
+game.StarterGui:SetCore("SendNotification", {
+   Title = "Description";
+   Text = "Ik that its looks bad";
+   Icon = "";
+   Duration = 11123212;
+   callbakc = bindableFunction;
+   Button1 = "Close this pls";
+})
+
+            
+    local localplayer = game.Players.LocalPlayer
+local character = localplayer.Character
+local sword = character:FindFirstChildOfClass("Model")
+local claws = game:GetService("ReplicatedStorage").Misc.Swords.Limited["Oni Claws"]:Clone()
+local Katanamesh = character:FindFirstChildOfClass("Model"):FindFirstChild("KatanaMesh")
+local Cestsu1 = claws.Cestus
+local Cestsu2 = claws.Cestus2
+
+local Glove = claws
+local Cestus1 = Glove:FindFirstChild("Cestus")
+local Cestus1Blade = Cestus1.Blade:FindFirstChild("MoneyGet")
+local thing = Cestus1Blade
+local Cestus2 = Glove:FindFirstChild("Cestus2")
+
+Glove.Parent = sword
+local leftarm = Instance.new("Weld")
+leftarm.Name = "Left Arm"
+leftarm.Parent = Cestus1
+leftarm.Part0 = Cestus1.dosdos
+leftarm.Part1 = character:FindFirstChild("Left Arm")
+
+local leftarm = Instance.new("Weld")
+leftarm.Name = "Right Arm"
+leftarm.Parent = Cestus2
+leftarm.Part0 = Cestus2.dosdos
+leftarm.Part1 = character:FindFirstChild("Right Arm")
+local katmesh = Katanamesh
+katmesh.Transparency = 1
+end
+})
