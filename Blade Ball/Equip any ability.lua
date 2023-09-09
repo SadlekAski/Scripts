@@ -525,6 +525,13 @@ local BreakBall = Misc2:CreateButton({
 end
 })
 
+local EmoteEffect = Misc2:CreateButton({
+   Name = "Gamepass Emote Effect",
+   Callback = function()
+   local args = {[1] = true,[2] = "Empyrean"}game:GetService("ReplicatedStorage").Remotes.CustomEmote:FireServer(unpack(args))
+end
+})
+
 local ServerCrasher = Misc2:CreateButton({
    Name = "Server crasher (part 1)",
    Callback = function()
