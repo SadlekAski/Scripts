@@ -79,7 +79,6 @@ local Descrip = Main:CreateButton({
 },
 })
 end
-end
 })
 
 local AutoParry = Main:CreateButton({
