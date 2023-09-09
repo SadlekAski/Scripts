@@ -56,7 +56,7 @@ local Window = Rayfield:CreateWindow({
 
 local Main = Window:CreateTab("Main", 13014546637)
 local Misc = Window:CreateTab("Misc", 13014546637)
-local Misc = Window:CreateTab("Misc2", 13014546637)
+local Misc2 = Window:CreateTab("Misc2", 13014546637)
 
 
 local Dash = Main:CreateButton({
