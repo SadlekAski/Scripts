@@ -646,7 +646,7 @@ end
 local ResetCD = Misc2:CreateButton({
    Name = "Reset Cooldown",
    Callback = function()
-    character.HumanoidRootPart.CFrame = CFrame.new(-102.240021, 123.299988, 200.441544)
+    character.HumanoidRootPart.CFrame = CFrame.new(-10002.240021, 123.299988, 200.441544)
     task.wait(1)
    character.Humanoid.Health = 0
 end
