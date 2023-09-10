@@ -230,16 +230,21 @@ local ToggleParryOff = Main:CreateKeybind({
 
 local Abilities = Main:CreateSection("Abilities")
 local Descrip = Main:CreateButton({
-   Name = "Click and read me pls",
+Name = "How To Use",
    Callback = function()
-        local bindableFunction= Instance.new("BindableFunction")
-game.StarterGui:SetCore("SendNotification", {
-   Title = "Description";
-   Text = "Equip any ability patched, but moving abilitys still work, and you can equip them in round";
-   Icon = "";
-   Duration = 10;
-   callbakc = bindableFunction;
-   Button1 = "Close this pls";
+    Rayfield:Notify({
+   Title = "How Its Working",
+   Content = "You can now equip abilities in round (Must own them)",
+   Duration = 10,
+   Image = 4483362458,
+   Actions = { -- Notification Buttons
+      Ignore = {
+         Name = "Okay!",
+         Callback = function()
+         print("The user tapped Okay!")
+      end
+   },
+},
 })
 end
 })
