@@ -984,8 +984,8 @@ godhandle.Rotation = Vector3.new(-159, 0, 100)
 katmesh.Transparency = 1
 
         Rayfield:Notify({
-   Title = "If Something Went Wrong",
-   Content = "If Sword in wrong place (not where swords are on character then press again)",
+   Title = "If Sword in wrong place (not where swords are on character then press again",
+   Content = "OR reset character then try again",
    Duration = 20,
    Image = 4483362458,
    Actions = { -- Notification Buttons
@@ -1023,8 +1023,8 @@ godhandle.Rotation = Vector3.new(-159, 0, 100)
 katmesh.Transparency = 1
 
         Rayfield:Notify({
-   Title = "If Something Went Wrong",
-   Content = "If Sword in wrong place (not where swords are on character then press again)",
+   Title = "If Sword in wrong place (not where swords are on character then press again",
+   Content = "OR reset character then try again",
    Duration = 20,
    Image = 4483362458,
    Actions = { -- Notification Buttons
