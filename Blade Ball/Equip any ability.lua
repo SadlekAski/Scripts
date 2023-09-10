@@ -216,6 +216,14 @@ AutoParryToggle:Set(true)
    end
 })
 
+local Idk = Main:CreateSection("IdkWhatNameToSet")
+local openshop = Main:CreateButton({
+    Name = "Open Shop",
+    Callback = function()
+        game:GetService("Players").LocalPlayer.PlayerGui.UI.Shop.AbilityShop.Enabled = not game:GetService("Players").LocalPlayer.PlayerGui.UI.Shop.AbilityShop.Enabled
+        end
+})
+
 local ToggleParryOff = Main:CreateKeybind({
    Name = "ToggleParryOff (Bind to your key)",
    CurrentKeybind = "Two",
