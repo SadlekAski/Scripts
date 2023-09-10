@@ -643,6 +643,13 @@ game:GetService("ReplicatedStorage").Remotes.Telekinesis:FireServer(unpack(args)
 end
 })
 
+local ResetCD = Misc2:CreateButton({
+   Name = "Reset Cooldown",
+   Callback = function()
+   character.Humanoid.Health = 0
+end
+})
+
 local SkinsDescription = Skins:CreateSection("Description")
 
 local Descriptionyk = Skins:CreateButton({
