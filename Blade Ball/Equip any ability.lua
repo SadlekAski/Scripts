@@ -58,9 +58,31 @@ local Main = Window:CreateTab("Main", 13014546637)
 local Misc = Window:CreateTab("Misc", 13014546637)
 local Misc2 = Window:CreateTab("Misc2", 13014546637)
 local Skins = Window:CreateTab("Skins", 13014546637)
-local AutoParry = Main:CreateSection("AutoParry")
+
 local Positive = Misc:CreateSection("Positive")
 
+local Discord = Main:CreateSection("Discord")
+local Descrip = Main:CreateButton({
+   Name = "Discord invite (IF you wanted to join)",
+   Callback = function()
+    Rayfield:Notify({
+   Title = "Credits",
+   Content = "Discord invite (If you forgot to join, and wanted to): https://discord.gg/JrrZjFfvr",
+   Duration = 60,
+   Image = 4483362458,
+   Actions = { -- Notification Buttons
+      Ignore = {
+         Name = "Okay!",
+         Callback = function()
+         print("The user tapped Okay!")
+      end
+   },
+},
+})
+end
+})
+
+local AutoParry = Main:CreateSection("AutoParry")
 local function startAutoParry()
     local player = game.Players.LocalPlayer
     local character = player.Character or player.CharacterAdded:Wait()
