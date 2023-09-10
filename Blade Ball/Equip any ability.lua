@@ -646,7 +646,7 @@ end
 local ResetCD = Misc2:CreateButton({
    Name = "Reset Cooldown",
    Callback = function()
-    character.HumanoidRootPart.CFrame = workspace.Spawn.Outline.SpawnBox.CFrame + Vector3.new(50,-500,50)
+    character.HumanoidRootPart.CFrame = character.HumanoidRootPart.CFrame + Vector3.new(0,-50,0)
    character.Humanoid.Health = 0
 end
 })
