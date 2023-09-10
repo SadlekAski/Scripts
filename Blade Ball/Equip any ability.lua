@@ -598,6 +598,15 @@ game.StarterGui:SetCore("SendNotification", {
    callbakc = bindableFunction;
    Button1 = "Close this pls";
 })
+
+            game.StarterGui:SetCore("SendNotification", {
+   Title = "Description";
+   Text = "Because That is Needed (Contiuniation (I forgor word) Of Text)";
+   Icon = "";
+   Duration = 11123212;
+   callbakc = bindableFunction;
+   Button1 = "Close this pls";
+})
 end
 })
 
