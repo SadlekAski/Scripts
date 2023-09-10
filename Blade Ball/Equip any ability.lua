@@ -195,7 +195,7 @@ end
 local AutoParryToggle = Main:CreateToggle({
     Name = "Auto Parry. Credits to infernokarl",
     CurrentValue = false,
-    Flag = "AutoParryFlag",
+    Flag = "AutoParryToggle",
     Callback = function(Value)
         if Value then
             startAutoParry()
@@ -209,11 +209,23 @@ local ToggleParry = Main:CreateKeybind({
    Name = "ToggleParry (Bind to your key)",
    CurrentKeybind = "One",
    HoldToInteract = false,
-   Flag = "abc", -- A flag is the identifier for the configuration file, make sure every element has a different flag if you're using configuration saving to ensure no overlaps
+   Flag = "ToggleParry", -- A flag is the identifier for the configuration file, make sure every element has a different flag if you're using configuration saving to ensure no overlaps
    Callback = function(Keybind)
 AutoParryToggle:Set(true)
 
    end
+})
+
+
+
+local ToggleParryOff = Main:CreateKeybind({
+   Name = "ToggleParryOff (Bind to your key)",
+   CurrentKeybind = "Two",
+   HoldToInteract = false,
+   Flag = "ToggleParryOff", -- A flag is the identifier for the configuration file, make sure every element has a different flag if you're using configuration saving to ensure no overlaps
+   Callback = function(Keybind)
+   AutoParryToggle:Set(false)
+   end,
 })
 
 local Idk = Main:CreateSection("IdkWhatNameToSet")
@@ -222,16 +234,6 @@ local openshop = Main:CreateButton({
     Callback = function()
         game:GetService("Players").LocalPlayer.PlayerGui.UI.Shop.AbilityShop.Enabled = not game:GetService("Players").LocalPlayer.PlayerGui.UI.Shop.AbilityShop.Enabled
         end
-})
-
-local ToggleParryOff = Main:CreateKeybind({
-   Name = "ToggleParryOff (Bind to your key)",
-   CurrentKeybind = "Two",
-   HoldToInteract = false,
-   Flag = "abc2", -- A flag is the identifier for the configuration file, make sure every element has a different flag if you're using configuration saving to ensure no overlaps
-   Callback = function(Keybind)
-   AutoParryToggle:Set(false)
-   end,
 })
 
 local Abilities = Main:CreateSection("Abilities")
