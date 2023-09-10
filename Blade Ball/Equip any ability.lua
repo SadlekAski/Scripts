@@ -584,6 +584,14 @@ local EmoteEffect = Misc2:CreateButton({
 end
 })
 
+local Funnythingslol = Misc2:CreateSection("Funny Thing")
+local EmoteEffect = Misc2:CreateButton({
+   Name = "Break Ball (You need telekinesis owned)",
+   Callback = function()
+   game:GetService("ReplicatedStorage").Remotes.Telekinesis:FireServer()
+end
+})
+
 local SkinsDescription = Skins:CreateSection("Description")
 
 local Descriptionyk = Skins:CreateButton({
