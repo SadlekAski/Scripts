@@ -170,7 +170,7 @@ local Descrip = Main:CreateButton({
 end
 })
 
-local AutoParryToggle = AutoParry:CreateToggle({
+local AutoParryToggle = Main:CreateToggle({
     Name = "Auto Parry. Credits to infernokarl",
     CurrentValue = false,
     Flag = "AutoParryFlag",
