@@ -66,7 +66,7 @@ local Descrip = Main:CreateButton({
    Callback = function()
     Rayfield:Notify({
    Title = "Credits",
-   Content = "Auto Parry By infernokarl.  Server Crasher by I actually dont know who made it",
+   Content = "Auto Parry By infernokarl",
    Duration = 60,
    Image = 4483362458,
    Actions = { -- Notification Buttons
