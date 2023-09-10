@@ -594,16 +594,24 @@ game.StarterGui:SetCore("SendNotification", {
    Title = "Description";
    Text = "Pls Use Starter Sword for skins.Only you see these skins (because they're on client). It teleports you to thing where it teleports because that is only (prob) way for it to look good. Press button to close!";
    Icon = "";
-   Duration = 11123212;
+   Duration = 10;
    callbakc = bindableFunction;
    Button1 = "Close this pls";
 })
 
             game.StarterGui:SetCore("SendNotification", {
    Title = "Description";
-   Text = "Because That is Needed (Contiuniation (I forgor word) Of Text)";
+   Text = "Because That is Needed (Contiuniation (I forgor word) Of Text). In future Ill prob make it support more swords to change skins (not starter only)";
    Icon = "";
-   Duration = 11123212;
+   Duration = 10;
+   callbakc = bindableFunction;
+   Button1 = "Close this pls";
+})
+    game.StarterGui:SetCore("SendNotification", {
+   Title = "Description";
+   Text = "it support more swords to change skins (not starter only) (Continuation of text)";
+   Icon = "";
+   Duration = 10;
    callbakc = bindableFunction;
    Button1 = "Close this pls";
 })
