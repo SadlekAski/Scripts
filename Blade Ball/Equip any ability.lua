@@ -228,14 +228,6 @@ local ToggleParryOff = Main:CreateKeybind({
    end,
 })
 
-local Idk = Main:CreateSection("IdkWhatNameToSet")
-local openshop = Main:CreateButton({
-    Name = "Open Shop",
-    Callback = function()
-        game:GetService("Players").LocalPlayer.PlayerGui.UI.Shop.AbilityShop.Enabled = not game:GetService("Players").LocalPlayer.PlayerGui.UI.Shop.AbilityShop.Enabled
-        end
-})
-
 local Abilities = Main:CreateSection("Abilities")
 local Descrip = Main:CreateButton({
    Name = "Click and read me pls",
@@ -255,12 +247,23 @@ end
 local Dash = Main:CreateButton({
    Name = "Dash",
    Callback = function()
-local function AbilityValue2()
+local args = {
+    [1] = "Dash"
+}
+
+game:GetService("ReplicatedStorage").Remotes.Store.RequestEquipAbility:InvokeServer(unpack(args))
+
+game:GetService("ReplicatedStorage").Remotes.Store.GetOwnedAbilities:InvokeServer()
+
+game:GetService("ReplicatedStorage").Remotes.kebaind:FireServer()
+
+    local function AbilityValue2()
 local TruValue = Instance.new("StringValue")
 workspace:FindFirstChild("AbilityThingyk1212"):Remove()
         TruValue.Parent = game:GetService("Workspace")
         TruValue.Name = "AbilityThingyk1212"
         TruValue.Value = "Dash" --Change to Use other ability
+
 end
 
 for i,v in pairs(abilitiesFolder:GetChildren()) do
@@ -292,6 +295,17 @@ end
 local Forcefield = Main:CreateButton({
    Name = "Forcefield",
    Callback = function()
+
+local args = {
+    [1] = "Forcefield"
+}
+
+game:GetService("ReplicatedStorage").Remotes.Store.RequestEquipAbility:InvokeServer(unpack(args))
+
+game:GetService("ReplicatedStorage").Remotes.Store.GetOwnedAbilities:InvokeServer()
+
+game:GetService("ReplicatedStorage").Remotes.kebaind:FireServer()
+            
 local function AbilityValue2()
 local TruValue = Instance.new("StringValue")
 workspace:FindFirstChild("AbilityThingyk1212"):Remove()
@@ -329,6 +343,17 @@ end
 local Invisibility = Main:CreateButton({
    Name = "Invisibility",
    Callback = function()
+
+local args = {
+    [1] = "Invisibility"
+}
+
+game:GetService("ReplicatedStorage").Remotes.Store.RequestEquipAbility:InvokeServer(unpack(args))
+
+game:GetService("ReplicatedStorage").Remotes.Store.GetOwnedAbilities:InvokeServer()
+
+game:GetService("ReplicatedStorage").Remotes.kebaind:FireServer()
+            
 local function AbilityValue2()
 local TruValue = Instance.new("StringValue")
 workspace:FindFirstChild("AbilityThingyk1212"):Remove()
@@ -366,6 +391,17 @@ end
 local Platform = Main:CreateButton({
    Name = "Platform",
    Callback = function()
+
+local args = {
+    [1] = "Platform"
+}
+
+game:GetService("ReplicatedStorage").Remotes.Store.RequestEquipAbility:InvokeServer(unpack(args))
+
+game:GetService("ReplicatedStorage").Remotes.Store.GetOwnedAbilities:InvokeServer()
+
+game:GetService("ReplicatedStorage").Remotes.kebaind:FireServer()
+            
 local function AbilityValue2()
 local TruValue = Instance.new("StringValue")
 workspace:FindFirstChild("AbilityThingyk1212"):Remove()
@@ -403,6 +439,17 @@ end
 local RagingDeflection = Main:CreateButton({
    Name = "Raging Deflection",
    Callback = function()
+
+local args = {
+    [1] = "Raging Deflection"
+}
+
+game:GetService("ReplicatedStorage").Remotes.Store.RequestEquipAbility:InvokeServer(unpack(args))
+
+game:GetService("ReplicatedStorage").Remotes.Store.GetOwnedAbilities:InvokeServer()
+
+game:GetService("ReplicatedStorage").Remotes.kebaind:FireServer()
+            
 local function AbilityValue2()
 local TruValue = Instance.new("StringValue")
 workspace:FindFirstChild("AbilityThingyk1212"):Remove()
@@ -440,6 +487,17 @@ end
 local ShadowStep = Main:CreateButton({
    Name = "Shadow Step",
    Callback = function()
+
+local args = {
+    [1] = "Shadow Step"
+}
+
+game:GetService("ReplicatedStorage").Remotes.Store.RequestEquipAbility:InvokeServer(unpack(args))
+
+game:GetService("ReplicatedStorage").Remotes.Store.GetOwnedAbilities:InvokeServer()
+
+game:GetService("ReplicatedStorage").Remotes.kebaind:FireServer()
+            
 local function AbilityValue2()
 local TruValue = Instance.new("StringValue")
 workspace:FindFirstChild("AbilityThingyk1212"):Remove()
@@ -477,6 +535,17 @@ end
 local SuperJump = Main:CreateButton({
    Name = "Super Jump",
    Callback = function()
+
+local args = {
+    [1] = "Super Jump"
+}
+
+game:GetService("ReplicatedStorage").Remotes.Store.RequestEquipAbility:InvokeServer(unpack(args))
+
+game:GetService("ReplicatedStorage").Remotes.Store.GetOwnedAbilities:InvokeServer()
+
+game:GetService("ReplicatedStorage").Remotes.kebaind:FireServer()
+            
 local function AbilityValue2()
 local TruValue = Instance.new("StringValue")
 workspace:FindFirstChild("AbilityThingyk1212"):Remove()
@@ -514,6 +583,17 @@ end
 local Telekinesis = Main:CreateButton({
    Name = "Telekinesis",
    Callback = function()
+
+local args = {
+    [1] = "Telekinesis"
+}
+
+game:GetService("ReplicatedStorage").Remotes.Store.RequestEquipAbility:InvokeServer(unpack(args))
+
+game:GetService("ReplicatedStorage").Remotes.Store.GetOwnedAbilities:InvokeServer()
+
+game:GetService("ReplicatedStorage").Remotes.kebaind:FireServer()
+            
 local function AbilityValue2()
 local TruValue = Instance.new("StringValue")
 workspace:FindFirstChild("AbilityThingyk1212"):Remove()
@@ -551,6 +631,17 @@ end
 local ThunderDash = Main:CreateButton({
    Name = "Thunder Dash",
    Callback = function()
+
+local args = {
+    [1] = "Thunder Dash"
+}
+
+game:GetService("ReplicatedStorage").Remotes.Store.RequestEquipAbility:InvokeServer(unpack(args))
+
+game:GetService("ReplicatedStorage").Remotes.Store.GetOwnedAbilities:InvokeServer()
+
+game:GetService("ReplicatedStorage").Remotes.kebaind:FireServer()
+            
 local function AbilityValue2()
 local TruValue = Instance.new("StringValue")
 workspace:FindFirstChild("AbilityThingyk1212"):Remove()
