@@ -33,9 +33,9 @@ local Window = Rayfield:CreateWindow({
    LoadingTitle = "Blade Ball",
    LoadingSubtitle = "by SadlekAski",
    ConfigurationSaving = {
-      Enabled = false,
-      FolderName = "Idk",
-      FileName = "Idk"
+      Enabled = true,
+      FolderName = "Blade Ball",
+      FileName = "Configurationlol"
    },
    Discord = {
       Enabled = true,
@@ -207,7 +207,7 @@ local AutoParryToggle = Main:CreateToggle({
 
 local ToggleParry = Main:CreateKeybind({
    Name = "ToggleParry (Bind to your key)",
-   CurrentKeybind = "P",
+   CurrentKeybind = "One",
    HoldToInteract = false,
    Flag = "abc", -- A flag is the identifier for the configuration file, make sure every element has a different flag if you're using configuration saving to ensure no overlaps
    Callback = function(Keybind)
@@ -218,7 +218,7 @@ AutoParryToggle:Set(true)
 
 local ToggleParryOff = Main:CreateKeybind({
    Name = "ToggleParryOff (Bind to your key)",
-   CurrentKeybind = "L",
+   CurrentKeybind = "Two",
    HoldToInteract = false,
    Flag = "abc2", -- A flag is the identifier for the configuration file, make sure every element has a different flag if you're using configuration saving to ensure no overlaps
    Callback = function(Keybind)
@@ -936,6 +936,8 @@ local katmesh = Katanamesh
 katmesh.Transparency = 1
 end
 })
+
+local Unique = Skins:CreateSection("Unique")
 
 local GodSaber = Skins:CreateButton({
    Name = "God Saber",
