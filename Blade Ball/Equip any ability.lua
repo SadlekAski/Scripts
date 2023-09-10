@@ -34,8 +34,8 @@ local Window = Rayfield:CreateWindow({
    LoadingSubtitle = "by SadlekAski",
    ConfigurationSaving = {
       Enabled = true,
-      FolderName = "Blade Ball",
-      FileName = "Configurationlol"
+      FolderName = "BladeBallerlol",
+      FileName = "Configuration"
    },
    Discord = {
       Enabled = true,
