@@ -205,24 +205,26 @@ local AutoParryToggle = Main:CreateToggle({
     end,
 })
 
-local AutoParrySpam = Main:CreateToggle({
-   Name = "Autoparry spam",
-   CurrentValue = false,
-   Flag = "Toggle1", -- A flag is the identifier for the configuration file, make sure every element has a different flag if you're using configuration saving to ensure no overlaps
-   Callback = function(Value)
-   ToggleParry = Value
-   end,
+local ToggleParry = Main:CreateKeybind({
+   Name = "ToggleParry (Bind to your key)",
+   CurrentKeybind = "P",
+   HoldToInteract = false,
+   Flag = "abc", -- A flag is the identifier for the configuration file, make sure every element has a different flag if you're using configuration saving to ensure no overlaps
+   Callback = function(Keybind)
+AutoParryToggle:Set(true)
+
+   end
 })
 
-spawn(function()
-
-while true do wait()
-if ToggleParry then
-    local args = {[1] = 1.5,[2] = CFrame.new(-409.506591796875, 68.28494262695312, -53.9754753112793) * CFrame.Angles(-0.5642477869987488, -0.1643802374601364, -0.10319763422012329),
-[3] = {[game.Players.LocalPlayer.UserId] = Vector3.new(0, 0, 0),},[4] = {[1] = 1000,[2] = 1000}} game:GetService("ReplicatedStorage").Remotes.ParryAttempt:FireServer(unpack(args))
-end
-end
-end)
+local ToggleParryOff = Main:CreateKeybind({
+   Name = "ToggleParryOff (Bind to your key)",
+   CurrentKeybind = "L",
+   HoldToInteract = false,
+   Flag = "abc2", -- A flag is the identifier for the configuration file, make sure every element has a different flag if you're using configuration saving to ensure no overlaps
+   Callback = function(Keybind)
+   AutoParryToggle:Set(false)
+   end,
+})
 
 local Abilities = Main:CreateSection("Abilities")
 local Descrip = Main:CreateButton({
