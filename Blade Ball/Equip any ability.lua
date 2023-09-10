@@ -936,3 +936,104 @@ local katmesh = Katanamesh
 katmesh.Transparency = 1
 end
 })
+
+local GodSaber = Skins:CreateButton({
+   Name = "God Saber",
+   Callback = function()
+            local localplayer = game.Players.LocalPlayer
+local character = localplayer.Character
+local Katanamesh = character:FindFirstChildOfClass("Model"):FindFirstChild("KatanaMesh")
+local godsaber = game:GetService("ReplicatedStorage").Misc.Swords.Unique.Godsaber
+
+local SkinSword = godsaber
+local SkinSwordClone = godsaber:Clone()
+local godkatanamesh = godsaber:FindFirstChild("KatanaMesh")
+local godhandle = godsaber:FindFirstChild("handle")
+local godsord = godsaber:FindFirstChild("sord")
+local godBlade = godsaber:FindFirstChild("Blade")
+local godMain = godBlade:FindFirstChild("Main")
+local katmesh = Katanamesh
+if character:FindFirstChildOfClass("Model"):FindFirstChild("Godsaber") then
+    character:FindFirstChildOfClass("Model"):FindFirstChild("Godsaber"):Remove()
+
+task.wait(0.1)
+
+godMain.Anchored = false
+godsord.Anchored = false
+godhandle.Anchored = false
+godkatanamesh.Anchored = false
+SkinSwordClone.Parent = character:FindFirstChildOfClass("Model")
+
+character.HumanoidRootPart.CFrame = CFrame.new(-233.710556, 123.299973, 203.648102)
+
+godsord.CFrame = Katanamesh.CFrame
+godhandle.CFrame = Katanamesh.CFrame + Vector3.new(0,0.6,-1.5)
+godkatanamesh.CFrame = Katanamesh.CFrame
+godMain.CFrame = Katanamesh.CFrame
+
+godkatanamesh.WeldConstraint.Part1 = character:FindFirstChild("Left Leg")
+
+task.wait(0.2)
+
+godMain.Rotation = Vector3.new(112, 0, 90)
+
+godhandle.Rotation = Vector3.new(-159, 0, 100)
+
+katmesh.Transparency = 1
+
+        Rayfield:Notify({
+   Title = "If Something Went Wrong",
+   Content = "If Sword in wrong place (not where swords are on character then press again)",
+   Duration = 20,
+   Image = 4483362458,
+   Actions = { -- Notification Buttons
+      Ignore = {
+         Name = "Ok!",
+         Callback = function()
+         print("The user tapped Okay!")
+      end
+   },
+},
+})
+elseif not character:FindFirstChildOfClass("Model"):FindFirstChild("Godsaber") then
+    godMain.Anchored = false
+godsord.Anchored = false
+godhandle.Anchored = false
+godkatanamesh.Anchored = false
+SkinSwordClone.Parent = character:FindFirstChildOfClass("Model")
+
+character.HumanoidRootPart.CFrame = CFrame.new(-233.710556, 123.299973, 203.648102)
+
+godsord.CFrame = Katanamesh.CFrame
+godhandle.CFrame = Katanamesh.CFrame + Vector3.new(0,0.6,-1.5)
+godkatanamesh.CFrame = Katanamesh.CFrame
+godMain.CFrame = Katanamesh.CFrame
+
+godkatanamesh.WeldConstraint.Part1 = character:FindFirstChild("Left Leg")
+
+task.wait(0.2)
+
+godMain.Rotation = Vector3.new(112, 0, 90)
+
+godhandle.Rotation = Vector3.new(-159, 0, 100)
+
+
+katmesh.Transparency = 1
+
+        Rayfield:Notify({
+   Title = "If Something Went Wrong",
+   Content = "If Sword in wrong place (not where swords are on character then press again)",
+   Duration = 20,
+   Image = 4483362458,
+   Actions = { -- Notification Buttons
+      Ignore = {
+         Name = "Ok!",
+         Callback = function()
+         print("The user tapped Okay!")
+      end
+   },
+},
+})
+        end
+    end
+    })
