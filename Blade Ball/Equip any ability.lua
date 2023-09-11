@@ -683,6 +683,54 @@ end
    end,
 })
 
+local Telekinesis = Main:CreateButton({
+   Name = "Rapture",
+   Callback = function()
+
+local args = {
+    [1] = "Rapture"
+}
+
+game:GetService("ReplicatedStorage").Remotes.Store.RequestEquipAbility:InvokeServer(unpack(args))
+
+game:GetService("ReplicatedStorage").Remotes.Store.GetOwnedAbilities:InvokeServer()
+
+game:GetService("ReplicatedStorage").Remotes.kebaind:FireServer()
+            
+local function AbilityValue2()
+local TruValue = Instance.new("StringValue")
+workspace:FindFirstChild("AbilityThingyk1212"):Remove()
+        TruValue.Parent = game:GetService("Workspace")
+        TruValue.Name = "AbilityThingyk1212"
+        TruValue.Value = "Rapture" --Change to Use other ability
+end
+
+for i,v in pairs(abilitiesFolder:GetChildren()) do
+
+
+for i,b in pairs(abilitiesFolder:GetChildren()) do
+    local Ability = b
+    
+    if v.Enabled == true then
+        local EquippedAbility = v
+        local ChosenAbility = {}
+        spawn(function()
+        ChosenAbility = AbilityValue2()
+    end)
+
+    task.wait(0.05)
+        local AbilityValue = workspace.AbilityThingyk1212
+        if b.Name == AbilityValue.Value then
+
+            v.Enabled = false
+            b.Enabled = true
+    end
+end
+end
+end
+   end,
+})
+
 local Positive = Misc:CreateSection("Positive")
 local InfDash = Misc:CreateButton({
    Name = "Inf Dash (Inf uses dash)",
