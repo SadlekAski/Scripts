@@ -200,6 +200,25 @@ local function stopAutoParry()
     end
 end
 
+local Descrip = AutoParry:CreateButton({
+   Name = "Credits (Click)",
+   Callback = function()
+    Rayfield:Notify({
+   Title = "Credits",
+   Content = "Auto Parry By infernokarl (Discord User)",
+   Duration = 60,
+   Image = 4483362458,
+   Actions = { -- Notification Buttons
+      Ignore = {
+         Name = "Okay!",
+         Callback = function()
+         print("The user tapped Okay!")
+      end
+   },
+},
+})
+end
+})
 
 local AutoParrySection = AutoParry:CreateSection("Auto Parry")
 
