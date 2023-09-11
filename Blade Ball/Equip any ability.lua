@@ -978,7 +978,7 @@ local Cestsu2 = claws.Cestus2
 
 local Glove = claws
 local Cestus1 = Glove:FindFirstChild("Cestus")
-local Cestus1Blade = Cestus1.Blade:FindFirstChild("MoneyGet")
+local Cestus1Blade = Cestus1:FindFirstChild("Meshes/oni claws textured_Cube.010_Cube.020")
 local thing = Cestus1Blade
 local Cestus2 = Glove:FindFirstChild("Cestus2")
 
@@ -986,13 +986,13 @@ Glove.Parent = sword
 local leftarm = Instance.new("Weld")
 leftarm.Name = "Left Arm"
 leftarm.Parent = Cestus1
-leftarm.Part0 = Cestus1.dosdos
+leftarm.Part0 = Cestus1.zaza
 leftarm.Part1 = character:FindFirstChild("Left Arm")
 
 local leftarm = Instance.new("Weld")
 leftarm.Name = "Right Arm"
 leftarm.Parent = Cestus2
-leftarm.Part0 = Cestus2.dosdos
+leftarm.Part0 = Cestus2.zaza
 leftarm.Part1 = character:FindFirstChild("Right Arm")
 local katmesh = Katanamesh
 katmesh.Transparency = 1
@@ -1028,7 +1028,7 @@ local Glove = claws
 local Glove2 = claws2
 local Cestus1 = Glove:FindFirstChild("Cestus")
 local Csetus2 = Glove2:FindFirstChild("Cestus2")
-local Cestus1Blade = Cestus1.Blade:FindFirstChild("MoneyGet")
+local Cestus1Blade = Cestus1:FindFirstChild("Meshes/oni claws textured_Cube.010_Cube.020")
 local thing = Cestus1Blade
 local Cestus2 = Glove:FindFirstChild("Cestus2")
 local Csetus1 = Glove2:FindFirstChild("Cestus")
@@ -1037,31 +1037,38 @@ Glove.Parent = sword
 local leftarm = Instance.new("Weld")
 leftarm.Name = "Left Arm"
 leftarm.Parent = Cestus1
-leftarm.Part0 = Cestus1.dosdos
+leftarm.Part0 = Cestus1.zaza
 leftarm.Part1 = character:FindFirstChild("Left Arm")
 
 local leftarm = Instance.new("Weld")
 leftarm.Name = "Right Arm"
 leftarm.Parent = Cestus2
-leftarm.Part0 = Cestus2.dosdos
+leftarm.Part0 = Cestus2.zaza
 leftarm.Part1 = character:FindFirstChild("Right Arm")
 
 Glove2.Parent = sword
 local lfetarm = Instance.new("Weld")
 lfetarm.Name = "Lfet Arm"
 lfetarm.Parent = Csetus2
-lfetarm.Part0 = Csetus2.dosdos
+lfetarm.Part0 = Csetus2.zaza
 lfetarm.Part1 = character:FindFirstChild("Left Arm")
 
 local rarm = Instance.new("Weld")
 rarm.Name = "Rgiht Arm"
 rarm.Parent = Csetus1
-rarm.Part0 = Csetus1.dosdos
+rarm.Part0 = Csetus1.zaza
 rarm.Part1 = character:FindFirstChild("Right Arm")
 
             
 local katmesh = Katanamesh
 katmesh.Transparency = 1
+
+
+    character:FindFirstChildOfClass("Model").sord:Remove()
+    character:FindFirstChildOfClass("Model").handle:Remove()
+    character:FindFirstChildOfClass("Model"):FindFirstChild("WhiteFlameCharges"):Remove()
+    character:FindFirstChildOfClass("Model"):FindFirstChild("KatanaMesh"):Remove()
+    character:FindFirstChildOfClass("Model"):FindFirstChild("Excalibur"):Remove()
 end
 })
 
