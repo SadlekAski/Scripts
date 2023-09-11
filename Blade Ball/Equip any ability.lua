@@ -210,6 +210,22 @@ local ToggleParryOff = AutoParry:CreateKeybind({
    end,
 })
 
+local CloseFighting = AutoParry:CreateSection("Close Fighting")
+local SpamParry = AutoParry:CreateKeybind({
+   Name = "Spam Parry (Hold)",
+   CurrentKeybind = "C",
+   HoldToInteract = true,
+   Flag = "ToggleParry", -- A flag is the identifier for the configuration file, make sure every element has a different flag if you're using configuration saving to ensure no overlaps
+   Callback = function(Keybind)
+            local function click(a)
+    game:GetService("VirtualInputManager"):SendMouseButtonEvent(a.AbsolutePosition.X+a.AbsoluteSize.X/2,a.AbsolutePosition.Y+50,0,true,a,1)
+    game:GetService("VirtualInputManager"):SendMouseButtonEvent(a.AbsolutePosition.X+a.AbsoluteSize.X/2,a.AbsolutePosition.Y+50,0,false,a,1)
+end
+
+click(game:GetService("Players").LocalPlayer.PlayerGui.Hotbar.Block.Pressable1)
+   end,
+})
+
 local Discord = Main:CreateSection("Discord")
 local Descrip = Main:CreateButton({
    Name = "Discord invite (IF you wanted to join)",
