@@ -244,7 +244,24 @@ local TpToSpawn = AutoParry:CreateToggle({
     end,
 })
 
+local TpToSpawn = AutoParry:CreateToggle({
+    Name = "Fake Platform",
+    CurrentValue = false,
+    Flag = "FakePlatform",
+    Callback = function(Value)
+        FakePlatform = Value
 
+        spawn(function()
+                while true do wait()
+                if FakePlatform then
+                    character.Humanoid.HipHeight = 50
+                        else
+                            character.Humanoid.HipHeight = 0
+                    end
+                end
+            end)
+    end,
+})
 
 local Discord = Main:CreateSection("Discord")
 local Descrip = Main:CreateButton({
