@@ -226,6 +226,26 @@ click(game:GetService("Players").LocalPlayer.PlayerGui.Hotbar.Block.Pressable1)
    end,
 })
 
+local AfkThing = AutoParry:CreateSection("Afk Play")
+local TpToSpawn = AutoParry:CreateToggle({
+    Name = "Tp To Spawn (So u can use autoparry and ppl cant come close)",
+    CurrentValue = false,
+    Flag = "SpawnTp",
+    Callback = function(Value)
+        TpSpawn = Value
+
+        spawn(function()
+                while true do wait()
+                if TpSpawn then
+                    character.HumanoidRootPart.CFrame = CFrame.new(-229, 123, 203)
+                    end
+                end
+            end)
+    end,
+})
+
+
+
 local Discord = Main:CreateSection("Discord")
 local Descrip = Main:CreateButton({
    Name = "Discord invite (IF you wanted to join)",
