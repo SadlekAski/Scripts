@@ -788,18 +788,18 @@ end
 local OpenExplosionCrate = AutoOpen:CreateButton({
    Name = "Open Explosion Crate",
    Callback = function()
-    character.HumanoidRootPart.CFrame = workspace.Spawn.Folder.ExplosionSkinCrate.Lock.CFrame
-            task.wait(0.1)
-    fireproximityprompt(workspace.Spawn.Folder.ExplosionSkinCrate.Lock.ProximityPrompt)
+
+game:GetService("ReplicatedStorage").Remotes.Store.RequestOpenExplosionBox:InvokeServer()
+
 end
 })
 
 local OpenWeaponCrate = AutoOpen:CreateButton({
    Name = "Open Weapon Crate",
    Callback = function()
-    character.HumanoidRootPart.CFrame = workspace.Spawn.Folder.SwordSkinCrate.Lock.CFrame
-            task.wait(0.1)
-    fireproximityprompt(workspace.Spawn.Folder.SwordSkinCrate.Lock.ProximityPrompt)
+
+game:GetService("ReplicatedStorage").Remotes.Store.RequestOpenSwordBox:InvokeServer()
+
 end
 })
 
@@ -812,9 +812,9 @@ local OpenExplosionCrateToggle = AutoOpen:CreateToggle({
 
         while true do wait()
             if OpenExplosionCrate then
-                character.HumanoidRootPart.CFrame = workspace.Spawn.Folder.ExplosionSkinCrate.Lock.CFrame
-            task.wait(0.1)
-    fireproximityprompt(workspace.Spawn.Folder.ExplosionSkinCrate.Lock.ProximityPrompt)
+
+game:GetService("ReplicatedStorage").Remotes.Store.RequestOpenExplosionBox:InvokeServer()
+
             end
     end
     end,
@@ -829,9 +829,7 @@ local OpenWeaponCrateToggle = AutoOpen:CreateToggle({
 
         while true do wait()
             if OpenSwordCrate then
-                character.HumanoidRootPart.CFrame = workspace.Spawn.Folder.SwordSkinCrate.Lock.CFrame
-            task.wait(0.1)
-    fireproximityprompt(workspace.Spawn.Folder.SwordSkinCrate.Lock.ProximityPrompt)
+game:GetService("ReplicatedStorage").Remotes.Store.RequestOpenSwordBox:InvokeServer()
             end
     end
     end,
