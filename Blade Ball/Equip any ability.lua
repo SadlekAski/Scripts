@@ -245,7 +245,7 @@ local TpToSpawn = AutoParry:CreateToggle({
 })
 
 local TpToSpawn = AutoParry:CreateToggle({
-    Name = "Fake Platform",
+    Name = "Fake Platform (Im sure there risk getting reported using this, same as tp to spawn)",
     CurrentValue = false,
     Flag = "FakePlatform",
     Callback = function(Value)
