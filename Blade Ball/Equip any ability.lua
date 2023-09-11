@@ -59,13 +59,13 @@ local Window = Rayfield:CreateWindow({
    }
 })
 
-
+local AutoParry = Window:CreateTab("Auto Parry", 13014537525)
 local Main = Window:CreateTab("Main", 13014546637)
 local Misc = Window:CreateTab("Misc", 13014546637)
 local AutoOpen = Window:CreateTab("Auto Open", 13014546637)
 local Misc2 = Window:CreateTab("Misc2", 13014546637)
 local Skins = Window:CreateTab("Skins", 13014546637)
-local AutoParry = Window:CreateTab("Auto Parry", 13014537525)
+
 
 local function startAutoParry()
     local character = localPlayer.Character or localPlayer.CharacterAdded:Wait()
