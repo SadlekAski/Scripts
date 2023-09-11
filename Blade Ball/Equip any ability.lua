@@ -1,11 +1,14 @@
 local Rayfield = loadstring(game:HttpGet('https://sirius.menu/rayfield'))()
+
+local runService = game:GetService("RunService")
 local workspace = game:GetService("Workspace")
 local players = game:GetService("Players")
-local runService = game:GetService("RunService")
-local ReplicatedStorage = game:GetService("ReplicatedStorage")
-local localPlayer = game.Players.LocalPlayer
+local localPlayer = players.LocalPlayer
 local character = localPlayer.Character or localPlayer.CharacterAdded:Wait()
 local abilitiesFolder = character:WaitForChild("Abilities")
+local UserInputService = game:GetService("UserInputService")
+local replicatedStorage = game:GetService("ReplicatedStorage")
+local heartbeatConnection
 local upgrades = localPlayer.Upgrades
 
 local function onCharacterAdded(newCharacter)
@@ -54,35 +57,13 @@ local Window = Rayfield:CreateWindow({
    }
 })
 
+local AutoParry = Window:CreateTab("Auto Parry", 13014537525)
 local Main = Window:CreateTab("Main", 13014546637)
 local Misc = Window:CreateTab("Misc", 13014546637)
 local Misc2 = Window:CreateTab("Misc2", 13014546637)
 local Skins = Window:CreateTab("Skins", 13014546637)
 
-local Positive = Misc:CreateSection("Positive")
 
-local Discord = Main:CreateSection("Discord")
-local Descrip = Main:CreateButton({
-   Name = "Discord invite (IF you wanted to join)",
-   Callback = function()
-    Rayfield:Notify({
-   Title = "Credits",
-   Content = "Discord invite (If you forgot to join, and wanted to): discord.gg/hNX8VxcjMF",
-   Duration = 60,
-   Image = 4483362458,
-   Actions = { -- Notification Buttons
-      Ignore = {
-         Name = "Okay!",
-         Callback = function()
-         print("The user tapped Okay!")
-      end
-   },
-},
-})
-end
-})
-
-local AutoParry = Main:CreateSection("AutoParry")
 local function startAutoParry()
     local player = game.Players.LocalPlayer
     local character = player.Character or player.CharacterAdded:Wait()
@@ -172,7 +153,20 @@ local function stopAutoParry()
     end
 end
 
-local Descrip = Main:CreateButton({
+local AutoParryToggle = AutoParry:CreateToggle({
+    Name = "Auto Parry",
+    CurrentValue = false,
+    Flag = "AutoParryFlag",
+    Callback = function(Value)
+        if Value then
+            startAutoParry()
+        else
+            stopAutoParry()
+        end
+    end,
+})
+
+local Descrip = AutoParry:CreateButton({
    Name = "Credits (Click)",
    Callback = function()
     Rayfield:Notify({
@@ -192,20 +186,7 @@ local Descrip = Main:CreateButton({
 end
 })
 
-local AutoParryToggle = Main:CreateToggle({
-    Name = "Auto Parry. Credits to infernokarl",
-    CurrentValue = false,
-    Flag = "AutoParryToggle",
-    Callback = function(Value)
-        if Value then
-            startAutoParry()
-        else
-            stopAutoParry()
-        end
-    end,
-})
-
-local ToggleParry = Main:CreateKeybind({
+local ToggleParry = AutoParry:CreateKeybind({
    Name = "ToggleParry (Bind to your key)",
    CurrentKeybind = "One",
    HoldToInteract = false,
@@ -218,7 +199,7 @@ AutoParryToggle:Set(true)
 
 
 
-local ToggleParryOff = Main:CreateKeybind({
+local ToggleParryOff = AutoParry:CreateKeybind({
    Name = "ToggleParryOff (Bind to your key)",
    CurrentKeybind = "Two",
    HoldToInteract = false,
@@ -226,6 +207,27 @@ local ToggleParryOff = Main:CreateKeybind({
    Callback = function(Keybind)
    AutoParryToggle:Set(false)
    end,
+})
+
+local Discord = Main:CreateSection("Discord")
+local Descrip = Main:CreateButton({
+   Name = "Discord invite (IF you wanted to join)",
+   Callback = function()
+    Rayfield:Notify({
+   Title = "Credits",
+   Content = "Discord invite (If you forgot to join, and wanted to): discord.gg/hNX8VxcjMF",
+   Duration = 60,
+   Image = 4483362458,
+   Actions = { -- Notification Buttons
+      Ignore = {
+         Name = "Okay!",
+         Callback = function()
+         print("The user tapped Okay!")
+      end
+   },
+},
+})
+end
 })
 
 local Abilities = Main:CreateSection("Abilities")
@@ -681,6 +683,7 @@ end
    end,
 })
 
+local Positive = Misc:CreateSection("Positive")
 local InfDash = Misc:CreateButton({
    Name = "Inf Dash (Inf uses dash)",
    Callback = function()
