@@ -10,6 +10,8 @@ local UserInputService = game:GetService("UserInputService")
 local replicatedStorage = game:GetService("ReplicatedStorage")
 local heartbeatConnection
 local upgrades = localPlayer.Upgrades
+local UseRage = false
+local sliderValue = 20
 
 local function onCharacterAdded(newCharacter)
     character = newCharacter
@@ -66,35 +68,64 @@ local Skins = Window:CreateTab("Skins", 13014546637)
 
 
 local function startAutoParry()
-    local player = game.Players.LocalPlayer
-    local character = player.Character or player.CharacterAdded:Wait()
-    local replicatedStorage = game:GetService("ReplicatedStorage")
-    local runService = game:GetService("RunService")
-    local parryButtonPress = replicatedStorage.Remotes.ParryButtonPress
+    local character = localPlayer.Character or localPlayer.CharacterAdded:Wait()
     local ballsFolder = workspace:WaitForChild("Balls")
+    local parryButtonPress = replicatedStorage.Remotes.ParryButtonPress
+    local abilityButtonPress = replicatedStorage.Remotes.AbilityButtonPress
 
     print("Script successfully ran.")
 
     local function onCharacterAdded(newCharacter)
         character = newCharacter
     end
+    localPlayer.CharacterAdded:Connect(onCharacterAdded)
 
-    player.CharacterAdded:Connect(onCharacterAdded)
+    if character then
+        print("Character found.")
+    else
+        print("Character not found.")
+        return
+    end
+    
 
-    local focusedBall = nil  
-
-    local function chooseNewFocusedBall()
-        local balls = ballsFolder:GetChildren()
-        focusedBall = nil
-        for _, ball in ipairs(balls) do
-            if ball:GetAttribute("realBall") == true then
-                focusedBall = ball
-                break
-            end
+local function chooseNewFocusedBall()
+    local balls = ballsFolder:GetChildren()
+    for _, ball in ipairs(balls) do
+        if ball:GetAttribute("realBall") ~= nil and ball:GetAttribute("realBall") == true then
+            focusedBall = ball
+            print(focusedBall.Name)
+            break
+        elseif ball:GetAttribute("target") ~= nil then
+            focusedBall = ball
+            print(focusedBall.Name)
+            break
         end
     end
+    
+    if focusedBall == nil then
+        print("Debug: Could not find a ball that's the realBall or has a target.")
+    end
+    return focusedBall
+end
+
+
+
+
 
     chooseNewFocusedBall()
+
+    local BASE_THRESHOLD = 0.15
+    local VELOCITY_SCALING_FACTOR_FAST = 0.050
+    local VELOCITY_SCALING_FACTOR_SLOW = 0.1
+
+    local function getDynamicThreshold(ballVelocityMagnitude)
+        if ballVelocityMagnitude > 60 then
+            print("Going Fast!")
+            return math.max(0.20, BASE_THRESHOLD - (ballVelocityMagnitude * VELOCITY_SCALING_FACTOR_FAST))
+        else
+            return math.min(0.01, BASE_THRESHOLD + (ballVelocityMagnitude * VELOCITY_SCALING_FACTOR_SLOW))
+        end
+    end
 
     local function timeUntilImpact(ballVelocity, distanceToPlayer, playerVelocity)
         local directionToPlayer = (character.HumanoidRootPart.Position - focusedBall.Position).Unit
@@ -104,44 +135,59 @@ local function startAutoParry()
             return math.huge
         end
         
-        local distanceToBeCovered = distanceToPlayer - 40
-        return distanceToBeCovered / velocityTowardsPlayer
+        return (distanceToPlayer - sliderValue) / velocityTowardsPlayer
     end
 
-    local BASE_THRESHOLD = 0.15
-    local VELOCITY_SCALING_FACTOR = 0.002
-
-    local function getDynamicThreshold(ballVelocityMagnitude)
-        local adjustedThreshold = BASE_THRESHOLD - (ballVelocityMagnitude * VELOCITY_SCALING_FACTOR)
-        return math.max(0.12, adjustedThreshold)
+    local function isWalkSpeedZero()
+        local humanoid = character:FindFirstChildOfClass("Humanoid")
+        if humanoid then
+            return humanoid.WalkSpeed == 0
+        end
+        return false
     end
+
 
     local function checkBallDistance()
-        if not character:FindFirstChild("Highlight") then return end
+        if not character or not character:FindFirstChild("Highlight") then return end
+
         local charPos = character.PrimaryPart.Position
         local charVel = character.PrimaryPart.Velocity
 
         if focusedBall and not focusedBall.Parent then
+            print("Focused ball lost parent. Choosing a new focused ball.")
+            chooseNewFocusedBall()
+        end
+        if not focusedBall then 
+            print("No focused ball.")
             chooseNewFocusedBall()
         end
 
-        if not focusedBall then return end
-
         local ball = focusedBall
         local distanceToPlayer = (ball.Position - charPos).Magnitude
-
+        local ballVelocityTowardsPlayer = ball.Velocity:Dot((charPos - ball.Position).Unit)
+        
         if distanceToPlayer < 10 then
             parryButtonPress:Fire()
-            return
         end
+        local isCheckingRage = false
 
-        local timeToImpact = timeUntilImpact(ball.Velocity, distanceToPlayer, charVel)
-        local dynamicThreshold = getDynamicThreshold(ball.Velocity.Magnitude)
-
-        if timeToImpact < dynamicThreshold then
-            parryButtonPress:Fire()
+        if timeUntilImpact(ball.Velocity, distanceToPlayer, charVel) < getDynamicThreshold(ballVelocityTowardsPlayer) then
+            if character.Abilities["Raging Deflection"].Enabled and UseRage == true then
+                if not isCheckingRage then
+                    isCheckingRage = true
+                    abilityButtonPress:Fire()
+                    if not isWalkSpeedZero() then
+                        parryButtonPress:Fire()
+                    end
+                    isCheckingRage = false
+                end
+            else
+                parryButtonPress:Fire()
+            end
         end
     end
+
+
     heartbeatConnection = game:GetService("RunService").Heartbeat:Connect(function()
         checkBallDistance()
     end)
@@ -154,6 +200,9 @@ local function stopAutoParry()
     end
 end
 
+
+local AutoParrySection = AutoParry:CreateSection("Auto Parry")
+
 local AutoParryToggle = AutoParry:CreateToggle({
     Name = "Auto Parry",
     CurrentValue = false,
@@ -164,6 +213,16 @@ local AutoParryToggle = AutoParry:CreateToggle({
         else
             stopAutoParry()
         end
+    end,
+})
+
+
+local AutoRagingDeflect = AutoParry:CreateToggle({
+    Name = "Auto Rage Parry (MUST EQUIP RAGING DEFLECT)",
+    CurrentValue = false,
+    Flag = "AutoRagingDeflectFlag",
+    Callback = function(Value)
+        UseRage = Value
     end,
 })
 
@@ -187,29 +246,6 @@ local Descrip = AutoParry:CreateButton({
 end
 })
 
-local ToggleParry = AutoParry:CreateKeybind({
-   Name = "ToggleParry (Bind to your key)",
-   CurrentKeybind = "One",
-   HoldToInteract = false,
-   Flag = "ToggleParry", -- A flag is the identifier for the configuration file, make sure every element has a different flag if you're using configuration saving to ensure no overlaps
-   Callback = function(Keybind)
-AutoParryToggle:Set(true)
-
-   end
-})
-
-
-
-local ToggleParryOff = AutoParry:CreateKeybind({
-   Name = "ToggleParryOff (Bind to your key)",
-   CurrentKeybind = "Two",
-   HoldToInteract = false,
-   Flag = "ToggleParryOff", -- A flag is the identifier for the configuration file, make sure every element has a different flag if you're using configuration saving to ensure no overlaps
-   Callback = function(Keybind)
-   AutoParryToggle:Set(false)
-   end,
-})
-
 local CloseFighting = AutoParry:CreateSection("Close Fighting")
 local SpamParry = AutoParry:CreateKeybind({
    Name = "Spam Parry (Hold)",
@@ -223,6 +259,44 @@ local SpamParry = AutoParry:CreateKeybind({
 end
 
 click(game:GetService("Players").LocalPlayer.PlayerGui.Hotbar.Block.Pressable1)
+   end,
+})
+
+local Configuration = AutoParry:CreateSection("Configuration")
+
+local DistanceSlider = AutoParry:CreateSlider({
+   Name = "Distance Configuration",
+   Range = {0, 100},
+   Increment = 10,
+   Suffix = "Distance",
+   CurrentValue = 20,
+   Flag = "DistanceSlider",
+   Callback = function(Value)
+       sliderValue = Value
+   end,
+})
+
+
+local ToggleParryOn = AutoParry:CreateKeybind({
+   Name = "Toggle Parry On (Bind)",
+   CurrentKeybind = "One",
+   HoldToInteract = false,
+   Flag = "ToggleParryOn", 
+   Callback = function(Keybind)
+AutoParryToggle:Set(true)
+
+   end
+})
+
+
+
+local ToggleParryOff = AutoParry:CreateKeybind({
+   Name = "Toggle Parry Off (Bind)",
+   CurrentKeybind = "Two",
+   HoldToInteract = false,
+   Flag = "ToggleParryOff",
+   Callback = function(Keybind)
+   AutoParryToggle:Set(false)
    end,
 })
 
