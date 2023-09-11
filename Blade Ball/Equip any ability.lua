@@ -57,7 +57,7 @@ local Window = Rayfield:CreateWindow({
    }
 })
 
-local AutoParry = Window:CreateTab("Auto Parry", 13014537525)
+local AutoParry = Window:CreateTab("Auto Play", 13014537525)
 local Main = Window:CreateTab("Main", 13014546637)
 local Misc = Window:CreateTab("Misc", 13014546637)
 local AutoOpen = Window:CreateTab("Auto Open", 13014546637)
