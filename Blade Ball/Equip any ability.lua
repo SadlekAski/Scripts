@@ -59,13 +59,13 @@ local Window = Rayfield:CreateWindow({
    }
 })
 
-local AutoParry = Window:CreateTab("Auto Play", 13014537525)
+
 local Main = Window:CreateTab("Main", 13014546637)
 local Misc = Window:CreateTab("Misc", 13014546637)
 local AutoOpen = Window:CreateTab("Auto Open", 13014546637)
 local Misc2 = Window:CreateTab("Misc2", 13014546637)
 local Skins = Window:CreateTab("Skins", 13014546637)
-
+local AutoParry = Window:CreateTab("Auto Parry", 13014537525)
 
 local function startAutoParry()
     local character = localPlayer.Character or localPlayer.CharacterAdded:Wait()
@@ -226,32 +226,14 @@ local AutoRagingDeflect = AutoParry:CreateToggle({
     end,
 })
 
-local Descrip = AutoParry:CreateButton({
-   Name = "Credits (Click)",
-   Callback = function()
-    Rayfield:Notify({
-   Title = "Credits",
-   Content = "Auto Parry By infernokarl (Discord User)",
-   Duration = 60,
-   Image = 4483362458,
-   Actions = { -- Notification Buttons
-      Ignore = {
-         Name = "Okay!",
-         Callback = function()
-         print("The user tapped Okay!")
-      end
-   },
-},
-})
-end
-})
+
 
 local CloseFighting = AutoParry:CreateSection("Close Fighting")
 local SpamParry = AutoParry:CreateKeybind({
    Name = "Spam Parry (Hold)",
    CurrentKeybind = "C",
    HoldToInteract = true,
-   Flag = "ToggleParry", -- A flag is the identifier for the configuration file, make sure every element has a different flag if you're using configuration saving to ensure no overlaps
+   Flag = "ToggleParrySpam", 
    Callback = function(Keybind)
             local function click(a)
     game:GetService("VirtualInputManager"):SendMouseButtonEvent(a.AbsolutePosition.X+a.AbsoluteSize.X/2,a.AbsolutePosition.Y+50,0,true,a,1)
