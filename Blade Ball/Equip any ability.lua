@@ -949,6 +949,12 @@ katmesh.Transparency = 1
 character.HumanoidRootPart.CFrame = CFrame.new(-233.710556, 123.299973, 203.648102)
 task.wait(0.1)
 SkinSwordClone.Rotation = Vector3.new(-75.41799926757812, -90, 0)
+
+
+    character:FindFirstChildOfClass("Model").sord:Remove()
+    character:FindFirstChildOfClass("Model").handle:Remove()
+    character:FindFirstChildOfClass("Model"):FindFirstChild("WhiteFlameCharges"):Remove()
+    character:FindFirstChildOfClass("Model"):FindFirstChild("Excalibur"):Remove()
 end
 })
 
@@ -996,6 +1002,12 @@ leftarm.Part0 = Cestus2.zaza
 leftarm.Part1 = character:FindFirstChild("Right Arm")
 local katmesh = Katanamesh
 katmesh.Transparency = 1
+
+
+    character:FindFirstChildOfClass("Model").sord:Remove()
+    character:FindFirstChildOfClass("Model").handle:Remove()
+    character:FindFirstChildOfClass("Model"):FindFirstChild("WhiteFlameCharges"):Remove()
+    character:FindFirstChildOfClass("Model"):FindFirstChild("Excalibur"):Remove()
 end
 })
 
@@ -1067,7 +1079,6 @@ katmesh.Transparency = 1
     character:FindFirstChildOfClass("Model").sord:Remove()
     character:FindFirstChildOfClass("Model").handle:Remove()
     character:FindFirstChildOfClass("Model"):FindFirstChild("WhiteFlameCharges"):Remove()
-    character:FindFirstChildOfClass("Model"):FindFirstChild("KatanaMesh"):Remove()
     character:FindFirstChildOfClass("Model"):FindFirstChild("Excalibur"):Remove()
 end
 })
@@ -1156,6 +1167,11 @@ godhandle.Rotation = Vector3.new(-159, 0, 100)
 
 
 katmesh.Transparency = 1
+
+    character:FindFirstChildOfClass("Model").sord:Remove()
+    character:FindFirstChildOfClass("Model").handle:Remove()
+    character:FindFirstChildOfClass("Model"):FindFirstChild("WhiteFlameCharges"):Remove()
+    character:FindFirstChildOfClass("Model"):FindFirstChild("Excalibur"):Remove()
 
         Rayfield:Notify({
    Title = "If Sword in wrong place (not where swords are on character then press again",
