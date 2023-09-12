@@ -1136,12 +1136,14 @@ local BreakBallToggle = Tab:CreateToggle({
 
         while true do wait()
                 if breakballerbelike then
+                    localPlayer.CharacterAdded:Connect(onCharacterAdded)
                     game:GetService("ReplicatedStorage").Remotes.Telekinesis:FireServer()
                     task.wait(0.2)
                     character.HumanoidRootPart.CFrame = CFrame.new(-10002.240021, 123.299988, 200.441544)
     task.wait(1)
    character.Humanoid.Health = 0
-            task.wait(3)
+            task.wait(6)
+                    localPlayer.CharacterAdded:Connect(onCharacterAdded)
                 end
             end
    end,
