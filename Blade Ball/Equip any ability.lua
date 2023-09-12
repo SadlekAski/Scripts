@@ -1178,10 +1178,6 @@ task.wait(0.1)
 SkinSwordClone.Rotation = Vector3.new(-75.41799926757812, -90, 0)
 
 
-    character:FindFirstChildOfClass("Model").sord:Remove()
-    character:FindFirstChildOfClass("Model").handle:Remove()
-    character:FindFirstChildOfClass("Model"):FindFirstChild("WhiteFlameCharges"):Remove()
-    character:FindFirstChildOfClass("Model"):FindFirstChild("Excalibur"):Remove()
 end
 })
 
