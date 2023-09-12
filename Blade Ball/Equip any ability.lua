@@ -245,7 +245,25 @@ local AutoRagingDeflect = AutoParry:CreateToggle({
     end,
 })
 
-
+local AntiAfkThing = AutoParry:CreateSection("Anti Afk")
+local Toggle = AutoParry:CreateToggle({
+   Name = "Anti Afk",
+   CurrentValue = false,
+   Flag = "AntiAfk", -- A flag is the identifier for the configuration file, make sure every element has a different flag if you're using configuration saving to ensure no overlaps
+   Callback = function(Value)
+        AntiAfkLol = Value
+                while true do wait()
+            if AntiAfkLol then
+local vu = game:GetService("VirtualUser")
+game:GetService("Players").LocalPlayer.Idled:connect(function()
+   vu:Button2Down(Vector2.new(0,0),workspace.CurrentCamera.CFrame)
+   wait(1)
+   vu:Button2Up(Vector2.new(0,0),workspace.CurrentCamera.CFrame)
+end)
+        end
+    end
+   end,
+})
 
 local CloseFighting = AutoParry:CreateSection("Close Fighting")
 local SpamParry = AutoParry:CreateKeybind({
@@ -298,6 +316,26 @@ local ToggleParryOff = AutoParry:CreateKeybind({
    Flag = "ToggleParryOff",
    Callback = function(Keybind)
    AutoParryToggle:Set(false)
+   end,
+})
+local Configuration2 = AutoParry:CreateSection("Configuration2")
+local ChangeDistanceTothirty = AutoParry:CreateKeybind({
+   Name = "Change Distance to 30",
+   CurrentKeybind = "V",
+   HoldToInteract = false,
+   Flag = "Distanceto30", -- A flag is the identifier for the configuration file, make sure every element has a different flag if you're using configuration saving to ensure no overlaps
+   Callback = function(Keybind)
+DistanceSlider:Set(30) -- The new slider integer value
+   end,
+})
+
+local ChangeDistanceToidk = AutoParry:CreateKeybind({
+   Name = "Change Distance to 100",
+   CurrentKeybind = "B",
+   HoldToInteract = false,
+   Flag = "Distanceto100", -- A flag is the identifier for the configuration file, make sure every element has a different flag if you're using configuration saving to ensure no overlaps
+   Callback = function(Keybind)
+DistanceSlider:Set(100) -- The new slider integer value
    end,
 })
 
