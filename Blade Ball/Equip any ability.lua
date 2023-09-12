@@ -1056,6 +1056,13 @@ local EmoteEffect = Misc2:CreateButton({
 end
 })
 
+local ActualEmote = Misc2:CreateButton({
+   Name = "Gamepass Emote (Press R aka emote button after pressed this button)",
+   Callback = function()
+   character:FindFirstChildOfClass("Model").Name = "Empyrean Greatblade"
+end
+})
+
 local Funnythingslol = Misc2:CreateSection("Funny Thing")
 local BreakBall = Misc2:CreateButton({
    Name = "Break Ball (You need telekinesis owned)",
