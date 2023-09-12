@@ -1102,8 +1102,9 @@ end
 })
 
 local Funnythingslol = Misc2:CreateSection("Funny Thing")
-local BreakBall = Misc2:CreateButton({
-   Name = "Break Ball (You need telekinesis owned)",
+
+local EquipTelekinesis = Misc2:CreateButton({
+   Name = "Equip Telekinesis",
    Callback = function()
 
 local args = {
@@ -1115,9 +1116,35 @@ game:GetService("ReplicatedStorage").Remotes.Store.RequestEquipAbility:InvokeSer
 game:GetService("ReplicatedStorage").Remotes.Store.GetOwnedAbilities:InvokeServer()
 
 game:GetService("ReplicatedStorage").Remotes.kebaind:FireServer()
-            
+end
+})
+
+local BreakBall = Misc2:CreateButton({
+   Name = "Break Ball (You need telekinesis owned)",
+   Callback = function()
+    
    game:GetService("ReplicatedStorage").Remotes.Telekinesis:FireServer()
 end
+})
+
+local BreakBallToggle = Tab:CreateToggle({
+   Name = "Auto Break Ball",
+   CurrentValue = false,
+   Flag = "IDballerloldfaf", -- A flag is the identifier for the configuration file, make sure every element has a different flag if you're using configuration saving to ensure no overlaps
+   Callback = function(Value)
+        breakballerbelike = Value
+
+        while true do wait()
+                if breakballerbelike then
+                    game:GetService("ReplicatedStorage").Remotes.Telekinesis:FireServer()
+                    task.wait(0.2)
+                    character.HumanoidRootPart.CFrame = CFrame.new(-10002.240021, 123.299988, 200.441544)
+    task.wait(1)
+   character.Humanoid.Health = 0
+            task.wait(3)
+                end
+            end
+   end,
 })
 
 local UseTelekines = Misc2:CreateButton({
