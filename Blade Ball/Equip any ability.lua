@@ -1057,7 +1057,7 @@ end
 })
 
 local ActualEmote = Misc2:CreateButton({
-   Name = "Gamepass Emote (Press R aka emote button after pressed this button)",
+   Name = "Gamepass Emote (Press R, after pressing button), Everyone sees",
    Callback = function()
    character:FindFirstChildOfClass("Model").Name = "Empyrean Greatblade"
 end
