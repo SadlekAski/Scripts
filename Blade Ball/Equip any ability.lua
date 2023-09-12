@@ -360,6 +360,14 @@ end
 })
 
 local Abilities = Main:CreateSection("Abilities")
+
+local AliveFolder = Main:CreateButton({
+   Name = "Allow Use abilities/parry in lobby",
+   Callback = function()
+    character.Parent = workspace.Alive
+end
+})
+
 local Descrip = Main:CreateButton({
 Name = "How To Use",
    Callback = function()
