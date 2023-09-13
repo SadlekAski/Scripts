@@ -336,27 +336,16 @@ local DistanceSlider = AutoParry:CreateSlider({
 
 
 local ToggleParryOn = AutoParry:CreateKeybind({
-   Name = "Toggle Parry On (Bind)",
+   Name = "Parry On/Off",
    CurrentKeybind = "One",
    HoldToInteract = false,
    Flag = "ToggleParryOn", 
    Callback = function(Keybind)
-AutoParryToggle:Set(true)
+AutoParryToggle:Set(not AutoParryToggle.CurrentValue)
 
    end
 })
 
-
-
-local ToggleParryOff = AutoParry:CreateKeybind({
-   Name = "Toggle Parry Off (Bind)",
-   CurrentKeybind = "Two",
-   HoldToInteract = false,
-   Flag = "ToggleParryOff",
-   Callback = function(Keybind)
-   AutoParryToggle:Set(false)
-   end,
-})
 local Configuration2 = AutoParry:CreateSection("Configuration2")
 local ChangeDistanceTothirty = AutoParry:CreateKeybind({
    Name = "Change Distance to 30",
