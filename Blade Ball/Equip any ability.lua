@@ -1186,6 +1186,7 @@ local AutoTelekinesis = Misc2:CreateToggle({
 
         while true do wait()
                 if breakballerbelike then
+                    character:WaitForChild("HumanoidRootPart").CFrame = CFrame.new(12321,123213,123213)
                     localPlayer.CharacterAdded:Connect(onCharacterAdded)
                     local args = {
     [1] = CFrame.new(-177.78134155273438, 22.17252540588379, -6.560810089111328) * CFrame.Angles(-0.5510220527648926, 0.4792300760746002, 0.2761117219924927),
@@ -1216,8 +1217,14 @@ game:GetService("ReplicatedStorage").Remotes.Telekinesis:FireServer(unpack(args)
    character.Humanoid.Health = 0
             task.wait(4)
                     localPlayer.CharacterAdded:Connect(onCharacterAdded)
+                character:WaitForChild("HumanoidRootPart").CFrame = CFrame.new(12321,123213,123213)
                 end
             end
+while true do wait()
+                if breakballerbelike then
+                    character:WaitForChild("HumanoidRootPart").CFrame = CFrame.new(12321,123213,123213)
+                end
+                end
    end,
 })
 
