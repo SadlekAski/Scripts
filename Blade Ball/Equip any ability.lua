@@ -962,7 +962,7 @@ local OpenExplosionCrateToggle = AutoOpen:CreateToggle({
         while true do wait()
             if OpenExplosionCrate then
 
-game:GetService("ReplicatedStorage").Remotes.Store.RequestOpenExplosionBox:InvokeServer()
+  sendNotif(getExplosion())
 
             end
     end
@@ -978,7 +978,7 @@ local OpenWeaponCrateToggle = AutoOpen:CreateToggle({
 
         while true do wait()
             if OpenSwordCrate then
-game:GetService("ReplicatedStorage").Remotes.Store.RequestOpenSwordBox:InvokeServer()
+sendNotif(getSword())
             end
     end
     end,
