@@ -1177,18 +1177,53 @@ local BreakBallToggle = Misc2:CreateToggle({
    end,
 })
 
+local BreakBallToggle = Misc2:CreateToggle({
+   Name = "Auto Break Ball",
+   CurrentValue = false,
+   Flag = "IDballerloldfaf", -- A flag is the identifier for the configuration file, make sure every element has a different flag if you're using configuration saving to ensure no overlaps
+   Callback = function(Value)
+        breakballerbelike = Value
+
+        while true do wait()
+                if breakballerbelike then
+                    localPlayer.CharacterAdded:Connect(onCharacterAdded)
+                    local args = {
+    [1] = CFrame.new(-177.78134155273438, 22.17252540588379, -6.560810089111328) * CFrame.Angles(-0.5510220527648926, 0.4792300760746002, 0.2761117219924927),
+    [2] = {
+        ["1390589899"] = Vector3.new(-3606.42333984375, 309.64959716796875, 15.07781982421875),
+        ["95606930"] = Vector3.new(1109.630615234375, 97.52566528320312, 164.15850830078125),
+        ["2428748976"] = Vector3.new(-393.8770751953125, 114.9974365234375, 104.13533020019531),
+        ["138302338"] = Vector3.new(782.9514770507812, 90.34832763671875, 216.39634704589844),
+        ["game.Players.LocalPlayer.UserId"] = Vector3.new(721.59521484375, 437.5107421875, 13.196876525878906),
+        ["460529380"] = Vector3.new(3050.986572265625, -402.539306640625, -10.369964599609375),
+        ["3389515036"] = Vector3.new(-24216.498046875, 2629.838134765625, 1.3838348388671875),
+        ["253804325"] = Vector3.new(-277.2596435546875, -125.47763061523438, 44.2408447265625),
+        ["2466009586"] = Vector3.new(1826.3505859375, 865.5350341796875, -84.64073944091797),
+        ["534937301"] = Vector3.new(539.1710205078125, 96.26556396484375, 171.3994140625),
+        ["1697434972"] = Vector3.new(1627.478759765625, 611.9812622070312, -123.97309112548828),
+        ["4394721359"] = Vector3.new(1459.405029296875, 138.78118896484375, 68.75445556640625)
+    },
+    [3] = {
+        [1] = 800,
+        [2] = 378
+    }
+}
+
+game:GetService("ReplicatedStorage").Remotes.Telekinesis:FireServer(unpack(args))
+                    task.wait(0.2)
+                    character.HumanoidRootPart.CFrame = CFrame.new(-10002.240021, 123.299988, 200.441544)
+    task.wait(1)
+   character.Humanoid.Health = 0
+            task.wait(4)
+                    localPlayer.CharacterAdded:Connect(onCharacterAdded)
+                end
+            end
+   end,
+})
+
 local UseTelekines = Misc2:CreateButton({
    Name = "Use telekinesis (even from lobby) (Must own telekinesis)",
    Callback = function()
-   local args = {
-    [1] = "Telekinesis"
-}
-
-game:GetService("ReplicatedStorage").Remotes.Store.RequestEquipAbility:InvokeServer(unpack(args))
-
-game:GetService("ReplicatedStorage").Remotes.Store.GetOwnedAbilities:InvokeServer()
-
-game:GetService("ReplicatedStorage").Remotes.kebaind:FireServer()
 
 local args = {
     [1] = CFrame.new(-177.78134155273438, 22.17252540588379, -6.560810089111328) * CFrame.Angles(-0.5510220527648926, 0.4792300760746002, 0.2761117219924927),
