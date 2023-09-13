@@ -1177,10 +1177,10 @@ local BreakBallToggle = Misc2:CreateToggle({
    end,
 })
 
-local BreakBallToggle = Misc2:CreateToggle({
-   Name = "Auto Break Ball",
+local AutoTelekinesis = Misc2:CreateToggle({
+   Name = "Auto Telekinesis (money farm)",
    CurrentValue = false,
-   Flag = "IDballerloldfaf", -- A flag is the identifier for the configuration file, make sure every element has a different flag if you're using configuration saving to ensure no overlaps
+   Flag = "AutoT21321elekinesis", -- A flag is the identifier for the configuration file, make sure every element has a different flag if you're using configuration saving to ensure no overlaps
    Callback = function(Value)
         breakballerbelike = Value
 
