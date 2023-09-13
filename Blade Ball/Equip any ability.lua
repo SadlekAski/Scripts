@@ -253,6 +253,7 @@ local HalfLegitSpawn = AutoParry:CreateToggle({
 stayspawnshit = Value
             while true do wait()
         if stayspawnshit then
+            character.Parent = workspace.Alive
             if localPlayer.PlayerGui.announcer.TextBox.Text == "Starting Game" then
 character.Humanoid.Health = 0
 localPlayer.PlayerGui.announcer.TextBox.Text = "e"
