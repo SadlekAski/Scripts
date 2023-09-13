@@ -276,8 +276,8 @@ stayspawnshit = Value
             if localPlayer.PlayerGui.announcer.TextBox.Text == "Starting Game" or localPlayer.PlayerGui.announcer.TextBox.Text == "Starting Team Game" then
 character.Humanoid.Health = 0
 localPlayer.PlayerGui.announcer.TextBox.Text = "e"
-            task.wait(4)
-            character.HumanoidRootPart.CFrame = CFrame.new(1231231231,123123213,123123123132)
+            task.wait(5)
+            character.HumanoidRootPart.CFrame = CFrame.new(121231212313,121231213,12123123213)
 end
                 end
         end
