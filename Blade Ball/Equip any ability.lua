@@ -254,9 +254,30 @@ stayspawnshit = Value
             while true do wait()
         if stayspawnshit then
             character.Parent = workspace.Alive
-            if localPlayer.PlayerGui.announcer.TextBox.Text == "Starting Game" then
+            if localPlayer.PlayerGui.announcer.TextBox.Text == "Starting Game" or localPlayer.PlayerGui.announcer.TextBox.Text == "Starting Team Game" then
 character.Humanoid.Health = 0
 localPlayer.PlayerGui.announcer.TextBox.Text = "e"
+end
+                end
+        end
+    end,
+})
+
+local toplegitspawntp = AutoParry:CreateToggle({
+    Name = "Most Legit Spawn tp1!1!1!!!!!1!!1!!!!!!!",
+    CurrentValue = false,
+    Flag = "StaySpawnFlag",
+    Callback = function(Value)
+stayspawnshit = Value
+            while true do wait()
+        if stayspawnshit then
+            
+            character.Parent = workspace.Alive
+            if localPlayer.PlayerGui.announcer.TextBox.Text == "Starting Game" or localPlayer.PlayerGui.announcer.TextBox.Text == "Starting Team Game" then
+character.Humanoid.Health = 0
+localPlayer.PlayerGui.announcer.TextBox.Text = "e"
+            task.wait(4)
+            character.HumanoidRootPart.CFrame = CFrame.new(1231231231,123123213,123123123132)
 end
                 end
         end
