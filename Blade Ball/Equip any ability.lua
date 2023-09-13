@@ -906,22 +906,50 @@ end
    end,
 })
 
+local CoreGui = game:GetService("StarterGui")
+local ReplicatedStorage = game:GetService("ReplicatedStorage")
+
+function sendNotif(explosion)
+    CoreGui:SetCore("SendNotification", {
+        Title = "Auto Explosion Crate";
+        Text = explosion;
+        Duration = 3;
+        Icon = "rbxassetid://14763355020";
+    })
+end
+
+function getExplosion()
+    local _, explosion = ReplicatedStorage.Remotes.Store.RequestOpenExplosionBox:InvokeServer()
+    return explosion
+end
+
 local OpenExplosionCrate = AutoOpen:CreateButton({
    Name = "Open Explosion Crate",
    Callback = function()
-
-game:GetService("ReplicatedStorage").Remotes.Store.RequestOpenExplosionBox:InvokeServer()
-
-end
+  sendNotif(getExplosion())
+end,
 })
+
+
+function sendNotif(sword)
+    CoreGui:SetCore("SendNotification", {
+        Title = "Auto Weapon Crate";
+        Text = sword;
+        Duration = 3;
+        Icon = "rbxassetid://14763355020";
+    })
+end
+
+function getSword()
+    local _, sword = ReplicatedStorage.Remotes.Store.RequestOpenSwordBox:InvokeServer()
+    return sword
+end
 
 local OpenWeaponCrate = AutoOpen:CreateButton({
    Name = "Open Weapon Crate",
    Callback = function()
-
-game:GetService("ReplicatedStorage").Remotes.Store.RequestOpenSwordBox:InvokeServer()
-
-end
+    sendNotif(getSword())
+end,
 })
 
 local OpenExplosionCrateToggle = AutoOpen:CreateToggle({
