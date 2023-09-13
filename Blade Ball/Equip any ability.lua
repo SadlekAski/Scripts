@@ -245,6 +245,23 @@ local AutoRagingDeflect = AutoParry:CreateToggle({
     end,
 })
 
+local HalfLegitSpawn = AutoParry:CreateToggle({
+    Name = "Half Legit Stay Spawn",
+    CurrentValue = false,
+    Flag = "StaySpawnFlag",
+    Callback = function(Value)
+stayspawnshit = Value
+            while true do wait()
+        if stayspawnshit then
+            if localPlayer.PlayerGui.announcer.TextBox.Text == "Starting Game" then
+character.Humanoid.Health = 0
+localPlayer.PlayerGui.announcer.TextBox.Text = "e"
+end
+                end
+        end
+    end,
+})
+
 local AntiAfkThing = AutoParry:CreateSection("Anti Afk")
 local Toggle = AutoParry:CreateToggle({
    Name = "Anti Afk",
