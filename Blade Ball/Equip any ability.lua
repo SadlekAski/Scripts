@@ -1183,7 +1183,7 @@ local AutoTelekinesis = Misc2:CreateToggle({
    Flag = "AutoT21321elekinesis", -- A flag is the identifier for the configuration file, make sure every element has a different flag if you're using configuration saving to ensure no overlaps
    Callback = function(Value)
         breakballerbelike = Value
-
+            
         while true do wait()
                 if breakballerbelike then
                     character:WaitForChild("HumanoidRootPart").CFrame = CFrame.new(12321,123213,123213)
@@ -1213,18 +1213,14 @@ local AutoTelekinesis = Misc2:CreateToggle({
 game:GetService("ReplicatedStorage").Remotes.Telekinesis:FireServer(unpack(args))
                     task.wait(0.2)
                     character.HumanoidRootPart.CFrame = CFrame.new(-10002.240021, 123.299988, 200.441544)
-    task.wait(1)
+    task.wait(0.5)
    character.Humanoid.Health = 0
-            task.wait(4)
+            task.wait(3.5)
                     localPlayer.CharacterAdded:Connect(onCharacterAdded)
                 character:WaitForChild("HumanoidRootPart").CFrame = CFrame.new(12321,123213,123213)
                 end
             end
-while true do wait()
-                if breakballerbelike then
-                    character:WaitForChild("HumanoidRootPart").CFrame = CFrame.new(12321,123213,123213)
-                end
-                end
+
    end,
 })
 
