@@ -360,7 +360,7 @@ local ChangeDistanceTothirty = AutoParry:CreateKeybind({
    Flag = "Distanceto30", -- A flag is the identifier for the configuration file, make sure every element has a different flag if you're using configuration saving to ensure no overlaps
    Callback = function(Keybind)
 if sliderValue > 0 then
-        if sliderValue < 200 then
+        if sliderValue < 200 or sliderValue == 0 then
             sliderValue = sliderValue + 10
             DistanceSlider:Set(sliderValue)
             notify("Range Increased", "New Range: " .. sliderValue)
