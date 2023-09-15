@@ -329,13 +329,18 @@ end)
 local CloseFighting = AutoParry:CreateSection("Close Fighting")
 local parryButtonPress = replicatedStorage.Remotes.ParryButtonPress
 
- local SpamParry = AutoParry:CreateKeybind({
-    Name = "Spam Parry (Hold)",
-    CurrentKeybind = "C",
-    HoldToInteract = true,
-    Flag = "ToggleParrySpam", 
-    Callback = function(Keybind)
+local AutoParryToggle = AutoParry:CreateToggle({
+    Name = "Auto Parry",
+    CurrentValue = false,
+    Flag = "AutoParryFlag",
+    Callback = function(Value)
+	spamparry = Value
+
+	while true do
+	      if spamparry then
         parryButtonPress:Fire()
+		end
+	end
     end,
  })
 
