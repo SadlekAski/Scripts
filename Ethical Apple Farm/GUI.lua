@@ -28,7 +28,7 @@ localPlayer.CharacterAdded:Connect(onCharacterAdded)
 for i,v in ipairs(plots:GetChildren()) do
     if v:FindFirstChild("ID") then
         local plate = v
-        if plate.PlayerOwned.Value.Name == nil then
+        if plate.PlayerOwned.Value.Name ~= game.Players.LocalPlayer.Name then
             plate:Remove()
         end
         end
