@@ -200,6 +200,15 @@ local function stopAutoParry()
     end
 end
 
+local function notify(title, content, duration)
+    Rayfield:Notify({
+        Title = title,
+        Content = content,
+        Duration = duration or 0.7,
+        Image = 10010348543, -- Replace with your image ID
+    })
+end
+
 local Descrip = AutoParry:CreateButton({
    Name = "Credits (Click)",
    Callback = function()
@@ -345,22 +354,32 @@ AutoParryToggle:Set(not AutoParryToggle.CurrentValue)
 
 local Configuration2 = AutoParry:CreateSection("Configuration2")
 local ChangeDistanceTothirty = AutoParry:CreateKeybind({
-   Name = "Change Distance to 30",
+   Name = "+10, Credits to (for add,remove cuz im dumb) askien",
    CurrentKeybind = "V",
    HoldToInteract = false,
    Flag = "Distanceto30", -- A flag is the identifier for the configuration file, make sure every element has a different flag if you're using configuration saving to ensure no overlaps
    Callback = function(Keybind)
-DistanceSlider:Set(30) -- The new slider integer value
-   end,
+if sliderValue > 0 then
+        if sliderValue < 200 then
+            sliderValue = sliderValue + 10
+            DistanceSlider:Set(sliderValue)
+            notify("Range Increased", "New Range: " .. sliderValue)
+        end
+            end
+   end
 })
 
 local ChangeDistanceToidk = AutoParry:CreateKeybind({
-   Name = "Change Distance to 100",
+   Name = "-10",
    CurrentKeybind = "B",
    HoldToInteract = false,
    Flag = "Distanceto100", -- A flag is the identifier for the configuration file, make sure every element has a different flag if you're using configuration saving to ensure no overlaps
    Callback = function(Keybind)
-DistanceSlider:Set(100) -- The new slider integer value
+        if sliderValue > 0 then
+            sliderValue = sliderValue - 10
+            DistanceSlider:Set(sliderValue)
+            notify("Range Decreased", "New Range: " .. sliderValue)
+        end
    end,
 })
 
