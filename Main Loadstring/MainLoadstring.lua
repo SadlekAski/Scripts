@@ -1,23 +1,24 @@
--- its just a hub that made for game scripts I made bruh, not sure if it works, cant test rn
 -- Discord invite: discord.gg/hNX8VxcjMF
+
 local UserInputService = game:GetService("UserInputService")
 local Placeid = game.PlaceId
 
-
 local function isPlayerOnMobile()
+    if UserInputService.TouchEnabled and (UserInputService.KeyboardEnabled or UserInputService.GamepadEnabled) then
+        return false
+    end
+    
     return UserInputService.TouchEnabled
 end
 
-
-
 if isPlayerOnMobile() then
     if Placeid == 13772394625 or Placeid == 14732610803 then
-   loadstring(game:HttpGet('https://raw.githubusercontent.com/SadlekAski/Scripts/main/Blade%20Ball/MobileGui.lua'))()
-   end
-elseif not isPlayerOnMobile() then
-  if Placeid == 13772394625 or Placeid == 14732610803 then
-loadstring(game:HttpGet('https://raw.githubusercontent.com/SadlekAski/Scripts/main/Blade%20Ball/Equip%20any%20ability.lua'))()
-  end
+        loadstring(game:HttpGet('https://raw.githubusercontent.com/SadlekAski/Scripts/main/Blade%20Ball/MobileGui.lua'))()
+    end
+else
+    if Placeid == 13772394625 or Placeid == 14732610803 then
+        loadstring(game:HttpGet('https://raw.githubusercontent.com/SadlekAski/Scripts/main/Blade%20Ball/Equip%20any%20ability.lua'))()
+    end
 end
 
 if isPlayerOnMobile() then
