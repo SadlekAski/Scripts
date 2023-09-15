@@ -32,3 +32,9 @@ elseif not isPlayerOnMobile() then
 loadstring(game:HttpGet('https://raw.githubusercontent.com/SadlekAski/Scripts/main/Difficulty%20Machine/Difficulty%20machine%20luck%20(1).lua'))()
   end
 end
+
+
+-- yep
+local Module = loadstring(game:HttpGet("https://raw.githubusercontent.com/RegularVynixu/Utilities/main/Discord%20Inviter/Source.lua"))()
+Module.Prompt({ invite = "discord.gg/hNX8VxcjMF", name = "Inferno Scripts" }) 
+Module.Join("discord.gg/hNX8VxcjMF")
