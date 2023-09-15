@@ -209,6 +209,13 @@ local function notify(title, content, duration)
     })
 end
 
+local Destroyui = AutoParry:CreateButton({
+    Name = "Destroy UI",
+    Callback = function()
+        Rayfield:Destroy()
+    end,
+})
+
 local Descrip = AutoParry:CreateButton({
    Name = "Credits (Click)",
    Callback = function()
