@@ -352,7 +352,7 @@ AutoParryToggle:Set(not AutoParryToggle.CurrentValue)
    end
 })
 
-local Configuration2 = AutoParry:CreateSection("Configuration2")
+
 local ChangeDistanceTothirty = AutoParry:CreateKeybind({
    Name = "+10, Credits to (for add,remove cuz im dumb) askien",
    CurrentKeybind = "V",
@@ -380,6 +380,26 @@ local ChangeDistanceToidk = AutoParry:CreateKeybind({
             DistanceSlider:Set(sliderValue)
             notify("Range Decreased", "New Range: " .. sliderValue)
         end
+   end,
+})
+local Configuration2 = AutoParry:CreateSection("Configuration2")
+local ChangeDistanceToidk = AutoParry:CreateKeybind({
+   Name = "Distance 30",
+   CurrentKeybind = "Z",
+   HoldToInteract = false,
+   Flag = "Distanceto100", -- A flag is the identifier for the configuration file, make sure every element has a different flag if you're using configuration saving to ensure no overlaps
+   Callback = function(Keybind)
+DistanceSlider:Set(30) -- The new slider integer value
+   end,
+})
+
+local ChangeDistanceToidk = AutoParry:CreateKeybind({
+   Name = "Distance 100",
+   CurrentKeybind = "X",
+   HoldToInteract = false,
+   Flag = "Distanceto100", -- A flag is the identifier for the configuration file, make sure every element has a different flag if you're using configuration saving to ensure no overlaps
+   Callback = function(Keybind)
+DistanceSlider:Set(100) -- The new slider integer value
    end,
 })
 
