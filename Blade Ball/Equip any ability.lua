@@ -1066,7 +1066,7 @@ local OpenExplosionCrateToggle = AutoOpen:CreateToggle({
 
         while true do wait()
             if OpenExplosionCrate then
-                    task.wait(0.2)
+                    task.wait(1)
                 local WebHook     = webhookthing -- your WebHook goes here
                 local HTTPService = game:GetService("HttpService")
                 request({
@@ -1094,7 +1094,7 @@ local OpenWeaponCrateToggle = AutoOpen:CreateToggle({
 
         while true do wait()
             if OpenSwordCrate then
-                    task.wait(0.2)
+                    task.wait(1)
                 local WebHook     = webhookthing -- your WebHook goes here
                 local HTTPService = game:GetService("HttpService")
                 request({
