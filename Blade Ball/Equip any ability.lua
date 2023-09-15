@@ -305,20 +305,17 @@ end)
 })
 
 local CloseFighting = AutoParry:CreateSection("Close Fighting")
-local SpamParry = AutoParry:CreateKeybind({
-   Name = "Spam Parry (Hold)",
-   CurrentKeybind = "C",
-   HoldToInteract = true,
-   Flag = "ToggleParrySpam", 
-   Callback = function(Keybind)
-            local function click(a)
-    game:GetService("VirtualInputManager"):SendMouseButtonEvent(a.AbsolutePosition.X+a.AbsoluteSize.X/2,a.AbsolutePosition.Y+50,0,true,a,1)
-    game:GetService("VirtualInputManager"):SendMouseButtonEvent(a.AbsolutePosition.X+a.AbsoluteSize.X/2,a.AbsolutePosition.Y+50,0,false,a,1)
-end
+local parryButtonPress = replicatedStorage.Remotes.ParryButtonPress
 
-click(game:GetService("Players").LocalPlayer.PlayerGui.Hotbar.Block.Pressable1)
-   end,
-})
+ local SpamParry = AutoParry:CreateKeybind({
+    Name = "Spam Parry (Hold)",
+    CurrentKeybind = "C",
+    HoldToInteract = true,
+    Flag = "ToggleParrySpam", 
+    Callback = function(Keybind)
+        parryButtonPress:Fire()
+    end,
+ })
 
 local Configuration = AutoParry:CreateSection("Configuration")
 
