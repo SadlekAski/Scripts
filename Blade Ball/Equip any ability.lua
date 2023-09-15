@@ -933,6 +933,18 @@ end
 
 local CoreGui = game:GetService("StarterGui")
 local ReplicatedStorage = game:GetService("ReplicatedStorage")
+local webhookthing = "bruh"
+
+local Input = AutoOpen:CreateInput({
+    Name = "Put Webhook (to see what you get)",
+    PlaceholderText = "YourWebhook",
+    RemoveTextAfterFocusLost = false,
+    Callback = function(Text)
+        webhookthing = Text
+    end,
+ })
+
+
 
 function sendNotif(explosion)
     CoreGui:SetCore("SendNotification", {
@@ -951,7 +963,18 @@ end
 local OpenExplosionCrate = AutoOpen:CreateButton({
    Name = "Open Explosion Crate",
    Callback = function()
-  sendNotif(getExplosion())
+  local WebHook     = webhookthing -- your WebHook goes here
+  local HTTPService = game:GetService("HttpService")
+  request({
+                     Url = WebHook,
+                     Method = "POST",
+                     Headers = {
+                         ["Content-Type"] = "application/json"
+                     },
+                     Body = game.HttpService:JSONEncode({
+                         content = getExplosion()
+                    })
+                 })
 end,
 })
 
@@ -973,7 +996,18 @@ end
 local OpenWeaponCrate = AutoOpen:CreateButton({
    Name = "Open Weapon Crate",
    Callback = function()
-    sendNotif(getSword())
+    local WebHook     = webhookthing -- your WebHook goes here
+    local HTTPService = game:GetService("HttpService")
+    request({
+                       Url = WebHook,
+                       Method = "POST",
+                       Headers = {
+                           ["Content-Type"] = "application/json"
+                       },
+                       Body = game.HttpService:JSONEncode({
+                           content = getSword()
+                      })
+                   })
 end,
 })
 
@@ -987,7 +1021,18 @@ local OpenExplosionCrateToggle = AutoOpen:CreateToggle({
         while true do wait()
             if OpenExplosionCrate then
 
-  sendNotif(getExplosion())
+                local WebHook     = webhookthing -- your WebHook goes here
+                local HTTPService = game:GetService("HttpService")
+                request({
+                                   Url = WebHook,
+                                   Method = "POST",
+                                   Headers = {
+                                       ["Content-Type"] = "application/json"
+                                   },
+                                   Body = game.HttpService:JSONEncode({
+                                       content = getExplosion()
+                                  })
+                               })
 
             end
     end
@@ -1003,7 +1048,18 @@ local OpenWeaponCrateToggle = AutoOpen:CreateToggle({
 
         while true do wait()
             if OpenSwordCrate then
-sendNotif(getSword())
+                local WebHook     = webhookthing -- your WebHook goes here
+                local HTTPService = game:GetService("HttpService")
+                request({
+                                   Url = WebHook,
+                                   Method = "POST",
+                                   Headers = {
+                                       ["Content-Type"] = "application/json"
+                                   },
+                                   Body = game.HttpService:JSONEncode({
+                                       content = getSword()
+                                  })
+                               })
             end
     end
     end,
@@ -1600,3 +1656,4 @@ katmesh.Transparency = 1
         end
     end
     })
+
