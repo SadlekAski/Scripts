@@ -222,6 +222,13 @@ local function notify(title, content, duration)
     })
 end
 
+local Destroyui = AutoParry:CreateButton({
+    Name = "Destroy UI",
+    Callback = function()
+        Rayfield:Destroy()
+    end,
+})
+
 local Descrip = AutoParry:CreateButton({
    Name = "Credits (Click)",
    Callback = function()
@@ -1077,7 +1084,7 @@ local OpenExplosionCrateToggle = AutoOpen:CreateToggle({
 
         while true do wait()
             if OpenExplosionCrate then
-
+			task.wait(1)
                 local WebHook     = webhookthing -- your WebHook goes here
                 local HTTPService = game:GetService("HttpService")
                 request({
@@ -1105,6 +1112,7 @@ local OpenWeaponCrateToggle = AutoOpen:CreateToggle({
 
         while true do wait()
             if OpenSwordCrate then
+			task.wait(1)
                 local WebHook     = webhookthing -- your WebHook goes here
                 local HTTPService = game:GetService("HttpService")
                 request({
