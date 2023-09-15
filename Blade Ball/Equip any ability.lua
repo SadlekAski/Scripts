@@ -1422,7 +1422,7 @@ end
 })
 
 local OniClaws = Skins:CreateButton({
-   Name = "Funni Oni Claws",
+   Name = "Funni Oni Claws (Double Oni Claws)",
    Callback = function()
 
 
