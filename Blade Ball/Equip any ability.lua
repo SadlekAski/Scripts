@@ -1591,13 +1591,14 @@ end
 local Unique = Skins:CreateSection("Unique")
 
 local GodSaber = Skins:CreateButton({
-   Name = "God Saber",
+   Name = "God Saber (WIP, still working but Im working on it for it be better)",
    Callback = function()
             local localplayer = game.Players.LocalPlayer
 local character = localplayer.Character
 local Katanamesh = character:FindFirstChildOfClass("Model"):FindFirstChild("KatanaMesh")
 local godsaber = game:GetService("ReplicatedStorage").Misc.Swords.Unique.Godsaber
 
+local Swordsfd = character:FindFirstChildOfClass("Model")
 local SkinSword = godsaber
 local SkinSwordClone = godsaber:Clone()
 local godkatanamesh = godsaber:FindFirstChild("KatanaMesh")
@@ -1606,6 +1607,14 @@ local godsord = godsaber:FindFirstChild("sord")
 local godBlade = godsaber:FindFirstChild("Blade")
 local godMain = godBlade:FindFirstChild("Main")
 local katmesh = Katanamesh
+local katmeshholder = Instance.new("Part")
+katmeshholder.Parent = Swordsfd
+katmeshholder.Name = "HolderForSword"
+katmeshholder.CFrame = katmesh.CFrame
+katmeshholder.Rotation = katmesh.Rotation
+katmeshholder.Transparency = 1
+katmeshholder.CanCollide = false
+katmeshholder.Anchored = true
 if character:FindFirstChildOfClass("Model"):FindFirstChild("Godsaber") then
     character:FindFirstChildOfClass("Model"):FindFirstChild("Godsaber"):Remove()
 
@@ -1619,10 +1628,10 @@ SkinSwordClone.Parent = character:FindFirstChildOfClass("Model")
 
 character.HumanoidRootPart.CFrame = CFrame.new(-233.710556, 123.299973, 203.648102)
 
-godsord.CFrame = Katanamesh.CFrame
-godhandle.CFrame = Katanamesh.CFrame + Vector3.new(0,0.6,-1.5)
-godkatanamesh.CFrame = Katanamesh.CFrame
-godMain.CFrame = Katanamesh.CFrame
+godsord.CFrame = katmeshholder.CFrame
+godhandle.CFrame = katmeshholder.CFrame + Vector3.new(0,0.6,-1.5)
+godkatanamesh.CFrame = katmeshholder.CFrame
+godMain.CFrame = katmeshholder.CFrame
 
 godkatanamesh.WeldConstraint.Part1 = character:FindFirstChild("Left Leg")
 
@@ -1657,10 +1666,10 @@ SkinSwordClone.Parent = character:FindFirstChildOfClass("Model")
 
 character.HumanoidRootPart.CFrame = CFrame.new(-233.710556, 123.299973, 203.648102)
 
-godsord.CFrame = Katanamesh.CFrame
-godhandle.CFrame = Katanamesh.CFrame + Vector3.new(0,0.6,-1.5)
-godkatanamesh.CFrame = Katanamesh.CFrame
-godMain.CFrame = Katanamesh.CFrame
+godsord.CFrame = katmeshholder.CFrame
+godhandle.CFrame = katmeshholder.CFrame + Vector3.new(0,0.6,-1.5)
+godkatanamesh.CFrame = katmeshholder.CFrame
+godMain.CFrame = katmeshholder.CFrame
 
 godkatanamesh.WeldConstraint.Part1 = character:FindFirstChild("Left Leg")
 
