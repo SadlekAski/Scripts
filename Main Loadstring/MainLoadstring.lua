@@ -11,14 +11,8 @@ local function isPlayerOnMobile()
     return UserInputService.TouchEnabled
 end
 
-if isPlayerOnMobile() then
-    if Placeid == 13772394625 or Placeid == 14732610803 then
-        loadstring(game:HttpGet('https://raw.githubusercontent.com/SadlekAski/Scripts/main/Blade%20Ball/MobileGui.lua'))()
-    end
-else
-    if Placeid == 13772394625 or Placeid == 14732610803 then
-        loadstring(game:HttpGet('https://raw.githubusercontent.com/SadlekAski/Scripts/main/Blade%20Ball/Equip%20any%20ability.lua'))()
-    end
+if Placeid == 13772394625 or Placeid == 14732610803 then
+loadstring(game:HttpGet('https://raw.githubusercontent.com/SadlekAski/Scripts/main/Blade%20Ball/Equip%20any%20ability.lua'))()
 end
 
 if isPlayerOnMobile() then
