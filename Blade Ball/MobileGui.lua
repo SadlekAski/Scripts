@@ -213,6 +213,7 @@ local function stopAutoParry()
     end
 end
 
+
 local function notify(title, content, duration)
     Rayfield:Notify({
         Title = title,
@@ -336,18 +337,13 @@ end)
 local CloseFighting = AutoParry:CreateSection("Close Fighting")
 local parryButtonPress = replicatedStorage.Remotes.ParryButtonPress
 
-local AutoParryToggle = AutoParry:CreateToggle({
-    Name = "Auto Parry",
-    CurrentValue = false,
-    Flag = "AutoParryFlag",
-    Callback = function(Value)
-	spamparry = Value
-
-	while true do
-	      if spamparry then
+ local SpamParry = AutoParry:CreateKeybind({
+    Name = "Spam Parry (Hold)",
+    CurrentKeybind = "C",
+    HoldToInteract = true,
+    Flag = "ToggleParrySpam", 
+    Callback = function(Keybind)
         parryButtonPress:Fire()
-		end
-	end
     end,
  })
 
@@ -495,6 +491,13 @@ local AliveFolder = Main:CreateButton({
 end
 })
 
+local DeadFolder = Main:CreateButton({
+    Name = "Reverse effect of allow use abilities in lobby",
+    Callback = function()
+     character.Parent = workspace.Dead
+ end
+ })
+
 local Descrip = Main:CreateButton({
 Name = "How To Use",
    Callback = function()
@@ -612,53 +615,101 @@ end
 })
 
 local Invisibility = Main:CreateButton({
-   Name = "Invisibility",
-   Callback = function()
+    Name = "Invisibility",
+    Callback = function()
+ 
+ local args = {
+     [1] = "Invisibility"
+ }
+ 
+ game:GetService("ReplicatedStorage").Remotes.Store.RequestEquipAbility:InvokeServer(unpack(args))
+ 
+ game:GetService("ReplicatedStorage").Remotes.Store.GetOwnedAbilities:InvokeServer()
+ 
+ game:GetService("ReplicatedStorage").Remotes.kebaind:FireServer()
+             
+ local function AbilityValue2()
+ local TruValue = Instance.new("StringValue")
+ workspace:FindFirstChild("AbilityThingyk1212"):Remove()
+         TruValue.Parent = game:GetService("Workspace")
+         TruValue.Name = "AbilityThingyk1212"
+         TruValue.Value = "Invisibility" --Change to Use other ability
+ end
+ 
+ for i,v in pairs(abilitiesFolder:GetChildren()) do
+ 
+ 
+ for i,b in pairs(abilitiesFolder:GetChildren()) do
+     local Ability = b
+     
+     if v.Enabled == true then
+         local EquippedAbility = v
+         local ChosenAbility = {}
+         spawn(function()
+         ChosenAbility = AbilityValue2()
+     end)
+ 
+     task.wait(0.05)
+         local AbilityValue = workspace.AbilityThingyk1212
+         if b.Name == AbilityValue.Value then
+ 
+             v.Enabled = false
+             b.Enabled = true
+     end
+ end
+ end
+ end
+    end,
+ })
 
-local args = {
-    [1] = "Invisibility"
-}
-
-game:GetService("ReplicatedStorage").Remotes.Store.RequestEquipAbility:InvokeServer(unpack(args))
-
-game:GetService("ReplicatedStorage").Remotes.Store.GetOwnedAbilities:InvokeServer()
-
-game:GetService("ReplicatedStorage").Remotes.kebaind:FireServer()
-            
-local function AbilityValue2()
-local TruValue = Instance.new("StringValue")
-workspace:FindFirstChild("AbilityThingyk1212"):Remove()
-        TruValue.Parent = game:GetService("Workspace")
-        TruValue.Name = "AbilityThingyk1212"
-        TruValue.Value = "Invisibility" --Change to Use other ability
-end
-
-for i,v in pairs(abilitiesFolder:GetChildren()) do
-
-
-for i,b in pairs(abilitiesFolder:GetChildren()) do
-    local Ability = b
-    
-    if v.Enabled == true then
-        local EquippedAbility = v
-        local ChosenAbility = {}
-        spawn(function()
-        ChosenAbility = AbilityValue2()
-    end)
-
-    task.wait(0.05)
-        local AbilityValue = workspace.AbilityThingyk1212
-        if b.Name == AbilityValue.Value then
-
-            v.Enabled = false
-            b.Enabled = true
-    end
-end
-end
-end
-   end,
-})
-
+ local PhaseBypass = Main:CreateButton({
+    Name = "Phase Bypass",
+    Callback = function()
+ 
+ local args = {
+     [1] = "Phase Bypass"
+ }
+ 
+ game:GetService("ReplicatedStorage").Remotes.Store.RequestEquipAbility:InvokeServer(unpack(args))
+ 
+ game:GetService("ReplicatedStorage").Remotes.Store.GetOwnedAbilities:InvokeServer()
+ 
+ game:GetService("ReplicatedStorage").Remotes.kebaind:FireServer()
+             
+ local function AbilityValue2()
+ local TruValue = Instance.new("StringValue")
+ workspace:FindFirstChild("AbilityThingyk1212"):Remove()
+         TruValue.Parent = game:GetService("Workspace")
+         TruValue.Name = "AbilityThingyk1212"
+         TruValue.Value = "Phase Bypass" --Change to Use other ability
+ end
+ 
+ for i,v in pairs(abilitiesFolder:GetChildren()) do
+ 
+ 
+ for i,b in pairs(abilitiesFolder:GetChildren()) do
+     local Ability = b
+     
+     if v.Enabled == true then
+         local EquippedAbility = v
+         local ChosenAbility = {}
+         spawn(function()
+         ChosenAbility = AbilityValue2()
+     end)
+ 
+     task.wait(0.05)
+         local AbilityValue = workspace.AbilityThingyk1212
+         if b.Name == AbilityValue.Value then
+ 
+             v.Enabled = false
+             b.Enabled = true
+     end
+ end
+ end
+ end
+    end,
+ })
+ 
 local Platform = Main:CreateButton({
    Name = "Platform",
    Callback = function()
@@ -706,6 +757,54 @@ end
 end
    end,
 })
+local Pull = Main:CreateButton({
+    Name = "Pull",
+    Callback = function()
+ 
+ local args = {
+     [1] = "Pull"
+ }
+ 
+ game:GetService("ReplicatedStorage").Remotes.Store.RequestEquipAbility:InvokeServer(unpack(args))
+ 
+ game:GetService("ReplicatedStorage").Remotes.Store.GetOwnedAbilities:InvokeServer()
+ 
+ game:GetService("ReplicatedStorage").Remotes.kebaind:FireServer()
+             
+ local function AbilityValue2()
+ local TruValue = Instance.new("StringValue")
+ workspace:FindFirstChild("AbilityThingyk1212"):Remove()
+         TruValue.Parent = game:GetService("Workspace")
+         TruValue.Name = "AbilityThingyk1212"
+         TruValue.Value = "Pull" --Change to Use other ability
+ end
+ 
+ for i,v in pairs(abilitiesFolder:GetChildren()) do
+ 
+ 
+ for i,b in pairs(abilitiesFolder:GetChildren()) do
+     local Ability = b
+     
+     if v.Enabled == true then
+         local EquippedAbility = v
+         local ChosenAbility = {}
+         spawn(function()
+         ChosenAbility = AbilityValue2()
+     end)
+ 
+     task.wait(0.05)
+         local AbilityValue = workspace.AbilityThingyk1212
+         if b.Name == AbilityValue.Value then
+ 
+             v.Enabled = false
+             b.Enabled = true
+     end
+ end
+ end
+ end
+    end,
+ })
+
 
 local RagingDeflection = Main:CreateButton({
    Name = "Raging Deflection",
@@ -947,7 +1046,7 @@ end
    end,
 })
 
-local Telekinesis = Main:CreateButton({
+local Rapture = Main:CreateButton({
    Name = "Rapture",
    Callback = function()
 
@@ -994,6 +1093,54 @@ end
 end
    end,
 })
+
+local WindCloak = Main:CreateButton({
+    Name = "Wind Cloak",
+    Callback = function()
+ 
+ local args = {
+     [1] = "Wind Cloak"
+ }
+ 
+ game:GetService("ReplicatedStorage").Remotes.Store.RequestEquipAbility:InvokeServer(unpack(args))
+ 
+ game:GetService("ReplicatedStorage").Remotes.Store.GetOwnedAbilities:InvokeServer()
+ 
+ game:GetService("ReplicatedStorage").Remotes.kebaind:FireServer()
+             
+ local function AbilityValue2()
+ local TruValue = Instance.new("StringValue")
+ workspace:FindFirstChild("AbilityThingyk1212"):Remove()
+         TruValue.Parent = game:GetService("Workspace")
+         TruValue.Name = "AbilityThingyk1212"
+         TruValue.Value = "Wind Cloak" --Change to Use other ability
+ end
+ 
+ for i,v in pairs(abilitiesFolder:GetChildren()) do
+ 
+ 
+ for i,b in pairs(abilitiesFolder:GetChildren()) do
+     local Ability = b
+     
+     if v.Enabled == true then
+         local EquippedAbility = v
+         local ChosenAbility = {}
+         spawn(function()
+         ChosenAbility = AbilityValue2()
+     end)
+ 
+     task.wait(0.05)
+         local AbilityValue = workspace.AbilityThingyk1212
+         if b.Name == AbilityValue.Value then
+ 
+             v.Enabled = false
+             b.Enabled = true
+     end
+ end
+ end
+ end
+    end,
+ })
 
 local CoreGui = game:GetService("StarterGui")
 local ReplicatedStorage = game:GetService("ReplicatedStorage")
@@ -1084,7 +1231,7 @@ local OpenExplosionCrateToggle = AutoOpen:CreateToggle({
 
         while true do wait()
             if OpenExplosionCrate then
-			task.wait(1)
+                    task.wait(1)
                 local WebHook     = webhookthing -- your WebHook goes here
                 local HTTPService = game:GetService("HttpService")
                 request({
@@ -1112,7 +1259,7 @@ local OpenWeaponCrateToggle = AutoOpen:CreateToggle({
 
         while true do wait()
             if OpenSwordCrate then
-			task.wait(1)
+                    task.wait(1)
                 local WebHook     = webhookthing -- your WebHook goes here
                 local HTTPService = game:GetService("HttpService")
                 request({
@@ -1152,12 +1299,26 @@ local infInvisibility2 = Misc:CreateButton({
 end
 })
 
+local PhaseBypass = Misc:CreateButton({
+    Name = "Phase Bypass",
+    Callback = function()
+    upgrades:WaitForChild("Phase Bypass").Value = 999999999999999999
+ end
+ })
+
 local Platform = Misc:CreateButton({
-   Name = "Platform. Makes you stuck forever on use :)",
+   Name = "Platform",
    Callback = function()
    upgrades:WaitForChild("Platform").Value = 999999999999999999
 end
 })
+
+local Pull = Misc:CreateButton({
+    Name = "Pull",
+    Callback = function()
+    upgrades:WaitForChild("Pull").Value = 999999999999999999
+ end
+ })
 
 local InfShadowStep = Misc:CreateButton({
    Name = "Inf Shadow Step (Inf Shadow Step speed)",
@@ -1200,6 +1361,13 @@ local IwantRapturedam = Misc:CreateButton({
    upgrades:WaitForChild("Rapture").Value = 999999999999999999
 end
 })
+
+local WindCloak = Misc:CreateButton({
+    Name = "Wind Cloak",
+    Callback = function()
+    upgrades:WaitForChild("Wind Cloak").Value = 999999999999999999
+ end
+ })
 
 local Resetlvl = Misc:CreateSection("Reset Lvl")
 
@@ -1617,13 +1785,14 @@ end
 local Unique = Skins:CreateSection("Unique")
 
 local GodSaber = Skins:CreateButton({
-   Name = "God Saber",
+   Name = "God Saber (WIP, still working but Im working on it for it be better)",
    Callback = function()
             local localplayer = game.Players.LocalPlayer
 local character = localplayer.Character
 local Katanamesh = character:FindFirstChildOfClass("Model"):FindFirstChild("KatanaMesh")
 local godsaber = game:GetService("ReplicatedStorage").Misc.Swords.Unique.Godsaber
 
+local Swordsfd = character:FindFirstChildOfClass("Model")
 local SkinSword = godsaber
 local SkinSwordClone = godsaber:Clone()
 local godkatanamesh = godsaber:FindFirstChild("KatanaMesh")
@@ -1632,6 +1801,14 @@ local godsord = godsaber:FindFirstChild("sord")
 local godBlade = godsaber:FindFirstChild("Blade")
 local godMain = godBlade:FindFirstChild("Main")
 local katmesh = Katanamesh
+local katmeshholder = Instance.new("Part")
+katmeshholder.Parent = Swordsfd
+katmeshholder.Name = "HolderForSword"
+katmeshholder.CFrame = katmesh.CFrame
+katmeshholder.Rotation = katmesh.Rotation
+katmeshholder.Transparency = 1
+katmeshholder.CanCollide = false
+katmeshholder.Anchored = true
 if character:FindFirstChildOfClass("Model"):FindFirstChild("Godsaber") then
     character:FindFirstChildOfClass("Model"):FindFirstChild("Godsaber"):Remove()
 
@@ -1645,10 +1822,10 @@ SkinSwordClone.Parent = character:FindFirstChildOfClass("Model")
 
 character.HumanoidRootPart.CFrame = CFrame.new(-233.710556, 123.299973, 203.648102)
 
-godsord.CFrame = Katanamesh.CFrame
-godhandle.CFrame = Katanamesh.CFrame + Vector3.new(0,0.6,-1.5)
-godkatanamesh.CFrame = Katanamesh.CFrame
-godMain.CFrame = Katanamesh.CFrame
+godsord.CFrame = katmeshholder.CFrame
+godhandle.CFrame = katmeshholder.CFrame + Vector3.new(0,0.6,-1.5)
+godkatanamesh.CFrame = katmeshholder.CFrame
+godMain.CFrame = katmeshholder.CFrame
 
 godkatanamesh.WeldConstraint.Part1 = character:FindFirstChild("Left Leg")
 
@@ -1683,10 +1860,10 @@ SkinSwordClone.Parent = character:FindFirstChildOfClass("Model")
 
 character.HumanoidRootPart.CFrame = CFrame.new(-233.710556, 123.299973, 203.648102)
 
-godsord.CFrame = Katanamesh.CFrame
-godhandle.CFrame = Katanamesh.CFrame + Vector3.new(0,0.6,-1.5)
-godkatanamesh.CFrame = Katanamesh.CFrame
-godMain.CFrame = Katanamesh.CFrame
+godsord.CFrame = katmeshholder.CFrame
+godhandle.CFrame = katmeshholder.CFrame + Vector3.new(0,0.6,-1.5)
+godkatanamesh.CFrame = katmeshholder.CFrame
+godMain.CFrame = katmeshholder.CFrame
 
 godkatanamesh.WeldConstraint.Part1 = character:FindFirstChild("Left Leg")
 
