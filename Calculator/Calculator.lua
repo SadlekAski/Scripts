@@ -81,7 +81,7 @@ local Window = Rayfield:CreateWindow({
     })
 end
 
-local Calculator = Window:CreateTab("Calculator", 13014537525)
+local Calculator = Window:CreateTab("Calculator")
 
 local Calculatorshitlol = Calculator:CreateSection("Calculator")
 
