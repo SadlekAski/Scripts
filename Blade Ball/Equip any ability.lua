@@ -1,17 +1,40 @@
-local Rayfield = loadstring(game:HttpGet('https://sirius.menu/rayfield'))()
+local UserInputService = game:GetService("UserInputService")
+
+local function isPlayerOnMobile()
+    if UserInputService.TouchEnabled and (UserInputService.KeyboardEnabled or UserInputService.GamepadEnabled) then
+        return false
+    end
+    
+    return UserInputService.TouchEnabled
+end
+
+local Rayfield
+
+if isPlayerOnMobile() then
+    Rayfield = loadstring(game:HttpGet('https://raw.githubusercontent.com/Hosvile/Refinement/main/MC%3AArrayfield%20Library'))()
+else
+    Rayfield = loadstring(game:HttpGet('https://sirius.menu/rayfield'))()
+end
 
 local runService = game:GetService("RunService")
 local workspace = game:GetService("Workspace")
 local players = game:GetService("Players")
 local localPlayer = players.LocalPlayer
 local character = localPlayer.Character or localPlayer.CharacterAdded:Wait()
+local ballsFolder = workspace:WaitForChild("Balls")
 local abilitiesFolder = character:WaitForChild("Abilities")
 local UserInputService = game:GetService("UserInputService")
 local replicatedStorage = game:GetService("ReplicatedStorage")
 local heartbeatConnection
 local upgrades = localPlayer.Upgrades
+local isRunning = false
 local UseRage = false
+local UseRapture = false
 local sliderValue = 20
+local ggdebounce = false
+local focusedBall, displayBall = nil, nil
+local parryButtonPress = replicatedStorage.Remotes.ParryButtonPress
+local abilityButtonPress = replicatedStorage.Remotes.AbilityButtonPress
 
 local function onCharacterAdded(newCharacter)
     character = newCharacter
@@ -65,7 +88,6 @@ local Misc = Window:CreateTab("Misc", 13014546637)
 local AutoOpen = Window:CreateTab("Auto Open", 13014546637)
 local Misc2 = Window:CreateTab("Misc2", 13014546637)
 local Skins = Window:CreateTab("Skins", 13014546637)
-
 
 local function startAutoParry()
     local character = localPlayer.Character or localPlayer.CharacterAdded:Wait()
@@ -165,6 +187,9 @@ end
         local ball = focusedBall
         local distanceToPlayer = (ball.Position - charPos).Magnitude
         local ballVelocityTowardsPlayer = ball.Velocity:Dot((charPos - ball.Position).Unit)
+        if ball.zoomies.VectorVelocity == nil or (ball.zoomies.VectorVelocity.x == -0 or ball.zoomies.VectorVelocity.x == 0 or ball.zoomies.VectorVelocity.y == -0 or ball.zoomies.VectorVelocity.y == 0 or ball.zoomies.VectorVelocity.z == -0 or ball.zoomies.VectorVelocity.z == 0) then
+            return 
+        end
         
         if distanceToPlayer < 10 then
             parryButtonPress:Fire()
@@ -219,20 +244,7 @@ local Destroyui = AutoParry:CreateButton({
 local Descrip = AutoParry:CreateButton({
    Name = "Credits (Click)",
    Callback = function()
-    Rayfield:Notify({
-   Title = "Credits",
-   Content = "Auto Parry By infernokarl (Discord User)",
-   Duration = 60,
-   Image = 4483362458,
-   Actions = { -- Notification Buttons
-      Ignore = {
-         Name = "Okay!",
-         Callback = function()
-         print("The user tapped Okay!")
-      end
-   },
-},
-})
+notify("Credits", "Auto Parry By infernokarl (Discord User)", 5)
 end
 })
 
@@ -280,7 +292,7 @@ end
 })
 
 local toplegitspawntp = AutoParry:CreateToggle({
-    Name = "Most Legit Spawn tp1!1!1!!!!!1!!1!!!!!!!",
+    Name = "Same as tp to spawn but in far space",
     CurrentValue = false,
     Flag = "StaySpawnFlag",
     Callback = function(Value)
@@ -321,8 +333,6 @@ end)
 })
 
 local CloseFighting = AutoParry:CreateSection("Close Fighting")
-local parryButtonPress = replicatedStorage.Remotes.ParryButtonPress
-
  local SpamParry = AutoParry:CreateKeybind({
     Name = "Spam Parry (Hold)",
     CurrentKeybind = "C",
@@ -332,12 +342,13 @@ local parryButtonPress = replicatedStorage.Remotes.ParryButtonPress
         parryButtonPress:Fire()
     end,
  })
+ 
 
 local Configuration = AutoParry:CreateSection("Configuration")
 
 local DistanceSlider = AutoParry:CreateSlider({
    Name = "Distance Configuration",
-   Range = {0, 300},
+   Range = {0, 200},
    Increment = 1,
    Suffix = "Distance",
    CurrentValue = 20,
@@ -346,7 +357,6 @@ local DistanceSlider = AutoParry:CreateSlider({
        sliderValue = Value
    end,
 })
-
 
 local ToggleParryOn = AutoParry:CreateKeybind({
    Name = "Parry On/Off",
@@ -359,29 +369,46 @@ AutoParryToggle:Set(not AutoParryToggle.CurrentValue)
    end
 })
 
+local AutoGGToggle = AutoParry:CreateToggle({
+    Name = "Auto GG",
+    CurrentValue = false,
+    Flag = "AutoGGFlage",
+    Callback = function(Value)
+        return
+    end
+})
 
-local ChangeDistanceTothirty = AutoParry:CreateKeybind({
-   Name = "+10, Credits to (for add,remove cuz im dumb) askien",
-   CurrentKeybind = "V",
+local AutoResponseToggle = AutoParry:CreateToggle({
+    Name = "Auto Response",
+    CurrentValue = false,
+    Flag = "AutoResponseFlage",
+    Callback = function(Value)
+        return
+    end
+})
+
+
+
+local ToggleParryOffPlus = AutoParry:CreateKeybind({
+   Name = "+ 10 range",
+   CurrentKeybind = "X",
    HoldToInteract = false,
-   Flag = "Distanceto30", -- A flag is the identifier for the configuration file, make sure every element has a different flag if you're using configuration saving to ensure no overlaps
-   Callback = function(Keybind)
-if sliderValue > 0 then
-        if sliderValue < 300 or sliderValue == 0 then
+   Flag = "ToggleParryOffPlus",
+   Callback = function()
+        if sliderValue < 200 then
             sliderValue = sliderValue + 10
             DistanceSlider:Set(sliderValue)
             notify("Range Increased", "New Range: " .. sliderValue)
         end
-            end
-   end
+   end,
 })
 
-local ChangeDistanceToidk = AutoParry:CreateKeybind({
-   Name = "-10",
-   CurrentKeybind = "B",
+local ToggleParryOffMinus = AutoParry:CreateKeybind({
+   Name = "- 10 range",
+   CurrentKeybind = "Z",
    HoldToInteract = false,
-   Flag = "Distanceto100", -- A flag is the identifier for the configuration file, make sure every element has a different flag if you're using configuration saving to ensure no overlaps
-   Callback = function(Keybind)
+   Flag = "ToggleParryOffMinus",
+   Callback = function()
         if sliderValue > 0 then
             sliderValue = sliderValue - 10
             DistanceSlider:Set(sliderValue)
@@ -389,8 +416,8 @@ local ChangeDistanceToidk = AutoParry:CreateKeybind({
         end
    end,
 })
-local Configuration2 = AutoParry:CreateSection("Configuration2")
-local ChangeDistanceToidk = AutoParry:CreateKeybind({
+
+local ChangeDistanceTo30thing = AutoParry:CreateKeybind({
    Name = "Distance 30",
    CurrentKeybind = "Z",
    HoldToInteract = false,
@@ -400,7 +427,7 @@ DistanceSlider:Set(30) -- The new slider integer value
    end,
 })
 
-local ChangeDistanceToidk = AutoParry:CreateKeybind({
+local ChangeDistanceTo100thing = AutoParry:CreateKeybind({
    Name = "Distance 100",
    CurrentKeybind = "X",
    HoldToInteract = false,
@@ -410,42 +437,28 @@ DistanceSlider:Set(100) -- The new slider integer value
    end,
 })
 
-local AfkThing = AutoParry:CreateSection("Afk Play")
-local TpToSpawn = AutoParry:CreateToggle({
-    Name = "Tp To Spawn (So u can use autoparry and ppl cant come close)",
-    CurrentValue = false,
-    Flag = "SpawnTp",
-    Callback = function(Value)
-        TpSpawn = Value
+workspace:FindFirstChild("Alive").ChildRemoved:Connect(function()
+    if #(workspace.Alive:GetChildren()) <= 1 and AutoGGToggle.CurrentValue and not ggdebounce then
+        ggdebounce = true
+        local randomResponse = math.random(1, #gameEndResponses)
+        wait(math.random(2,3.5))
+        replicatedStorage.DefaultChatSystemChatEvents.SayMessageRequest:FireServer(gameEndResponses[randomResponse],"All")
+        task.wait(math.random(1.5,3.3))
+        ggdebounce = false
+    end
+end)
 
-        spawn(function()
-                while true do wait()
-                if TpSpawn then
-                    character.HumanoidRootPart.CFrame = CFrame.new(-229, 123, 203)
-                    end
-                end
-            end)
-    end,
-})
-
-local TpToSpawn = AutoParry:CreateToggle({
-    Name = "Fake Platform (Im sure there risk getting reported using this, same as tp to spawn)",
-    CurrentValue = false,
-    Flag = "FakePlatform",
-    Callback = function(Value)
-        FakePlatform = Value
-
-        spawn(function()
-                while true do wait()
-                if FakePlatform then
-                    character.Humanoid.HipHeight = 50
-                        else
-                            character.Humanoid.HipHeight = 0
-                    end
-                end
-            end)
-    end,
-})
+players.PlayerChatted:Connect(function(PlayerChatType,Player,Message)
+    for _,v in pairs(keywords) do
+        if (string.find(Message, v)) and Player ~= localPlayer and AutoResponseToggle.CurrentValue and not responsedebounce then
+            responsedebounce = true
+            local choice = math.random(1, #responses)
+            replicatedStorage.DefaultChatSystemChatEvents.SayMessageRequest:FireServer(responses[choice],"All")
+            task.wait(2,5)
+            responsedebounce = false
+        end
+    end
+end)
 
 local Discord = Main:CreateSection("Discord")
 local Descrip = Main:CreateButton({
