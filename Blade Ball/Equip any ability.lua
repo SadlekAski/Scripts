@@ -1278,12 +1278,26 @@ local infInvisibility2 = Misc:CreateButton({
 end
 })
 
+local PhaseBypass = Misc:CreateButton({
+    Name = "Phase Bypass",
+    Callback = function()
+    upgrades:WaitForChild("Phase Bypass").Value = 999999999999999999
+ end
+ })
+
 local Platform = Misc:CreateButton({
-   Name = "Platform. Makes you stuck forever on use :)",
+   Name = "Platform",
    Callback = function()
    upgrades:WaitForChild("Platform").Value = 999999999999999999
 end
 })
+
+local Pull = Misc:CreateButton({
+    Name = "Pull",
+    Callback = function()
+    upgrades:WaitForChild("Pull").Value = 999999999999999999
+ end
+ })
 
 local InfShadowStep = Misc:CreateButton({
    Name = "Inf Shadow Step (Inf Shadow Step speed)",
@@ -1326,6 +1340,13 @@ local IwantRapturedam = Misc:CreateButton({
    upgrades:WaitForChild("Rapture").Value = 999999999999999999
 end
 })
+
+local WindCloak = Misc:CreateButton({
+    Name = "Wind Cloak",
+    Callback = function()
+    upgrades:WaitForChild("Wind Cloak").Value = 999999999999999999
+ end
+ })
 
 local Resetlvl = Misc:CreateSection("Reset Lvl")
 
