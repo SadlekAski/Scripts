@@ -594,53 +594,101 @@ end
 })
 
 local Invisibility = Main:CreateButton({
-   Name = "Invisibility",
-   Callback = function()
+    Name = "Invisibility",
+    Callback = function()
+ 
+ local args = {
+     [1] = "Invisibility"
+ }
+ 
+ game:GetService("ReplicatedStorage").Remotes.Store.RequestEquipAbility:InvokeServer(unpack(args))
+ 
+ game:GetService("ReplicatedStorage").Remotes.Store.GetOwnedAbilities:InvokeServer()
+ 
+ game:GetService("ReplicatedStorage").Remotes.kebaind:FireServer()
+             
+ local function AbilityValue2()
+ local TruValue = Instance.new("StringValue")
+ workspace:FindFirstChild("AbilityThingyk1212"):Remove()
+         TruValue.Parent = game:GetService("Workspace")
+         TruValue.Name = "AbilityThingyk1212"
+         TruValue.Value = "Invisibility" --Change to Use other ability
+ end
+ 
+ for i,v in pairs(abilitiesFolder:GetChildren()) do
+ 
+ 
+ for i,b in pairs(abilitiesFolder:GetChildren()) do
+     local Ability = b
+     
+     if v.Enabled == true then
+         local EquippedAbility = v
+         local ChosenAbility = {}
+         spawn(function()
+         ChosenAbility = AbilityValue2()
+     end)
+ 
+     task.wait(0.05)
+         local AbilityValue = workspace.AbilityThingyk1212
+         if b.Name == AbilityValue.Value then
+ 
+             v.Enabled = false
+             b.Enabled = true
+     end
+ end
+ end
+ end
+    end,
+ })
 
-local args = {
-    [1] = "Invisibility"
-}
-
-game:GetService("ReplicatedStorage").Remotes.Store.RequestEquipAbility:InvokeServer(unpack(args))
-
-game:GetService("ReplicatedStorage").Remotes.Store.GetOwnedAbilities:InvokeServer()
-
-game:GetService("ReplicatedStorage").Remotes.kebaind:FireServer()
-            
-local function AbilityValue2()
-local TruValue = Instance.new("StringValue")
-workspace:FindFirstChild("AbilityThingyk1212"):Remove()
-        TruValue.Parent = game:GetService("Workspace")
-        TruValue.Name = "AbilityThingyk1212"
-        TruValue.Value = "Invisibility" --Change to Use other ability
-end
-
-for i,v in pairs(abilitiesFolder:GetChildren()) do
-
-
-for i,b in pairs(abilitiesFolder:GetChildren()) do
-    local Ability = b
-    
-    if v.Enabled == true then
-        local EquippedAbility = v
-        local ChosenAbility = {}
-        spawn(function()
-        ChosenAbility = AbilityValue2()
-    end)
-
-    task.wait(0.05)
-        local AbilityValue = workspace.AbilityThingyk1212
-        if b.Name == AbilityValue.Value then
-
-            v.Enabled = false
-            b.Enabled = true
-    end
-end
-end
-end
-   end,
-})
-
+ local PhaseBypass = Main:CreateButton({
+    Name = "Phase Bypass",
+    Callback = function()
+ 
+ local args = {
+     [1] = "Phase Bypass"
+ }
+ 
+ game:GetService("ReplicatedStorage").Remotes.Store.RequestEquipAbility:InvokeServer(unpack(args))
+ 
+ game:GetService("ReplicatedStorage").Remotes.Store.GetOwnedAbilities:InvokeServer()
+ 
+ game:GetService("ReplicatedStorage").Remotes.kebaind:FireServer()
+             
+ local function AbilityValue2()
+ local TruValue = Instance.new("StringValue")
+ workspace:FindFirstChild("AbilityThingyk1212"):Remove()
+         TruValue.Parent = game:GetService("Workspace")
+         TruValue.Name = "AbilityThingyk1212"
+         TruValue.Value = "Phase Bypass" --Change to Use other ability
+ end
+ 
+ for i,v in pairs(abilitiesFolder:GetChildren()) do
+ 
+ 
+ for i,b in pairs(abilitiesFolder:GetChildren()) do
+     local Ability = b
+     
+     if v.Enabled == true then
+         local EquippedAbility = v
+         local ChosenAbility = {}
+         spawn(function()
+         ChosenAbility = AbilityValue2()
+     end)
+ 
+     task.wait(0.05)
+         local AbilityValue = workspace.AbilityThingyk1212
+         if b.Name == AbilityValue.Value then
+ 
+             v.Enabled = false
+             b.Enabled = true
+     end
+ end
+ end
+ end
+    end,
+ })
+ 
 local Platform = Main:CreateButton({
    Name = "Platform",
    Callback = function()
@@ -688,6 +736,54 @@ end
 end
    end,
 })
+local Pull = Main:CreateButton({
+    Name = "Pull",
+    Callback = function()
+ 
+ local args = {
+     [1] = "Pull"
+ }
+ 
+ game:GetService("ReplicatedStorage").Remotes.Store.RequestEquipAbility:InvokeServer(unpack(args))
+ 
+ game:GetService("ReplicatedStorage").Remotes.Store.GetOwnedAbilities:InvokeServer()
+ 
+ game:GetService("ReplicatedStorage").Remotes.kebaind:FireServer()
+             
+ local function AbilityValue2()
+ local TruValue = Instance.new("StringValue")
+ workspace:FindFirstChild("AbilityThingyk1212"):Remove()
+         TruValue.Parent = game:GetService("Workspace")
+         TruValue.Name = "AbilityThingyk1212"
+         TruValue.Value = "Pull" --Change to Use other ability
+ end
+ 
+ for i,v in pairs(abilitiesFolder:GetChildren()) do
+ 
+ 
+ for i,b in pairs(abilitiesFolder:GetChildren()) do
+     local Ability = b
+     
+     if v.Enabled == true then
+         local EquippedAbility = v
+         local ChosenAbility = {}
+         spawn(function()
+         ChosenAbility = AbilityValue2()
+     end)
+ 
+     task.wait(0.05)
+         local AbilityValue = workspace.AbilityThingyk1212
+         if b.Name == AbilityValue.Value then
+ 
+             v.Enabled = false
+             b.Enabled = true
+     end
+ end
+ end
+ end
+    end,
+ })
+
 
 local RagingDeflection = Main:CreateButton({
    Name = "Raging Deflection",
@@ -929,7 +1025,7 @@ end
    end,
 })
 
-local Telekinesis = Main:CreateButton({
+local Rapture = Main:CreateButton({
    Name = "Rapture",
    Callback = function()
 
@@ -976,6 +1072,54 @@ end
 end
    end,
 })
+
+local WindCloak = Main:CreateButton({
+    Name = "Wind Cloak",
+    Callback = function()
+ 
+ local args = {
+     [1] = "Wind Cloak"
+ }
+ 
+ game:GetService("ReplicatedStorage").Remotes.Store.RequestEquipAbility:InvokeServer(unpack(args))
+ 
+ game:GetService("ReplicatedStorage").Remotes.Store.GetOwnedAbilities:InvokeServer()
+ 
+ game:GetService("ReplicatedStorage").Remotes.kebaind:FireServer()
+             
+ local function AbilityValue2()
+ local TruValue = Instance.new("StringValue")
+ workspace:FindFirstChild("AbilityThingyk1212"):Remove()
+         TruValue.Parent = game:GetService("Workspace")
+         TruValue.Name = "AbilityThingyk1212"
+         TruValue.Value = "Wind Cloak" --Change to Use other ability
+ end
+ 
+ for i,v in pairs(abilitiesFolder:GetChildren()) do
+ 
+ 
+ for i,b in pairs(abilitiesFolder:GetChildren()) do
+     local Ability = b
+     
+     if v.Enabled == true then
+         local EquippedAbility = v
+         local ChosenAbility = {}
+         spawn(function()
+         ChosenAbility = AbilityValue2()
+     end)
+ 
+     task.wait(0.05)
+         local AbilityValue = workspace.AbilityThingyk1212
+         if b.Name == AbilityValue.Value then
+ 
+             v.Enabled = false
+             b.Enabled = true
+     end
+ end
+ end
+ end
+    end,
+ })
 
 local CoreGui = game:GetService("StarterGui")
 local ReplicatedStorage = game:GetService("ReplicatedStorage")
@@ -1712,4 +1856,3 @@ katmesh.Transparency = 1
         end
     end
     })
-
