@@ -477,6 +477,13 @@ local AliveFolder = Main:CreateButton({
 end
 })
 
+local DeadFolder = Main:CreateButton({
+    Name = "Reverse effect of allow use abilities in lobby",
+    Callback = function()
+     character.Parent = workspace.Dead
+ end
+ })
+
 local Descrip = Main:CreateButton({
 Name = "How To Use",
    Callback = function()
