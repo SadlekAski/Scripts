@@ -197,7 +197,7 @@ end
         local isCheckingRage = false
 
         if timeUntilImpact(ball.Velocity, distanceToPlayer, charVel) < getDynamicThreshold(ballVelocityTowardsPlayer) then
-            if character.Abilities["Raging Deflection"].Enabled and UseRage == true then
+            if character.Abilities["Raging Deflection"].Enabled and UseRage == true or character.Abilities["Rapture"].Enabled and UseRage == true then
                 if not isCheckingRage then
                     isCheckingRage = true
                     abilityButtonPress:Fire()
