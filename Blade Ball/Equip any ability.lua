@@ -38,7 +38,7 @@ local abilityButtonPress = replicatedStorage.Remotes.AbilityButtonPress
 local BASE_THRESHOLD = 0.15
 local VELOCITY_SCALING_FACTOR_FAST = 0.050
 local VELOCITY_SCALING_FACTOR_SLOW = 0.1
-
+local notifyparried = false
 
 local function onCharacterAdded(newCharacter)
     character = newCharacter
@@ -48,7 +48,7 @@ end
 localPlayer.CharacterAdded:Connect(onCharacterAdded)
 
 local responses = {
-    "lol what", "??", "wdym", "bru what", "xd", "well gg dude", "..."
+    "lol what", "??", "wdym", "bru what", "mad cuz bad", "skill issue", "cry"
 }
 local gameEndResponses = {
     "ggs", "gg :3", "good game", "ggs yall", "wp", "ggs man"
@@ -102,6 +102,15 @@ local Misc = Window:CreateTab("Misc", 13014546637)
 local AutoOpen = Window:CreateTab("Auto Open", 13014546637)
 local Misc2 = Window:CreateTab("Misc2", 13014546637)
 local Skins = Window:CreateTab("Skins", 13014546637)
+
+local function notify(title, content, duration)
+    Rayfield:Notify({
+        Title = title,
+        Content = content,
+        Duration = duration or 0.7,
+        Image = 10010348543, -- Replace with your image ID
+    })
+end
 
 local function startAutoParry()
     local character = localPlayer.Character or localPlayer.CharacterAdded:Wait()
@@ -207,6 +216,9 @@ end
         
         if distanceToPlayer < 10 then
             parryButtonPress:Fire()
+            if notifyparried == true then
+                notify("Auto Parry", "Successfully Parried Ball", 0.3)
+            end
         end
         local isCheckingRage = false
 
@@ -217,11 +229,17 @@ end
                     abilityButtonPress:Fire()
                     if not isWalkSpeedZero() then
                         parryButtonPress:Fire()
+                        if notifyparried == true then
+                        notify("Auto Parry", "Successfully Parried Ball", 0.3)
+                        end
                     end
                     isCheckingRage = false
                 end
             else
+                if notifyparried == true then
                 parryButtonPress:Fire()
+                notify("Auto Parry", "Successfully Parried Ball", 0.3)
+                end
             end
         end
     end
@@ -237,15 +255,6 @@ local function stopAutoParry()
         heartbeatConnection:Disconnect()
         heartbeatConnection = nil
     end
-end
-
-local function notify(title, content, duration)
-    Rayfield:Notify({
-        Title = title,
-        Content = content,
-        Duration = duration or 0.7,
-        Image = 10010348543, -- Replace with your image ID
-    })
 end
 
 local Destroyui = AutoParry:CreateButton({
@@ -384,6 +393,19 @@ AutoParryToggle:Set(not AutoParryToggle.CurrentValue)
 
    end
 })
+
+local notifyparriedthing = AutoParry:CreateButton({
+    Name = "Enable/Disable Notify when parried",
+    Callback = function()
+if not notifyparried == true then
+    notifyparried = true
+    notify("Auto Parry", "Auto Parry Notify when parried has been enabled", 0.7)
+else
+    notifyparried = false
+    notify("Auto Parry", "Auto Parry Notify when parried has been disabled", 0.7)
+end
+    end,
+ })
 
 local AutoGGToggle = AutoParry:CreateToggle({
     Name = "Auto GG",
