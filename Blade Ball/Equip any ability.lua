@@ -35,6 +35,10 @@ local ggdebounce = false
 local focusedBall, displayBall = nil, nil
 local parryButtonPress = replicatedStorage.Remotes.ParryButtonPress
 local abilityButtonPress = replicatedStorage.Remotes.AbilityButtonPress
+local BASE_THRESHOLD = 0.15
+local VELOCITY_SCALING_FACTOR_FAST = 0.050
+local VELOCITY_SCALING_FACTOR_SLOW = 0.1
+
 
 local function onCharacterAdded(newCharacter)
     character = newCharacter
@@ -42,6 +46,16 @@ local function onCharacterAdded(newCharacter)
 end
 
 localPlayer.CharacterAdded:Connect(onCharacterAdded)
+
+local responses = {
+    "lol what", "??", "wdym", "bru what", "xd", "well gg dude", "..."
+}
+local gameEndResponses = {
+    "ggs", "gg :3", "good game", "ggs yall", "wp", "ggs man"
+}
+local keywords = {
+    "auto parry", "auto", "cheating", "hacking"
+}
 
 local TruValue = Instance.new("StringValue")
 if workspace:FindFirstChild("AbilityThingyk1212") then
