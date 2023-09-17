@@ -165,7 +165,7 @@ end
 
     local function getDynamicThreshold(ballVelocityMagnitude)
         if ballVelocityMagnitude > 60 then
-            print("Going Fast!")
+
             return math.max(0.20, BASE_THRESHOLD - (ballVelocityMagnitude * VELOCITY_SCALING_FACTOR_FAST))
         else
             return math.min(0.01, BASE_THRESHOLD + (ballVelocityMagnitude * VELOCITY_SCALING_FACTOR_SLOW))
@@ -199,11 +199,11 @@ end
         local charVel = character.PrimaryPart.Velocity
 
         if focusedBall and not focusedBall.Parent then
-            print("Focused ball lost parent. Choosing a new focused ball.")
+
             chooseNewFocusedBall()
         end
         if not focusedBall then 
-            print("No focused ball.")
+
             chooseNewFocusedBall()
         end
 
