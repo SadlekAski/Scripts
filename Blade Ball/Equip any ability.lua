@@ -271,8 +271,10 @@ local AutoParryToggle = AutoParry:CreateToggle({
     Callback = function(Value)
         if Value then
             startAutoParry()
+            notify("Auto Parry", "Auto Parry has been started", 1)
         else
             stopAutoParry()
+            notify("Auto Parry", "Auto Parry has been disabled", 1)
         end
     end,
 })
