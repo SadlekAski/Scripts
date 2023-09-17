@@ -265,7 +265,7 @@ local AutoParryToggle = AutoParry:CreateToggle({
 
 
 local AutoRagingDeflect = AutoParry:CreateToggle({
-    Name = "Auto Rage Parry (MUST EQUIP RAGING DEFLECT)",
+    Name = "Auto Rage Parry/Rapture Parry (MUST EQUIP ABILITY NEEDE FOR THAT)",
     CurrentValue = false,
     Flag = "AutoRagingDeflectFlag",
     Callback = function(Value)
