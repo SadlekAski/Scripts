@@ -18,6 +18,7 @@ end
 
 localPlayer.CharacterAdded:Connect(onCharacterAdded)
 
+
 local AllowedVisuals = {
     ESP = true,
     Tracer = false,
@@ -76,22 +77,83 @@ local EspLibrary = Esp:CreateSection("Library")
 local LoadEspLibrary = Esp:CreateButton({
     Name = "Load Library (Click this first, wait for it to load)",
     Callback = function()
+        if not ExunysDeveloperESP then
         local Espshit = loadstring(game:HttpGet('https://raw.githubusercontent.com/Exunys/Exunys-ESP/main/src/Modules/UWP%20Support.lua'))()
-        notify("Loaded", "Esp Library has Loaded", 3)
+        notify("Loaded", "Esp Library has been Loaded", 2)
+        else
+            ExunysDeveloperESP:Exit()
+        notify("Found Library", "Unloading (DO NOT CLICK AGAIN)", 2)
+        task.wait(1)
+        local Espshit2 = loadstring(game:HttpGet('https://raw.githubusercontent.com/Exunys/Exunys-ESP/main/src/Modules/UWP%20Support.lua'))()
+        notify("Loaded", "Esp Library has been Loaded", 2)
+        end
+ end
+ })
+
+ local UnloadLibrary = Esp:CreateButton({
+    Name = "Unload Library",
+    Callback = function()
+        if ExunysDeveloperESP then
+        ExunysDeveloperESP:Exit()
+        notify("Unloaded", "Esp Library has been Unloaded", 2)
+        else
+            notify("Error", "Load the ESP Library first", 2)
+        end
+        
  end
  })
 
  local EspThing = Esp:CreateSection("Esp")
-local PlayersEsp = Esp:CreateButton({
-    Name = "Players Esp",
-    Callback = function()
-        for _,player in ipairs(game.Players:GetPlayers()) do
-            local character = player.Character
 
-        local players123123 = ExunysDeveloperESP.WrapObject(character, player.Name, AllowedVisuals)
-        
-        end
-        notify("Loaded", "Players Esp Loaded", 3)
+ local Removeallesp = Esp:CreateButton({
+    Name = "Remove all ESP",
+    Callback = function()
+    if ExunysDeveloperESP then
+        ExunysDeveloperESP:UnwrapAll()
+        notify("Success", "Unloaded all Esps", 2)
+    else
+        notify("Error", "Load the ESP Library first", 2)
+    end
  end
  })
 
+local PlayersEsp = Esp:CreateButton({
+    Name = "Players Esp",
+    Callback = function()
+        if ExunysDeveloperESP then
+        for _,player in ipairs(game.Players:GetPlayers()) do
+            local character = player.Character
+
+        players123123 = ExunysDeveloperESP.WrapObject(character, player.Name, AllowedVisuals)
+        
+        end
+        notify("Loaded", "Players Esp Loaded", 3)
+    else
+        notify("Error", "Load the ESP Library first", 2)
+    end
+ end
+ })
+
+ local RemovePlayerEsp = Esp:CreateButton({
+    Name = "Remove Players Esp",
+    Callback = function()
+        if ExunysDeveloperESP then
+            ExunysDeveloperESP.UnwrapObject(players123123)
+        notify("Removed", "Players Esp Removed", 3)
+    else
+        notify("Error", "Load the ESP Library first", 2)
+    end
+ end
+ })
+
+ local MonsterEsp = Esp:CreateButton({
+    Name = "Monster Esp",
+    Callback = function()
+        if ExunysDeveloperESP then
+        local mutant = ExunysDeveloperESP.WrapObject(workspace.Mutant, workspace.Mutant.Name, AllowedVisuals)
+        notify("Loaded", "Monster Esp Loaded", 3)
+        else
+            notify("Error", "Load the ESP Library first", 2)
+        end
+ end
+ })
