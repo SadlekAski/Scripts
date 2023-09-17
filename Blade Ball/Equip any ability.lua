@@ -419,7 +419,7 @@ local ToggleParryOffMinus = AutoParry:CreateKeybind({
 
 local ChangeDistanceTo30thing = AutoParry:CreateKeybind({
    Name = "Distance 30",
-   CurrentKeybind = "Z",
+   CurrentKeybind = "V",
    HoldToInteract = false,
    Flag = "Distanceto100", -- A flag is the identifier for the configuration file, make sure every element has a different flag if you're using configuration saving to ensure no overlaps
    Callback = function(Keybind)
@@ -429,7 +429,7 @@ DistanceSlider:Set(30) -- The new slider integer value
 
 local ChangeDistanceTo100thing = AutoParry:CreateKeybind({
    Name = "Distance 100",
-   CurrentKeybind = "X",
+   CurrentKeybind = "B",
    HoldToInteract = false,
    Flag = "Distanceto100", -- A flag is the identifier for the configuration file, make sure every element has a different flag if you're using configuration saving to ensure no overlaps
    Callback = function(Keybind)
