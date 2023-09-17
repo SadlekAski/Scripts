@@ -6,9 +6,9 @@ local LP = game.Players.LocalPlayer
 local function TPPart()
 local Part2 = Instance.new("Part")
     Part2.Parent = workspace
-    Part2.Name = "TPPart21"
+    Part2.Name = "shityk"
     Part2.Anchored = true
-    Part2.CFrame = CFrame.new(-59.644043, 20.7999821, -133.520752)
+    Part2.CFrame = CFrame.new(-59.644043, 10.7999821, -103.520752)
     Part2.Transparency = 1
 end
 
@@ -49,10 +49,10 @@ if game.PlaceId == 14491437089 and game:IsLoaded() then
     LPC.CFrame = workspace.Radio.Main.CFrame
     until game:GetService("ReplicatedStorage").GameState.Active.Value == true
     task.wait(3)
-    LPC.CFrame = workspace.TPPart21.CFrame + Vector3.new(0, 2, 0)
+LPC.CFrame = workspace.shityk.CFrame + Vector3.new(0, 2, 0)
     elseif Objective == "Prepare for the night" then
 
-        LPC.CFrame = workspace.TPPart21.CFrame + Vector3.new(0, 2, 0)
+LPC.CFrame = workspace.shityk.CFrame + Vector3.new(0, 2, 0)
     if not game:IsLoaded() then
         print("Waiting for game to load")
         game.Loaded:Wait()
