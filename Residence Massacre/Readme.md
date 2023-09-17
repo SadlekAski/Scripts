@@ -1,4 +1,4 @@
-ESP KICKS YOU NOW
+Fixed Esp (I hope)
 
 --Put autofarm in autoexec
 
