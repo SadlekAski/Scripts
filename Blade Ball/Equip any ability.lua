@@ -236,8 +236,9 @@ end
                     isCheckingRage = false
                 end
             else
-                if notifyparried == true then
+                
                 parryButtonPress:Fire()
+                if notifyparried == true then
                 notify("Auto Parry", "Successfully Parried Ball", 0.3)
                 end
             end
