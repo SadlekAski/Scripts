@@ -463,6 +463,8 @@ local ChangeDistanceTo30thing = AutoParry:CreateKeybind({
    Flag = "Distanceto100", -- A flag is the identifier for the configuration file, make sure every element has a different flag if you're using configuration saving to ensure no overlaps
    Callback = function(Keybind)
 DistanceSlider:Set(30) -- The new slider integer value
+sliderValue = 30
+notify("Range Set", "New Range: " .. sliderValue)
    end,
 })
 
@@ -472,7 +474,9 @@ local ChangeDistanceTo100thing = AutoParry:CreateKeybind({
    HoldToInteract = false,
    Flag = "Distanceto100", -- A flag is the identifier for the configuration file, make sure every element has a different flag if you're using configuration saving to ensure no overlaps
    Callback = function(Keybind)
+    sliderValue = 100
 DistanceSlider:Set(100) -- The new slider integer value
+notify("Range Set", "New Range: ", .. sliderValue)
    end,
 })
 
