@@ -1527,7 +1527,7 @@ end
 
 local breakballerbiind = Misc2:CreateKeybind({
     Name = "Break (your) Ball, bind",
-    CurrentKeybind = "3",
+    CurrentKeybind = "Three",
     HoldToInteract = false,
     Flag = "Ballbreakerbind", -- A flag is the identifier for the configuration file, make sure every element has a different flag if you're using configuration saving to ensure no overlaps
     Callback = function(Keybind)
