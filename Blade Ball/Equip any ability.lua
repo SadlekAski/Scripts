@@ -476,7 +476,7 @@ local ChangeDistanceTo100thing = AutoParry:CreateKeybind({
    Callback = function(Keybind)
     sliderValue = 100
 DistanceSlider:Set(100) -- The new slider integer value
-notify("Range Set", "New Range: ", .. sliderValue)
+notify("Range Set", "New Range: " .. sliderValue)
    end,
 })
 
