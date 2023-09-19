@@ -1521,7 +1521,7 @@ local BreakBall = Misc2:CreateButton({
 end
 })
 
-local Keybind = Tab:CreateKeybind({
+local breakballerbiind = Misc2:CreateKeybind({
     Name = "Break (your) Ball, bind",
     CurrentKeybind = "3",
     HoldToInteract = false,
