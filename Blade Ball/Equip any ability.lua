@@ -445,57 +445,6 @@ local notifyparriedthing = AutoParry:CreateButton({
     end,
  })
 
- local ToggleParryOffPlus = AutoParry:CreateKeybind({
-    Name = "+ 10 range",
-    CurrentKeybind = "Z",
-    HoldToInteract = false,
-    Flag = "ToggleParryOffPlus",
-    Callback = function()
-         if sliderValue < 2000 then
-             sliderValue = sliderValue + 10
-             DistanceSlider:Set(sliderValue)
-             notify("Range Increased", "New Range: " .. sliderValue)
-         end
-    end,
- })
- 
- local ToggleParryOffMinus = AutoParry:CreateKeybind({
-    Name = "- 10 range",
-    CurrentKeybind = "X",
-    HoldToInteract = false,
-    Flag = "ToggleParryOffMinus",
-    Callback = function()
-         if sliderValue > 0 then
-             sliderValue = sliderValue - 10
-             DistanceSlider:Set(sliderValue)
-             notify("Range Decreased", "New Range: " .. sliderValue)
-         end
-    end,
- })
- 
- local ChangeDistanceTo30thing = AutoParry:CreateKeybind({
-    Name = "Distance 30",
-    CurrentKeybind = "V",
-    HoldToInteract = false,
-    Flag = "Distanceto100", -- A flag is the identifier for the configuration file, make sure every element has a different flag if you're using configuration saving to ensure no overlaps
-    Callback = function(Keybind)
- DistanceSlider:Set(30) -- The new slider integer value
- sliderValue = 30
- notify("Range Set", "New Range: " .. sliderValue)
-    end,
- })
- 
- local ChangeDistanceTo100thing = AutoParry:CreateKeybind({
-    Name = "Distance 100",
-    CurrentKeybind = "B",
-    HoldToInteract = false,
-    Flag = "Distanceto100", -- A flag is the identifier for the configuration file, make sure every element has a different flag if you're using configuration saving to ensure no overlaps
-    Callback = function(Keybind)
-     sliderValue = 100
- DistanceSlider:Set(100) -- The new slider integer value
- notify("Range Set", "New Range: " .. sliderValue)
-    end,
- })
 
 workspace:FindFirstChild("Alive").ChildRemoved:Connect(function()
     if #(workspace.Alive:GetChildren()) <= 1 and AutoGGToggle.CurrentValue and not ggdebounce then
