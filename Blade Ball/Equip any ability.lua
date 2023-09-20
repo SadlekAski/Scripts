@@ -1249,6 +1249,7 @@ end
 local OpenWeaponCrate = AutoOpen:CreateButton({
    Name = "Open Weapon Crate",
    Callback = function()
+            task.wait(0.5)
     local WebHook     = webhookthing -- your WebHook goes here
     local HTTPService = game:GetService("HttpService")
     request({
@@ -1269,6 +1270,7 @@ local OpenExplosionCrateToggle = AutoOpen:CreateToggle({
     CurrentValue = false,
     Flag = "ExplosionCrate",
     Callback = function(Value)
+            task.wait(0.5)
         OpenExplosionCrate = Value
 
         while true do wait()
