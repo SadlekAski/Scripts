@@ -1,4 +1,4 @@
-local Rayfield = loadstring(game:HttpGet('https://sirius.menu/rayfield'))()
+
 
 local runService = game:GetService("RunService")
 local workspace = game:GetService("Workspace")
@@ -14,6 +14,18 @@ local function onCharacterAdded(newCharacter)
 end
 
 localPlayer.CharacterAdded:Connect(onCharacterAdded)
+
+local function isPlayerOnMobile()
+    return UserInputService.TouchEnabled and not (UserInputService.KeyboardEnabled or UserInputService.GamepadEnabled)
+end
+
+local Rayfield
+
+if isPlayerOnMobile() then
+    Rayfield = loadstring(game:HttpGet('https://raw.githubusercontent.com/Hosvile/Refinement/main/MC%3AArrayfield%20Library'))()
+else
+    Rayfield = loadstring(game:HttpGet('https://sirius.menu/rayfield'))()
+end
 
 local Window = Rayfield:CreateWindow({
    Name = "Blade Ball Main",
@@ -54,5 +66,12 @@ local MainScriptwithAdjustableParry = Main:CreateButton({
     Name = "Adjutsable Distance Parry",
     Callback = function()
         loadstring(game:HttpGet("https://raw.githubusercontent.com/SadlekAski/Scripts/main/Blade%20Ball/Adjustable%20Distance%20Parry.lua", true))()
+ end,
+})
+
+local Skinsonly = Main:CreateButton({
+    Name = "Skins Only",
+    Callback = function()
+        loadstring(game:HttpGet("https://raw.githubusercontent.com/SadlekAski/Scripts/main/Blade%20Ball/Skins.lua", true))()
  end,
 })
