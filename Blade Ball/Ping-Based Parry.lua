@@ -65,7 +65,7 @@ if workspace:FindFirstChild("AbilityThingyk1212") then
 end
 
 local Window = Rayfield:CreateWindow({
-   Name = "Blade Ball",
+   Name = "Blade Ball (Ping based parry)",
    LoadingTitle = "Blade Ball",
    LoadingSubtitle = "by SadlekAski",
    ConfigurationSaving = {
