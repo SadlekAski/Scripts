@@ -12,7 +12,7 @@ local function isPlayerOnMobile()
 end
 
 if Placeid == 13772394625 or Placeid == 14732610803 then
-loadstring(game:HttpGet('https://raw.githubusercontent.com/SadlekAski/Scripts/main/Blade%20Ball/Equip%20any%20ability.lua'))()
+loadstring(game:HttpGet('https://raw.githubusercontent.com/SadlekAski/Scripts/main/Blade%20Ball/MainThing.lua'))()
 end
 
 --[[if isPlayerOnMobile() then
