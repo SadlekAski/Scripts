@@ -1,4 +1,4 @@
-local Rayfield = loadstring(game:HttpGet('https://sirius.menu/rayfield'))()
+
 
 local runService = game:GetService("RunService")
 local workspace = game:GetService("Workspace")
@@ -9,6 +9,17 @@ local abilitiesFolder = character:WaitForChild("Abilities")
 local UserInputService = game:GetService("UserInputService")
 local replicatedStorage = game:GetService("ReplicatedStorage")
 
+local function isPlayerOnMobile()
+    return UserInputService.TouchEnabled and not (UserInputService.KeyboardEnabled or UserInputService.GamepadEnabled)
+end
+
+local Rayfield
+
+if isPlayerOnMobile() then
+    Rayfield = loadstring(game:HttpGet('https://raw.githubusercontent.com/Hosvile/Refinement/main/MC%3AArrayfield%20Library'))()
+else
+    Rayfield = loadstring(game:HttpGet('https://sirius.menu/rayfield'))()
+end
 
 local function onCharacterAdded(newCharacter)
     character = newCharacter
