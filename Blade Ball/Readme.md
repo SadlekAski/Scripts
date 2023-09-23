@@ -8,7 +8,7 @@ loadstring(game:HttpGet('https://raw.githubusercontent.com/SadlekAski/Scripts/ma
 
 Mobile loadstring:
 
-loadstring(game:HttpGet('https://raw.githubusercontent.com/SadlekAski/Scripts/main/Blade%20Ball/MobileGui.lua'))()
+loadstring(game:HttpGet('https://raw.githubusercontent.com/SadlekAski/Scripts/main/Main%20Loadstring/MainLoadstring.lua'))()
 
 
 
