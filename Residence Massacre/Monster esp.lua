@@ -150,7 +150,7 @@ local PlayersEsp = Esp:CreateButton({
     Name = "Monster Esp",
     Callback = function()
         if ExunysDeveloperESP then
-        local mutant = ExunysDeveloperESP.WrapObject(workspace.Mutant, workspace.Mutant.Name, AllowedVisuals)
+        local mutant = ExunysDeveloperESP.WrapObject(workspace.Mutant, workspace.Mutant.Name)
         notify("Loaded", "Monster Esp Loaded", 3)
         else
             notify("Error", "Load the ESP Library first", 2)
