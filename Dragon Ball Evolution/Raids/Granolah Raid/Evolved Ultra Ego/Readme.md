@@ -5,6 +5,4 @@ PUT IN AUTOEXEC
 Right now it auto use final form (ILl change it to you choose any form u want)
 
 
-Put autoclicker on replay button (Working on script to press it automatically)
-
 
