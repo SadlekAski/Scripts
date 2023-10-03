@@ -14,7 +14,7 @@ localPlayer.CharacterAdded:Connect(onCharacterAdded)
 
 if not game:GetService("CoreGui"):FindFirstChild("DevConsoleMaster") then
     StarterGui:SetCore("DevConsoleVisible", true)
-    task.wait(0.1)
+    task.wait()
     StarterGui:SetCore("DevConsoleVisible", false)
 end
 
@@ -26,7 +26,7 @@ local function clearconsole()
 end
 
 local function clearhandler2()
-    task.wait(0.01)
+    task.wait()
         local clearbutton = Instance.new("TextButton")
         clearbutton.Parent = game:GetService("CoreGui").DevConsoleMaster.DevConsoleWindow.DevConsoleUI.TopBar
         clearbutton.Size = UDim2.new(0, 116, 0, 30)
