@@ -44,8 +44,6 @@ local function clearhandler2()
         end
 
         clearhandler2()
-end
-if not game:IsLoaded() then
-    print("Waiting for game to load")
-    game.Loaded:Wait()
+    elseif not game:IsLoaded() then
+        game.Loaded:Wait()
 end
