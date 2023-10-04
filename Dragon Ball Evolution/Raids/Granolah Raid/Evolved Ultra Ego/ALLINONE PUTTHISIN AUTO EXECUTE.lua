@@ -5,7 +5,7 @@
 --Technique Ex: Goofy Instinct, Kaioken, Halo, Enraged Mode, Ultra Instinct  (Also every technique name is here lol)
 
 local waitTimeBeforeTechnique = PutTimeInsteadOfThisText
--- Put Time that will be waited before using technique (Without "")(Also 8 seconds should be enough for every form without long cutscene to 100% use technique)
+-- Put Time that will be waited before using technique (With "")(Also 8 seconds should be enough for every form without long cutscene to 100% use technique)
 
 --Time Before Start Autofarm (28 seconds recommended)
 local timebeforeautofarm = PutTimeInsteadOfThisText
