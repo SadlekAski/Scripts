@@ -7,7 +7,7 @@
 local waitTimeBeforeTechnique = PutTimeInsteadOfThisText
 -- Put Time that will be waited before using technique (Without "")(Also 8 seconds should be enough for every form without long cutscene to 100% use technique)
 
---Time Before Start Autofarm
+--Time Before Start Autofarm (28 seconds recommended)
 local timebeforeautofarm = PutTimeInsteadOfThisText
 
 
