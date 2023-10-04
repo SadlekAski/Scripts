@@ -1,7 +1,7 @@
 if game:IsLoaded() then
 
 
-task.wait(5)
+task.wait(3)
 
 local function guiclick(a)
     game:GetService("VirtualInputManager"):SendMouseButtonEvent(a.AbsolutePosition.X+a.AbsoluteSize.X/2,a.AbsolutePosition.Y+50,0,true,a,1)
