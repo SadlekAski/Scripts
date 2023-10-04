@@ -5,9 +5,12 @@ https://github.com/SadlekAski/Scripts/blob/main/Dragon%20Ball%20Evolution/Raids/
 
 
 
-THEN put these 2 in autoexeec too (IT was working in one loadstring but I broke something and now it doesnt
+THEN put these 3 in autoexeec too (IT was working in one loadstring but I broke something and now it doesnt
 
 https://github.com/SadlekAski/Scripts/blob/main/Dragon%20Ball%20Evolution/Raids/Granolah%20Raid/Evolved%20Ultra%20Ego/AutoChoosePc.lua
 
 
 https://github.com/SadlekAski/Scripts/blob/main/Dragon%20Ball%20Evolution/Raids/Granolah%20Raid/Evolved%20Ultra%20Ego/AutoRetry.lua
+
+
+https://github.com/SadlekAski/Scripts/blob/main/Dragon%20Ball%20Evolution/Raids/Granolah%20Raid/Evolved%20Ultra%20Ego/Auto%20Transform%20and%20technique.lua
