@@ -38,4 +38,3 @@ loadstring(game:HttpGet('https://raw.githubusercontent.com/SadlekAski/Scripts/ma
 elseif not game:IsLoaded() then
     game.Loaded:Wait()
 end
-end
