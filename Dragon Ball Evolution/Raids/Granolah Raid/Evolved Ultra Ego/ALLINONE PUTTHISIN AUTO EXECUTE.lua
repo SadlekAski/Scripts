@@ -4,8 +4,13 @@
     _G.Technique = "Technique name here"
 --Technique Ex: Goofy Instinct, Kaioken, Halo, Enraged Mode, Ultra Instinct  (Also every technique name is here lol)
 
+--[[WORK IN PROGRESS
+local waitTimeBeforeTechnique = PutTimeInsteadOfThisText
+-- Put Time that will be waited before using technique (With "")(Also 8 seconds should be enough for every form without long cutscene to 100% use technique)
 
-
+--Time Before Start Autofarm (28 seconds recommended)
+local timebeforeautofarm = PutTimeInsteadOfThisText
+]]
 
 local Abilitysfolder = game:GetService("ReplicatedStorage"):FindFirstChild("Events")
 local ability1 = Abilitysfolder:FindFirstChild("PUTABILITYNAMEHERE")
