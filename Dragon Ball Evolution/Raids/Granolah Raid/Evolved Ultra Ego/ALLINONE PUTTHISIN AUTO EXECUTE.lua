@@ -1,7 +1,8 @@
-    _G.FormName = "Form name here"
+if game:IsLoaded() then
+_G.FormName = "Form name here"
 -- FormName. Ex: final form, Ex2: infinite evolution
 
-    _G.Technique = "Technique name here"
+_G.Technique = "Technique name here"
 --Technique Ex: Goofy Instinct, Kaioken, Halo, Enraged Mode, Ultra Instinct  (Also every technique name is here lol)
 
 --[[WORK IN PROGRESS
@@ -33,3 +34,8 @@ loadstring(game:HttpGet('https://raw.githubusercontent.com/SadlekAski/Scripts/ma
 loadstring(game:HttpGet('https://raw.githubusercontent.com/SadlekAski/Scripts/main/Dragon%20Ball%20Evolution/Raids/Granolah%20Raid/Evolved%20Ultra%20Ego/AutoChoosePc.lua'))()
 
 loadstring(game:HttpGet('https://raw.githubusercontent.com/SadlekAski/Scripts/main/Dragon%20Ball%20Evolution/Raids/Granolah%20Raid/Evolved%20Ultra%20Ego/Kill.lua'))()
+
+elseif not game:IsLoaded() then
+    game.Loaded:Wait()
+end
+end
