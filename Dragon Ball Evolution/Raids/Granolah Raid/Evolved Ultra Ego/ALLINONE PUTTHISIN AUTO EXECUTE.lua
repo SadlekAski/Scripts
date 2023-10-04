@@ -1,4 +1,6 @@
-if game:IsLoaded() then
+if not game:IsLoaded() then
+    game.Loaded:Wait()
+end
 _G.FormName = "Form name here"
 -- FormName. Ex: final form, Ex2: infinite evolution
 
@@ -30,18 +32,10 @@ local ability5 = Abilitysfolder:FindFirstChild("Goofy Barrage")
 ]]
 
 getgenv().Autofarm = true
-
+task.wait(5)
     loadstring(game:HttpGet('https://raw.githubusercontent.com/SadlekAski/Scripts/main/Dragon%20Ball%20Evolution/Raids/Granolah%20Raid/Evolved%20Ultra%20Ego/Kill.lua'))()
 
 
 
 
-elseif not game:IsLoaded() then
-    game.Loaded:Wait()
-end
 
-task.wait(15)
-if not hasautofarmstarted then
-    print("force starting autofarm")
-loadstring(game:HttpGet('https://raw.githubusercontent.com/SadlekAski/Scripts/main/Dragon%20Ball%20Evolution/Raids/Granolah%20Raid/Evolved%20Ultra%20Ego/Kill.lua'))()
-end
