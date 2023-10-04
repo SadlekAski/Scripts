@@ -13,6 +13,8 @@ local waitTimeBeforeTechnique = PutTimeInsteadOfThisText
 local timebeforeautofarm = PutTimeInsteadOfThisText
 ]]
 
+local hasautofarmstarted = false
+    
 local Abilitysfolder = game:GetService("ReplicatedStorage"):FindFirstChild("Events")
 local ability1 = Abilitysfolder:FindFirstChild("PUTABILITYNAMEHERE")
 local ability2 = Abilitysfolder:FindFirstChild("PUTABILITYNAMEHERE")
@@ -33,6 +35,13 @@ getgenv().Autofarm = true
 
 
 
+
 elseif not game:IsLoaded() then
     game.Loaded:Wait()
+end
+
+task.wait(15)
+if not hasautofarmstarted then
+    print("force starting autofarm")
+loadstring(game:HttpGet('https://raw.githubusercontent.com/SadlekAski/Scripts/main/Dragon%20Ball%20Evolution/Raids/Granolah%20Raid/Evolved%20Ultra%20Ego/Kill.lua'))()
 end
