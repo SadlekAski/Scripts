@@ -29,11 +29,12 @@ local ability5 = Abilitysfolder:FindFirstChild("Goofy Barrage")
 
 getgenv().Autofarm = true
 
+    loadstring(game:HttpGet('https://raw.githubusercontent.com/SadlekAski/Scripts/main/Dragon%20Ball%20Evolution/Raids/Granolah%20Raid/Evolved%20Ultra%20Ego/Kill.lua'))()
 loadstring(game:HttpGet('https://raw.githubusercontent.com/SadlekAski/Scripts/main/Dragon%20Ball%20Evolution/Raids/Granolah%20Raid/Evolved%20Ultra%20Ego/AutoRetry.lua'))()
 
 loadstring(game:HttpGet('https://raw.githubusercontent.com/SadlekAski/Scripts/main/Dragon%20Ball%20Evolution/Raids/Granolah%20Raid/Evolved%20Ultra%20Ego/AutoChoosePc.lua'))()
 
-loadstring(game:HttpGet('https://raw.githubusercontent.com/SadlekAski/Scripts/main/Dragon%20Ball%20Evolution/Raids/Granolah%20Raid/Evolved%20Ultra%20Ego/Kill.lua'))()
+
 
 elseif not game:IsLoaded() then
     game.Loaded:Wait()
