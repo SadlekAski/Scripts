@@ -11,3 +11,5 @@ https://github.com/SadlekAski/Scripts/blob/main/Dragon%20Ball%20Evolution/Raids/
 
 https://github.com/SadlekAski/Scripts/blob/main/Dragon%20Ball%20Evolution/Raids/Granolah%20Raid/Evolved%20Ultra%20Ego/AutoRetry.lua
 
+
+https://raw.githubusercontent.com/SadlekAski/Scripts/main/Dragon%20Ball%20Evolution/Raids/Granolah%20Raid/Evolved%20Ultra%20Ego/Auto%20Transform%20and%20technique.lua
