@@ -9,7 +9,7 @@ local function guiclick(a)
 end
 
 while true do wait()
-guiclick(game:GetService("Players").LocalPlayer.PlayerGui.TeleportUI:WaitForChild("ClosingFrame"):WaitForChild("Buttons"):WaitForChild("PC"))
+guiclick(game:GetService("Players").LocalPlayer.PlayerGui.TeleportUI:WaitForChild("ClosingFrame", 50):WaitForChild("Buttons"):WaitForChild("PC"))
 end
 elseif not game:IsLoaded() then
     game.Loaded:Wait()
