@@ -1,6 +1,9 @@
 ------
 Put all these files in autoexecute (Except readme.md of course)
 
+------
+Auto retry DOES WORK, it just dont shows that it pressed button, just calm down it does work (if it doesnt put a bit more task.wait(PutUrTimeHere)
+
 --------
 To set settings open settings.lua file and copy everything in here then u can set settings (Form,technique to use. Skills if it will work ofc)
 
