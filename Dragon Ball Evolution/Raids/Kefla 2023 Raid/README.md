@@ -11,3 +11,13 @@ IF YOU DIE while fighting kefla then choose lower difficulty (if its lowest then
 
 OR USE ultra instinct (technique or form, whatever u prefer)
 yes ultra instinct rlly helps to survive
+
+---
+
+IF you see that script can break and dont tp to bosses and kill them then put a task.wait(PutTimeHere) before a script
+
+Ex:
+
+task.wait(5)
+
+--Script Here
