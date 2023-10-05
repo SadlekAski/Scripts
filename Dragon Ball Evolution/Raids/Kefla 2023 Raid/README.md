@@ -14,7 +14,7 @@ yes ultra instinct rlly helps to survive
 
 ---
 
-IF you see that script can break and dont tp to bosses (That are appear first, Kale and Cauflia. or if it happens at Kefla do same thing) and kill them then put a task.wait(PutTimeHere) before a script
+IF you see that script can break and dont tp to bosses (That are appear first, Kale and Cauflia. or if it happens at Kefla then open issue request or type in our discord, to get in discord use blade ball script fr) and kill them then put a task.wait(PutTimeHere) before a script
 
 Ex:
 
