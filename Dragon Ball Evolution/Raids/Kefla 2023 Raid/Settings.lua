@@ -32,5 +32,5 @@ local ability4 = Abilitysfolder:FindFirstChild("Pride Counter")
 local ability5 = Abilitysfolder:FindFirstChild("Goofy Barrage")
 ]]
 
-
+task.wait(5)
 loadstring(game:HttpGet('https://raw.githubusercontent.com/SadlekAski/Scripts/main/Dragon%20Ball%20Evolution/Raids/Kefla%202023%20Raid/Kale%20And%20Cauflia.lua'))()
