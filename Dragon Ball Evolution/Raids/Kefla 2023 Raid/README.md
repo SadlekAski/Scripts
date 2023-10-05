@@ -20,4 +20,4 @@ Ex:
 
 task.wait(5)
 
---Script Here
+--Script Here (Without "--"
