@@ -19,7 +19,7 @@ localplayer.CharacterAdded:Connect(onCharacterAdded)
 
 
 while true do wait()
-print("Abc")
+        
 game:GetService("ReplicatedStorage").ReplayRequest:FireServer()
 end
 elseif not game:IsLoaded() then
