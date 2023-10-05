@@ -1,5 +1,7 @@
 This (Should) work for every raid except Pride 2023: Kefla raid
 
+For Pride 2023: Kefla raid go to https://github.com/SadlekAski/Scripts/tree/main/Dragon%20Ball%20Evolution/Raids/Kefla%202023%20Raid
+
 
 AutoExecute:
 
