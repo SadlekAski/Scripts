@@ -1,4 +1,4 @@
-Put all these files in autoexecute
+Put all these files in autoexecute (Except readme.md of course)
 
 
-(Will not work for now, Im will add oher 2 files soon and then it will be fully working)
+IF YOU DIE while fighting kefla then choose lower difficulty (if its lowest then get more lvl lol)
