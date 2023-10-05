@@ -10,3 +10,4 @@ But I prefer using another script to auto transform that I made in 30 seconds (i
 IF YOU DIE while fighting kefla then choose lower difficulty (if its lowest then get more lvl lol)
 
 OR USE ultra instinct (technique or form, whatever u prefer)
+yes ultra instinct rlly helps to survive
