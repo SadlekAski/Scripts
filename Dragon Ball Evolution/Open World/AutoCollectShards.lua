@@ -9,7 +9,5 @@ for i,v in ipairs(shards:GetChildren()) do
 v.Name = "Shard" .. i
 
 croot.CFrame = v.CFrame
-task.wait(0.25)
-v:Remove()
 end
 end
