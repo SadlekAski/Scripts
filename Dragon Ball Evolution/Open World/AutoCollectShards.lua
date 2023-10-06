@@ -4,7 +4,7 @@ local character = localplayer.Character
 local croot = character.HumanoidRootPart
 getgenv().ShardTpTPShard = true
 
-while ShardTpTPShard == true do task.wait()
+while ShardTpTPShard == true do task.wait(0.5)
 for i,v in ipairs(shards:GetChildren()) do
 v.Name = "Shard" .. i
 
