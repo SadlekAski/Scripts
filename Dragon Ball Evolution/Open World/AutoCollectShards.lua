@@ -2,7 +2,7 @@ local shards = workspace.Shards
 local localplayer = game.Players.LocalPlayer
 local character = localplayer.Character
 local croot = character.HumanoidRootPart
-getgenv().ShardTpTPShard = false
+getgenv().ShardTpTPShard = true
 
 while ShardTpTPShard == true do task.wait()
 for i,v in ipairs(shards:GetChildren()) do
