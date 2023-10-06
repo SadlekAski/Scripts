@@ -26,6 +26,7 @@ local function customtwn(input, studspersecond, offset)
 while ShardTpTPShard == true do task.wait(0.5)
 for i,v in ipairs(shards:GetChildren()) do
 
-    customtwn(v, 100, CFrame.new(0,0,0));
+    customtwn(v, 1000, CFrame.new(0,0,0));
+    task.wait(0.3)
 end
 end
