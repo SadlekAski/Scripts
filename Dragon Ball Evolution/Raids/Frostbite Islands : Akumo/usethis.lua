@@ -33,5 +33,5 @@ local ability5 = Abilitysfolder:FindFirstChild("Goofy Barrage")
 
 getgenv().Autofarm = true
 
-
-loadstring(game:HttpGet('https://raw.githubusercontent.com/SadlekAski/Scripts/main/Dragon%20Ball%20Evolution/Raids/Universal%20Raid/77_2Q4412IV2SNO9.lua'))()
+task.wait(5)
+loadstring(game:HttpGet('https://raw.githubusercontent.com/SadlekAski/Scripts/main/Dragon%20Ball%20Evolution/Raids/Frostbite%20Islands%20%3A%20Akumo/77_D3IHE.lua'))()
