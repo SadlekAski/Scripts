@@ -1,0 +1,31 @@
+if not game:IsLoaded() then
+task.wait()
+    game.Loaded:Wait()
+end
+task.wait(20)
+
+local players = game.Players
+local localplayer = players.LocalPlayer
+local character = localplayer.Character
+local plroot = character:FindFirstChild("HumanoidRootPart")
+
+local function onCharacterAdded(newCharacter)
+    character = newCharacter
+end
+
+
+
+localplayer.CharacterAdded:Connect(onCharacterAdded)
+
+
+local function clickkkk()
+while true do wait()
+
+game:GetService("ReplicatedStorage").ReplayRequest:FireServer()
+
+end
+end
+
+
+
+localplayer.CharacterAdded:Connect(clickkkk)
