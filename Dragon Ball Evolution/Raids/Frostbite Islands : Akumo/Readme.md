@@ -1,1 +1,1 @@
-Find other things (autopress pc button, reply button) at other raids folders
+Put everything except Readme.md (OF COURSE) and "77_D3IHE.lua" in autoexecute
