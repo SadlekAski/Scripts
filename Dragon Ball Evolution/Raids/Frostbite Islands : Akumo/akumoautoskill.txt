@@ -1,0 +1,31 @@
+if not game:IsLoaded() then
+    game.Loaded:Wait()
+end
+
+task.wait(10)
+task.wait(60)
+local skill1 = "Infinite Barrage Fists"
+local skill2 = "Infinite Barrage Fists"
+local skill3 = "Goofy Hit"
+local skill4 = "Goofy Barrage"
+local skill5 = "Infinite Directional Fists"
+getgenv().AutoSkilllllll = true
+--Change Vector3.new(0,0,0) to other thing to ig spawn attack in different place??? IM not sure if it'll work but uh u can try if you wamnt
+
+while AutoSkilllllll == true do task.wait(1)
+game:GetService("ReplicatedStorage").Events:FindFirstChild(skill1):FireServer(true, Vector3.new(0,0,0))
+game:GetService("ReplicatedStorage").Events:FindFirstChild(skill1):FireServer(false, Vector3.new(0,0,0))
+------------
+game:GetService("ReplicatedStorage").Events:FindFirstChild(skill2):FireServer(true, Vector3.new(0,0,0))
+game:GetService("ReplicatedStorage").Events:FindFirstChild(skill2):FireServer(false, Vector3.new(0,0,0))
+------------
+game:GetService("ReplicatedStorage").Events:FindFirstChild(skill3):FireServer(true, Vector3.new(0,0,0))
+game:GetService("ReplicatedStorage").Events:FindFirstChild(skill3):FireServer(false, Vector3.new(0,0,0))
+------------
+game:GetService("ReplicatedStorage").Events:FindFirstChild(skill4):FireServer(true, Vector3.new(0,0,0))
+game:GetService("ReplicatedStorage").Events:FindFirstChild(skill4):FireServer(false, Vector3.new(0,0,0))
+------------
+game:GetService("ReplicatedStorage").Events:FindFirstChild(skill5):FireServer(true, Vector3.new(0,0,0))
+game:GetService("ReplicatedStorage").Events:FindFirstChild(skill5):FireServer(false, Vector3.new(0,0,0))
+------------
+end
