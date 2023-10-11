@@ -11,8 +11,18 @@ local function isPlayerOnMobile()
     return UserInputService.TouchEnabled
 end
 
-if Placeid == 13772394625 or Placeid == 14732610803 then
+if Placeid == 13772394625 or Placeid == 14732610803 then -- Blade ball (Can't add ranked rn, dont have much internet left, can easily run off internet if play games)
 loadstring(game:HttpGet('https://raw.githubusercontent.com/SadlekAski/Scripts/main/Blade%20Ball/MainThing.lua'))()
+elseif Placeid == 11621251934 then --Ethical Apple Farm
+loadstring(game:HttpGet('https://raw.githubusercontent.com/SadlekAski/Scripts/main/Ethical%20Apple%20Farm/GUI.lua'))()
+elseif Placeid == 14708193128 then --Hide
+loadstring(game:HttpGet('https://raw.githubusercontent.com/SadlekAski/Scripts/main/Hide/Gui.lua'))()
+elseif Placeid == 10498602208 and not isPlayerOnMobile() then -- Backroom Tower Defense
+loadstring(game:HttpGet('https://raw.githubusercontent.com/SadlekAski/Scripts/main/Backroom%20Tower%20Defense/Main%20Gui.lua'))()
+elseif Placeid == 10498602208 and isPlayerOnMobile() then -- Backroom Tower Defense
+loadstring(game:HttpGet('https://raw.githubusercontent.com/SadlekAski/Scripts/main/Backroom%20Tower%20Defense/Protected_3171120681479726.lua'))()
+elseif Placeid == 13950003759 then -- Difficulty Machine
+loadstring(game:HttpGet('https://raw.githubusercontent.com/SadlekAski/Scripts/main/Difficulty%20Machine/difficultemachene.lua'))()
 end
 
 --[[if isPlayerOnMobile() then
