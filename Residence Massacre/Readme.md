@@ -1,5 +1,8 @@
-Fixed Esp (I hope)
+```
+Esp Status: Working (Last Test in 13.10.2023)
 
+AutoFarm Status: Working (Last Test in 13.10.2023)
+```
 --Put autofarm in autoexec
 ```
 Autofarm Update:
