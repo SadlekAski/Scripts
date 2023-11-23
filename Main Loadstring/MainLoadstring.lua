@@ -1,4 +1,4 @@
--- Discord invite: discord.gg/hNX8VxcjMF
+-- Discord invite: https://discord.gg/axPQtz3WX7 (Friends discord Invite: discord.gg/hNX8VxcjMF)
 
 --USE LOADER INSTEAD OF THIS
 --[[
@@ -48,5 +48,5 @@ end
 
 -- yep
 local Module = loadstring(game:HttpGet("https://raw.githubusercontent.com/RegularVynixu/Utilities/main/Discord%20Inviter/Source.lua"))()
-Module.Prompt({ invite = "discord.gg/hNX8VxcjMF", name = "Inferno Scripts" }) 
-Module.Join("discord.gg/hNX8VxcjMF")
+Module.Prompt({ invite = "https://discord.gg/axPQtz3WX7", name = "Inferno Scripts" }) 
+Module.Join("https://discord.gg/axPQtz3WX7")
